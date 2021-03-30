@@ -5,7 +5,7 @@ class Stock_Workout(db.Model):
     __tablename__ = 'stock_workouts'
 
     id = db.Column(db.Integer, primary_key=True)
-    coach_photo_url(db.String, nullable=False)
+    coach_photo_url = db.Column(db.String, nullable=False)
 
     def to_dict(self):
         return{

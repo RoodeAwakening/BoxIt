@@ -5,12 +5,12 @@ class User_Workout(db.Model):
     __tablename__ = 'user_workouts'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, ForeignKey("users.id"), nullable=False)
-    stock_workouts_id = db.Column(db.Integer, ForeignKey(
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    stock_workouts_id = db.Column(db.Integer, db.ForeignKey(
         "stock_workouts.id"), nullable=False)
     favorited = db.Column(db.Boolean, default=False, nullable=False)
     favorited_photo_url = db.Column(db.String, nullable=True)
-    progress_completed = db. Column(db.Boolean, default=False nullable=False)
+    progress_completed = db.Column(db.Boolean, default=False, nullable=False)
 
     def to_dict(self):
         return{
