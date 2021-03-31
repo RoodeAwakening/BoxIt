@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.forms import group_form
-from app.models import Group, db
+from app.forms import CommentForm
+from app.models import Group, db, Comment
 
 
 group_routes = Blueprint('groups', __name__)
@@ -55,7 +55,18 @@ def group_comments(id):
             comments.append({
                 "comment": comment.to_dict()
             })
-        print('-------------', comments)
         return jsonify(comments if comments else 'Be there first to comment!')
     if method == 'POST':
-        return 'STuffMore'
+        form = CommentForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        comment = ''
+        if form.validate_on_submit():
+            comment = Comment(
+                group_id=id,
+                user_id=1,
+                content=form.data['content'],
+                photo_url=form.data['photo_url'],
+            )
+            db.session.add(comment)
+            db.session.commit()
+        return jsonify({'comment': comment.to_dict()} if comment else 'Invalid Operation')
