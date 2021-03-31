@@ -40,7 +40,6 @@ def individual_groups(id):
             group.name = name
             db.session.commit()
         return jsonify(group.to_dict() if group else 'No Group Exists')
-        return "Patch"
     elif method == 'DELETE':
       # Delete a Group
         success = Group.query.filter(Group.id == id).delete()
