@@ -18,7 +18,7 @@ def progress_photo():
     elif method == 'POST':
       # Create a progress photo
         new_photo = request.json['progress_photo']
-        #REPLACE WITH current_user.id
+        # REPLACE WITH current_user.id
         photo = Progress_Photo(user_id=1, photo_url=new_photo)
         db.session.add(photo)
         db.session.commit()
@@ -30,6 +30,9 @@ def progress_photo():
 def individual_progress_photo(id):
     method = request.method
     if method == 'GET':
-        return 'GET2'
+        single_progress_photo = Progress_Photo.query.get(id)
+        return {'single_progress_photo': [single_progress_photo.to_dict()] if single_progress_photo else 'No Photo Exists'}
     elif method == 'DELETE':
-        return 'DELETE2'
+        success = Progress_Photo.query.filter(Progress_Photo.id == id).delete()
+        db.session.commit()
+        return jsonify("Successfully deleted" if success else 'No Progress Photo Exists')

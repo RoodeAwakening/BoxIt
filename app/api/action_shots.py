@@ -35,4 +35,5 @@ def indidual_action_shot(id):
     elif method == 'DELETE':
         # delete an individual action shot
         success = Action_Shot.query.filter(Action_Shot.id == id).delete()
-        return {'new_action_shot': [success.to_dict()]}
+        db.session.commit()
+        return jsonify("Successfully deleted" if success else 'No Action Shot Exists')
