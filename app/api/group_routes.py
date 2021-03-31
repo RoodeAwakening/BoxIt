@@ -20,3 +20,24 @@ def groups():
         db.session.add(group)
         db.session.commit()
         return jsonify(group.to_dict())
+
+
+@group_routes.route('/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
+# @login_required
+def individual_groups(id):
+    method = request.method
+    if method == 'GET':
+        group = Group.query.get(id)
+        return jsonify(group.to_dict() if group else 'No Group Exists')
+    elif method == 'PATCH':
+        group = Group.query.get(id)
+        if group:
+            name = request.json['name']
+            group.name = name
+            db.session.commit()
+        return jsonify(group.to_dict() if group else 'No Group Exisxts')
+        return "Patch"
+    elif method == 'DELETE':
+        success = Group.query.filter(Group.id == id).delete()
+        db.session.commit()
+        return jsonify('Successfully deleted' if success else 'No Group Exists')
