@@ -13,8 +13,15 @@ class User(db.Model, UserMixin):
     DOB = db.Column(db.DateTime)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    portfolio_photo = db.Column(db.String, nullable=False)
+    profile_photo = db.Column(db.String, nullable=False)
     boxing_level = db.Column(db.String, nullable=False)
+
+    # relationships
+    users_groups = db.relationship("User_Group", backref="users")
+    comments = db.relationship("Comment", backref="users")
+    action_shots = db.relationship("Action_Shot", backref="users")
+    users_workouts = db.relationship("User_Workout", backref="users")
+    progress_photos = db.relationship("Progress_Photo", backref="users")
 
     @property
     def password(self):

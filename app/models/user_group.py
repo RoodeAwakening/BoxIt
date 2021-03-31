@@ -2,7 +2,7 @@ from .db import db
 
 
 class User_Group(db.Model):
-    __tablename__ = 'user_groups'
+    __tablename__ = 'users_groups'
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
