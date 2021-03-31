@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.forms import CommentForm
 from app.models import Group, db, Comment
 
@@ -68,6 +68,7 @@ def group_comments(id):
         form['csrf_token'].data = request.cookies['csrf_token']
         comment = ''
         if form.validate_on_submit():
+          # REPLACE WITH current_user.id
             comment = Comment(
                 group_id=id,
                 user_id=1,

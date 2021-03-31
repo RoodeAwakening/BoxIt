@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from app.models import Action_Shot, db
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 
 action_shots_route = Blueprint('action_shots', __name__)
@@ -17,6 +17,7 @@ def action_shot():
     elif method == 'POST':
         # post a new action shot
         new_photo = request.json['action_shot_post']
+        #REPLACE WITH current_user.id
         shot = Action_Shot(user_id=1, photo_url=new_photo)
         db.session.add(shot)
         db.session.commit()
