@@ -16,7 +16,11 @@ def action_shot():
         return {"action_shots": [action_photo.to_dict() for action_photo in action_photos]}
     elif method == 'POST':
         # post a new action shot
-        return 'POST'
+        new_photo = request.json['action_shot_post']
+        shot = Action_Shot(user_id=1, photo_url=new_photo)
+        db.session.add(shot)
+        db.session.commit()
+        return {'new_action_shot':[shot.to_dict()]}
 
 
 @action_shots_route.route('/<int:id>', methods=['GET', 'DELETE'])
