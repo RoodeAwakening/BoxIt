@@ -8,7 +8,7 @@ import os
 image_routes = Blueprint("images", __name__)
 
 
-@image_routes.route("", methods=["POST"])
+@image_routes.route("/", methods=["POST"])
 def upload_image():
 
     if "image" not in request.files:
