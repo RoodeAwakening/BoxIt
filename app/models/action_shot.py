@@ -11,6 +11,6 @@ class Action_Shot(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "user_id": self.user.id,
+            "user_id": self.user_id,
             "photo_url": self.photo_url
         }

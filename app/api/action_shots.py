@@ -13,7 +13,7 @@ def action_shot():
     if method == 'GET':
         # Get all action shots
         action_photos = Action_Shot.query.all()
-        return jsonify(action_photos.to_dict())
+        return {"action_shots": [action_photo.to_dict() for action_photo in action_photos]}
     elif method == 'POST':
         # post a new action shot
         return 'POST'
