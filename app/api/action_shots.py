@@ -18,7 +18,7 @@ def action_shot():
         # post a new action shot
         new_photo = request.json['action_shot_post']
         #REPLACE WITH current_user.id
-        shot = Action_Shot(user_id=1, photo_url=new_photo)
+        shot = Action_Shot(user_id=current_user.id, photo_url=new_photo)
         db.session.add(shot)
         db.session.commit()
         return {'new_action_shot': [shot.to_dict()]}

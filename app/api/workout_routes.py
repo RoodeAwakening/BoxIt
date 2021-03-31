@@ -34,7 +34,7 @@ def user_workouts():
     elif method == 'POST':
         new_workout = request.json['workout']
         # REPLACE WITH current_user.id
-        workout = User_Workout(user_id=1, stock_workouts_id=new_workout['stock_workouts_id'],
+        workout = User_Workout(user_id=current_user.id, stock_workouts_id=new_workout['stock_workouts_id'],
                                favorited=new_workout['favorited'], progress_completed=new_workout['progress_completed'])
         db.session.add(workout)
         db.session.commit()
@@ -54,7 +54,6 @@ def user_workouts_individual(id):
         workout = User_Workout.query.get(id)
         if workout:
             update_favorited = request.json['favorited']
-            # REPLACE WITH current_user.id
             workout.favorited = update_favorited
             db.session.commit()
         return jsonify(workout.to_dict() if workout else 'Workout Not Updated')

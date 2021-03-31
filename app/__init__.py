@@ -12,6 +12,7 @@ from .api.group_routes import group_routes
 from .api.action_shots import action_shots_route
 from .api.progress_photos import progress_photos_route
 from .api.workout_routes import workout_routes
+from .api.image_routes import image_routes
 
 
 from .seeds import seed_commands
@@ -40,6 +41,7 @@ app.register_blueprint(group_routes, url_prefix='/api/groups')
 app.register_blueprint(action_shots_route, url_prefix='/api/action_shots')
 app.register_blueprint(progress_photos_route, url_prefix='/api/progress_photos')
 app.register_blueprint(workout_routes, url_prefix='/api/workouts')
+app.register_blueprint(image_routes, url_prefix='/api/images')
 db.init_app(app)
 Migrate(app, db)
 
