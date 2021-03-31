@@ -21,5 +21,5 @@ def seed_comments():
 
 
 def undo_comments():
-    db.session.execute('TRUNCATE comments;')
+    db.session.execute('DROP TABLE comments;')
     db.session.commit()

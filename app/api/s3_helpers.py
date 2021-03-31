@@ -9,7 +9,7 @@ s3 = boto3.client(
     aws_secret_access_key=os.environ.get("S3_SECRET")
 )
 # allowed extensions
-ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif", "mp3", "m4a"}
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif"}
 # We can generate unique filenames using a UUID,
 
 

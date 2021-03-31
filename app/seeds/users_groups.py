@@ -10,5 +10,5 @@ def seed_user_groups():
 
 
 def undo_user_groups():
-    db.session.execute('TRUNCATE users_groups;')
+    db.session.execute('DROP TABLE users_groups;')
     db.session.commit()
