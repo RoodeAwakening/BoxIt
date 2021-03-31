@@ -20,16 +20,18 @@ def action_shot():
         shot = Action_Shot(user_id=1, photo_url=new_photo)
         db.session.add(shot)
         db.session.commit()
-        return {'new_action_shot':[shot.to_dict()]}
+        return {'new_action_shot': [shot.to_dict()]}
 
 
 @action_shots_route.route('/<int:id>', methods=['GET', 'DELETE'])
 # @login_required
-def indidual_action_shot():
+def indidual_action_shot(id):
     method = request.method
     if method == 'GET':
         # get an individual action shot
-        return "GET"
+        single_action_shot = Action_Shot.query.get(id)
+        return {'single_action_shot': [single_action_shot.to_dict()] if single_action_shot else 'No Action Shot Exists'}
     elif method == 'DELETE':
         # delete an individual action shot
-        return 'DELETE'
+        success = Action_Shot.query.filter(Action_Shot.id == id).delete()
+        return {'new_action_shot': [success.to_dict()]}
