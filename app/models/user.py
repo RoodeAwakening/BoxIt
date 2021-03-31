@@ -42,6 +42,6 @@ class User(db.Model, UserMixin):
             "user_name": self.user_name,
             "DOB": self.DOB,
             "email": self.email,
-            "portfolio_photo": self.portfolio_photo,
+            "profile_photo": self.profile_photo,
             "boxing_level": self.boxing_level
         }

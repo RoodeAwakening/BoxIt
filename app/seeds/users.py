@@ -6,7 +6,7 @@ from app.models import db, User
 
 def seed_users():
 
-    demo = User(first_name='Jake', last_name='Carl', DOB='1989-07-07', user_name='BroScience', profile_photo='https://scontent.fcmh1-1.fna.fbcdn.net/v/t31.18172-8/14633550_1123809221029062_6936248958858562733_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=WrXniZTTMMYAX_Xwpki&_nc_ht=scontent.fcmh1-1.fna&oh=d24d1bfe7821c2bf2a1f6602a81b33ea&oe=60895C1B', boxing_level='beginner', email='demo@aa.io', hashed_password='password')
+    demo = User(first_name='Dom', last_name='Mazzetti', DOB='1989-07-07', user_name='BroScience', profile_photo='https://scontent.fcmh1-1.fna.fbcdn.net/v/t31.18172-8/14633550_1123809221029062_6936248958858562733_o.jpg?_nc_cat=110&ccb=1-3&_nc_sid=174925&_nc_ohc=WrXniZTTMMYAX_Xwpki&_nc_ht=scontent.fcmh1-1.fna&oh=d24d1bfe7821c2bf2a1f6602a81b33ea&oe=60895C1B', boxing_level='beginner', email='demo@aa.io', hashed_password='password')
 
     db.session.add(demo)
 
