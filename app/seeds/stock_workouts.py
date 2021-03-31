@@ -16,5 +16,5 @@ def seed_stock_workouts():
 
 
 def undo_stock_workouts():
-    db.session.execute('TRUNCATE stock_workouts CASCADE;')
+    db.session.execute('DROP TABLE stock_workouts CASCADE;')
     db.session.commit()

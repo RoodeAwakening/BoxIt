@@ -11,5 +11,5 @@ def seed_users_workouts():
 
 
 def undo_users_workouts():
-    db.session.execute('TRUNCATE users_workouts CASCADE;')
+    db.session.execute('DROP TABLE users_workouts CASCADE;')
     db.session.commit()

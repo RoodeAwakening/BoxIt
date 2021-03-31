@@ -32,7 +32,7 @@ def undo():
     undo_comments()
     undo_user_groups()
     undo_progress_photos()
-    undo_groups
+    undo_groups()
     undo_action_shots()
     undo_stock_workouts()
     undo_users_workouts()

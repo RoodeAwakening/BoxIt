@@ -22,5 +22,5 @@ def seed_progress_photos():
 
 
 def undo_progress_photos():
-    db.session.execute('TRUNCATE progress_photos;')
+    db.session.execute('DROP TABLE progress_photos;')
     db.session.commit()

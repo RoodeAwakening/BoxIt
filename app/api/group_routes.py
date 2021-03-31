@@ -45,8 +45,17 @@ def individual_groups(id):
 
 @group_routes.route('/<int:id>/comments', methods=['GET', 'POST'])
 def group_comments(id):
+
     method = request.method
     if method == 'GET':
-      return "stuff"
+        comments = []
+        group = Group.query.get(id)
+        comments_from_group = group.comments
+        for comment in comments_from_group:
+            comments.append({
+                "comment": comment.to_dict()
+            })
+        print('-------------', comments)
+        return jsonify(comments if comments else 'Be there first to comment!')
     if method == 'POST':
-      return 'STuffMore'
+        return 'STuffMore'

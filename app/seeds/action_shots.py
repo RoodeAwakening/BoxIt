@@ -17,5 +17,5 @@ def seed_action_shots():
 
 
 def undo_action_shots():
-    db.session.execute('TRUNCATE action_shots CASCADE;')
+    db.session.execute('DROP TABLE action_shots CASCADE;')
     db.session.commit()
