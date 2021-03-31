@@ -41,3 +41,12 @@ def individual_groups(id):
         success = Group.query.filter(Group.id == id).delete()
         db.session.commit()
         return jsonify('Successfully deleted' if success else 'No Group Exists')
+
+
+@group_routes.route('/<int:id>/comments', methods=['GET', 'POST'])
+def group_comments(id):
+    method = request.method
+    if method == 'GET':
+      return "stuff"
+    if method == 'POST':
+      return 'STuffMore'
