@@ -7,6 +7,7 @@ from .progress_photos import seed_progress_photos, undo_progress_photos
 from .stock_workouts import seed_stock_workouts, undo_stock_workouts
 from .users_groups import seed_user_groups, undo_user_groups
 from .users_workouts import seed_users_workouts, undo_users_workouts
+from app.models import db
 
 
 # Creates a seed group to hold our commands
@@ -16,6 +17,7 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
+    db.create_all()
     seed_users()
     seed_action_shots()
     seed_groups()
@@ -29,12 +31,13 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_comments()
-    undo_user_groups()
-    undo_progress_photos()
-    undo_groups()
-    undo_action_shots()
-    undo_stock_workouts()
-    undo_users_workouts()
-    undo_users()
+    db.drop_all()
+    # undo_comments()
+    # undo_user_groups()
+    # undo_progress_photos()
+    # undo_groups()
+    # undo_action_shots()
+    # undo_stock_workouts()
+    # undo_users_workouts()
+    # undo_users()
     # Add other undo functions here

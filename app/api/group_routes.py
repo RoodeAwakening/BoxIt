@@ -12,9 +12,11 @@ group_routes = Blueprint('groups', __name__)
 def groups():
     method = request.method
     if method == 'GET':
+      # Get all Groups
         groups = Group.query.all()
         return {"groups": [group.to_dict() for group in groups]}
     elif method == 'POST':
+      # Add a new Group
         group_name = request.json['name']
         group = Group(name=group_name)
         db.session.add(group)
@@ -27,9 +29,11 @@ def groups():
 def individual_groups(id):
     method = request.method
     if method == 'GET':
+      # Get an individual Group
         group = Group.query.get(id)
         return jsonify(group.to_dict() if group else 'No Group Exists')
     elif method == 'PATCH':
+      # Update the name of a Group
         group = Group.query.get(id)
         if group:
             name = request.json['name']
@@ -38,14 +42,16 @@ def individual_groups(id):
         return jsonify(group.to_dict() if group else 'No Group Exisxts')
         return "Patch"
     elif method == 'DELETE':
+      # Delete a Group
         success = Group.query.filter(Group.id == id).delete()
         db.session.commit()
         return jsonify('Successfully deleted' if success else 'No Group Exists')
 
 
 @group_routes.route('/<int:id>/comments', methods=['GET', 'POST'])
+# @login_required
 def group_comments(id):
-
+    # Get all comments for a given group
     method = request.method
     if method == 'GET':
         comments = []
@@ -57,6 +63,7 @@ def group_comments(id):
             })
         return jsonify(comments if comments else 'Be there first to comment!')
     if method == 'POST':
+      # Add a comment to a given group
         form = CommentForm()
         form['csrf_token'].data = request.cookies['csrf_token']
         comment = ''
