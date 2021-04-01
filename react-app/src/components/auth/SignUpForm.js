@@ -1,33 +1,40 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from "react-router-dom";
+import { useHistory } from 'react-router'
 // import { signUp } from "../../services/auth";
 import { signup } from '../../store/session'
 
 
-const SignUpForm = ({ authenticated, setAuthenticated }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [dob, setDOB] = useState("");
-  const [userName, setUsername] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState("");
-  const [boxingLevel, setBoxingLevel] = useState("");
+const SignUpForm = () => {
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [DOB, setDOB] = useState("");
+  const [user_name, setUsername] = useState("");
+  const [profile_photo, setProfilePhoto] = useState("");
+  const [boxing_level, setBoxingLevel] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  const sessionUser = useSelector(state => state.session.user)
 
   
   
-  const dispatch = useDispatch()
   
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await dispatch(signup({firstName, lastName, dob, userName, profilePhoto, boxingLevel, email, password}));
-      if (!user.errors) {
-        setAuthenticated(true);
+      const user = await dispatch(signup({first_name, last_name, DOB, user_name, profile_photo, boxing_level, email, password}));
+      if (user.errors) {
+        
+      }else{
+        history.push('/')
       }
+      return user
     }
   };
 
@@ -67,9 +74,10 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
     setRepeatPassword(e.target.value);
   };
 
-  if (authenticated) {
-    return <Redirect to="/" />;
-  }
+	if (sessionUser) {
+		return <Redirect to="/" />
+	}
+
 
   return (
     <form onSubmit={onSignUp}>
@@ -80,7 +88,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
           name="firstName"
           placeholder="Fist Name"
           onChange={updateFirstName}
-          value={firstName}
+          value={first_name}
         ></input>
       </div>
       <div>
@@ -90,7 +98,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
           name="lastName"
           placeholder="Last Name"
           onChange={updateLastName}
-          value={lastName}
+          value={last_name}
         ></input>
       </div>
       <div>
@@ -100,7 +108,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
           name="DOB"
           placeholder="Date of Birth"
           onChange={updateDOB}
-          value={dob}
+          value={DOB}
         ></input>
       </div>
       <div>
@@ -110,7 +118,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
           name="userName"
           placeholder="User Name"
           onChange={updateUsername}
-          value={userName}
+          value={user_name}
         ></input>
       </div>
       <div>
@@ -127,7 +135,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
         <select
           name="boxingLevel"
           onChange={updateBoxingLevel}
-          value={boxingLevel}
+          value={boxing_level}
         >
           <option value="Beginner">--Please Choose an Option--</option>
           <option value="Beginner">Beginner</option>
