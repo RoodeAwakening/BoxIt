@@ -16,32 +16,33 @@ const removeUser = () => {
 
 
 export const signup = user => async dispatch => {
-  let {first_name, last_name, DOB, user_name, profile_photo, boxing_level, password, email} = user
+  let {firstName, lastName, dob, userName, profilePhoto, boxingLevel ,email, password} = user
   // fetch to image route to get image url
   const formDAta = new FormData()
-  FormData.append('image', profile_photo)
+  FormData.append('image', profilePhoto)
   const responseImageUrl = await fetch('/api/images/',{
     method: 'POST',
     body: FormData,
   })
   const photoData = await responseImageUrl.json()
-  profile_photo = photoData.url
+  profilePhoto = photoData.url
 
-// signup the user
-const response = await fetch('/api/auth/signup',{
+  console.log('==',user);
+  // signup the user
+  const response = await fetch('/api/auth/signup',{
   method:'POST',
   headers:{
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    first_name,
-    last_name,
-    DOB,
-    user_name,
-    profile_photo,
-    boxing_level,
-    password, 
+    firstName,
+    lastName,
+    dob,
+    userName,
+    profilePhoto,
+    boxingLevel,
     email,
+    password, 
   })
 })
 const data = await response.json()

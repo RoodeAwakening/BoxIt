@@ -1,25 +1,58 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import { useDispatch, useSelector } from 'react-redux'
+import { Redirect } from "react-router-dom";
+// import { signUp } from "../../services/auth";
+import { signup } from '../../store/session'
 
-const SignUpForm = ({authenticated, setAuthenticated}) => {
-  const [username, setUsername] = useState("");
+
+const SignUpForm = ({ authenticated, setAuthenticated }) => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDOB] = useState("");
+  const [userName, setUsername] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState("");
+  const [boxingLevel, setBoxingLevel] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+
+  
+  
+  const dispatch = useDispatch()
+  
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(username, email, password);
+      const user = await dispatch(signup({firstName, lastName, dob, userName, profilePhoto, boxingLevel, email, password}));
       if (!user.errors) {
         setAuthenticated(true);
       }
     }
   };
 
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateDOB = (e) => {
+    setDOB(e.target.value);
+  };
+
   const updateUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const updateProfilePhoto = (e) => {
+    setProfilePhoto(e.target.value);
+  };
+
+  const updateBoxingLevel = (e) => {
+    setBoxingLevel(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -41,12 +74,43 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   return (
     <form onSubmit={onSignUp}>
       <div>
+        <label>First Name</label>
+        <input
+          type="text"
+          name="firstName"
+          placeholder="Fist Name"
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <label>Date of Birth</label>
+        <input
+          type="date"
+          name="DOB"
+          placeholder="Date of Birth"
+          onChange={updateDOB}
+          value={dob}
+        ></input>
+      </div>
+      <div>
         <label>User Name</label>
         <input
           type="text"
-          name="username"
+          name="userName"
+          placeholder="User Name"
           onChange={updateUsername}
-          value={username}
+          value={userName}
         ></input>
       </div>
       <div>
@@ -57,6 +121,20 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           onChange={updateEmail}
           value={email}
         ></input>
+      </div>
+      <div>
+        <label>Boxing Level</label>
+        <select
+          name="boxingLevel"
+          onChange={updateBoxingLevel}
+          value={boxingLevel}
+        >
+          <option value="Beginner">--Please Choose an Option--</option>
+          <option value="Beginner">Beginner</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Advanced">Advanced</option>
+          <option value="Expert">Expert</option>
+        </select>
       </div>
       <div>
         <label>Password</label>
@@ -75,6 +153,15 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Photo</label>
+        <input
+          type="file"
+          name="profilePhoto"
+          placeholder="Profile Photo"
+          onChange={updateProfilePhoto}
         ></input>
       </div>
       <button type="submit">Sign Up</button>

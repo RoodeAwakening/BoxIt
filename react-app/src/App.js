@@ -9,7 +9,7 @@ import User from "./components/User";
 import { authenticate } from "./services/auth";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
