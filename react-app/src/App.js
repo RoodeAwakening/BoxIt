@@ -1,55 +1,74 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { authenticate } from "./services/auth";
+// FORMS
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
+// COMPONENTS
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
-import { authenticate } from "./services/auth";
+
+
+import * as sessionActions from './store/session'
+
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(true);
+  // const [authenticated, setAuthenticated] = useState(true);
+  const dispatch = useDispatch()
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    (async() => {
-      const user = await authenticate();
-      if (!user.errors) {
-        setAuthenticated(true);
-      }
-      setLoaded(true);
-    })();
-  }, []);
+useEffect(()=>{
+  dispatch(sessionActions.restoreUser()).then(()=> setLoaded(true))
+},[dispatch])
 
-  if (!loaded) {
-    return null;
-  }
-
+ 
   return (
+    <>
+    {loaded && (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      
       <Switch>
+        <Route path='/welcome' exact={true}>
+          {/* SETUP ROUTE */}
+        </Route>
         <Route path="/login" exact={true}>
-          <LoginForm
-            authenticated={authenticated}
-            setAuthenticated={setAuthenticated}
-          />
+          <LoginForm/>
         </Route>
         <Route path="/sign-up" exact={true}>
-          <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
+          <SignUpForm  />
         </Route>
-        <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+        <div>
+
+        <NavBar />
+        <ProtectedRoute path="/" exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
+        <ProtectedRoute path="/users" exact={true} >
+          <UsersList/>
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId" exact={true} >
+          <User />
+        </ProtectedRoute>
+        <ProtectedRoute path="/users/:userId/progress" exact={true} >
+          {/* SETUP ROUTE */}
+        </ProtectedRoute>
+        <ProtectedRoute path="/workout/:workoutId" exact={true} >
+          {/* SETUP ROUTE */}
+        </ProtectedRoute>
+        <ProtectedRoute path="/groups" exact={true} >
+          {/* SETUP ROUTE */}
+        </ProtectedRoute>
+        <ProtectedRoute path="/groups/:groupId" exact={true} >
+          {/* SETUP ROUTE */}
+        </ProtectedRoute>
+        </div>
       </Switch>
     </BrowserRouter>
+    )}
+    </>
   );
 }
 
