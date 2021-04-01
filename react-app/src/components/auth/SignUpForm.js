@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from "react-router-dom";
 import { useHistory } from 'react-router'
 // import { signUp } from "../../services/auth";
-import { signup } from '../../store/session'
+import { loginThunk, signup } from '../../store/session'
 
 
 const SignUpForm = () => {
@@ -28,6 +28,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
+      console.log('-----',profile_photo);
       const user = await dispatch(signup({first_name, last_name, DOB, user_name, profile_photo, boxing_level, email, password}));
       if (user.errors) {
         
@@ -55,7 +56,8 @@ const SignUpForm = () => {
   };
 
   const updateProfilePhoto = (e) => {
-    setProfilePhoto(e.target.value);
+    console.log('-a-',e.target.value);
+    setProfilePhoto(e.target.files[0]);
   };
 
   const updateBoxingLevel = (e) => {
@@ -167,9 +169,10 @@ const SignUpForm = () => {
         <label>Profile Photo</label>
         <input
           type="file"
-          name="profilePhoto"
+          name="profile_photo"
           placeholder="Profile Photo"
           onChange={updateProfilePhoto}
+          required={true}
         ></input>
       </div>
       <button type="submit">Sign Up</button>

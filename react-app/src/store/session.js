@@ -19,17 +19,19 @@ export const signup = user => async dispatch => {
   let {first_name, last_name, DOB, user_name, profile_photo, boxing_level ,email, password} = user
   // fetch to image route to get image url
   const formData = new FormData()
-  console.log('---USER-1--',user);
   formData.append('image', profile_photo)
+  console.log('---USER-0--',formData);
   const responseImageUrl = await fetch('/api/images/',{
     method: 'POST',
     body: formData,
   })
   const photoData = await responseImageUrl.json()
+  console.log('---USER-1--',photoData);
   profile_photo = photoData.url
+  console.log('---USER-2--',profile_photo);
   
   
-  console.log('---USER-2--',user);
+  console.log('---USER-3--',user);
   // signup the user
   const response = await fetch('/api/auth/signup',{
   method:'POST',
@@ -48,7 +50,7 @@ export const signup = user => async dispatch => {
   })
 })
 const data = await response.json()
-console.log('---USER-3--',data);
+console.log('---USER-4--',data);
 dispatch(setUser(data.user))
 return response
 }
