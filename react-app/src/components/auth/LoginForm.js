@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../services/auth";
 import * as sessionActions from '../../store/session'
 
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
