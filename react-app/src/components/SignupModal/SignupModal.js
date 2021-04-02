@@ -111,15 +111,20 @@ export default function ModalSignup({
 
   return (
     <Modal isOpen={signupModalIsOpen} style={customStyles}>
-      <div>
+      <div className="signup-container">
         <div>
           <button onClick={closeSignupModal}>
             <i class="fas fa-times"></i>
           </button>
+          <div className="signUp-header">
+            <h1>At-Home Boxing Workouts</h1>
+            <h2>Experience BoxIt from any device, anytime.</h2>
+            <h2>Reach your goals with workouts tailored to you.</h2>
+          </div>
         </div>
-        <form onSubmit={onSignUp}>
+        <form onSubmit={onSignUp} className="signup-form">
+          <div className='signup-names'>
           <div>
-            <label>First Name</label>
             <input
               type="text"
               name="firstName"
@@ -129,7 +134,6 @@ export default function ModalSignup({
             ></input>
           </div>
           <div>
-            <label>Last Name</label>
             <input
               type="text"
               name="lastName"
@@ -138,8 +142,51 @@ export default function ModalSignup({
               value={last_name}
             ></input>
           </div>
+          </div>
+         
+          <div className='signup-email-username'>
           <div>
-            <label>Date of Birth</label>
+            <input
+              type="text"
+              name="userName"
+              placeholder="User Name"
+              onChange={updateUsername}
+              value={user_name}
+            ></input>
+          </div>
+         
+          <div>
+            <input
+              type="text"
+              name="email"
+              placeholder="Email"
+              onChange={updateEmail}
+              value={email}
+            ></input>
+          </div>
+          </div>
+          <div className='signup-form-password'>
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              onChange={updatePassword}
+              value={password}
+            ></input>
+          </div>
+          <div>
+            <input
+              type="password"
+              name="repeat_password"
+              placeholder="Confirm Password"
+              onChange={updateRepeatPassword}
+              value={repeatPassword}
+              required={true}
+            ></input>
+          </div>
+          </div>
+          <div>
             <input
               type="date"
               name="DOB"
@@ -149,60 +196,24 @@ export default function ModalSignup({
             ></input>
           </div>
           <div>
-            <label>User Name</label>
+            <div>
+              <label>Boxing experience</label>
+              <select
+                name="boxingLevel"
+                onChange={updateBoxingLevel}
+                value={boxing_level}
+              >
+                <option value="Beginner">--Please Choose an Option--</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Expert">Expert</option>
+              </select>
+            </div>
+            <label for='profile_photo'>Profile Photo</label>
             <input
-              type="text"
-              name="userName"
-              placeholder="User Name"
-              onChange={updateUsername}
-              value={user_name}
-            ></input>
-          </div>
-          <div>
-            <label>Email</label>
-            <input
-              type="text"
-              name="email"
-              onChange={updateEmail}
-              value={email}
-            ></input>
-          </div>
-          <div>
-            <label>Boxing Level</label>
-            <select
-              name="boxingLevel"
-              onChange={updateBoxingLevel}
-              value={boxing_level}
-            >
-              <option value="Beginner">--Please Choose an Option--</option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
-              <option value="Expert">Expert</option>
-            </select>
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="password"
-              name="password"
-              onChange={updatePassword}
-              value={password}
-            ></input>
-          </div>
-          <div>
-            <label>Repeat Password</label>
-            <input
-              type="password"
-              name="repeat_password"
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-          </div>
-          <div>
-            <label>Profile Photo</label>
-            <input
+            
+            className='signup-profile-photo'
               type="file"
               name="profile_photo"
               placeholder="Profile Photo"

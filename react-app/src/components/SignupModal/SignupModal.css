@@ -1,0 +1,48 @@
+.signup-container{
+  display: flex;
+  justify-content: center;
+}
+
+.signup-form{
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 60px;
+}
+
+.signup-names{
+  display: flex;
+  
+}
+.signup-email-username{
+  display: flex;
+  
+}
+.signup-form-password{
+  display: flex;
+  
+}
+
+.signup-form input{
+  margin-top: 5px;
+  height: 30px;
+  background-color: #ff3b4575;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid rgba(var(--b6a,219,219,219),1);
+}
+
+.signup-profile-photo{
+
+}
+
+.signup-form button{
+  margin-top: 10px;
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 210px;
+  border-style: none;
+}
