@@ -1,6 +1,32 @@
 .signup-container{
+  
   display: flex;
   justify-content: center;
+}
+
+.singup-boxer-images{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.signUp-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp-header h1{
+  font-size: 43px;
+  font-weight: 900;
+  margin: 10px;
+}
+
+.signUp-header h2{
+  font-size: 23px;
+  font-weight: 400;
+  margin: 10px;
 }
 
 .signup-form{
@@ -10,7 +36,13 @@
   justify-content: center;
   flex-direction: column;
   margin-left: 60px;
+  align-items: center;
 }
+
+.signup-boxer{
+  max-height: 200px;
+}
+
 
 .signup-names{
   display: flex;
@@ -30,29 +62,26 @@
 #signup-dob-input{
   width: 100%;
   margin-bottom: 8px;
+  
 }
 
 .signup-boxing-experience-input{
-  text-align: center;
-  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-boxing-experience-input select{
+  
   width: 100%;
   text-align: center;
+  
 }
 
-.signup-boxing-experience-input h4{
-  margin: 0px;
-}
 
-.signup-exp-photo{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 8px;
-}
 
-.signup-exp-photo input{
-  margin: 8px;
-}
 
 .signup-form-text-input{
   margin-top: 5px;
@@ -61,18 +90,26 @@
   border: none;
   border-radius: 5px;
   border: 1px solid rgba(var(--b6a,219,219,219),1);
+ 
   
 }
 
 
-.signup-profile-photo{
+.signup-profile-photo-label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 10px;
 width: 100%;
+
 }
 
 
 
 .signup-form button{
-  margin-top: 10px;
+  margin-top: 20px;
   color: white;
   background-color: #D13138;
   border-radius: 5px;
