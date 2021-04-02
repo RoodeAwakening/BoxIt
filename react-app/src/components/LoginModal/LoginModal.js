@@ -56,20 +56,24 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
 
   return (
     <Modal isOpen={loginModalIsOpen} style={customStyles}>
-      <div>
         <div>
           <button onClick={closeLoginModal}>
             <i class="fas fa-times"></i>
           </button>
+          
         </div>
-        <form onSubmit={onLogin}>
+
+      <div className='login-container'>
+
+        <h1>Login</h1>
+        <form onSubmit={onLogin} className='login-form'>
           <div>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </div>
           <div>
-            <label htmlFor="email">Email</label>
+           
             <input
               name="email"
               type="text"
@@ -79,7 +83,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            
             <input
               name="password"
               type="password"

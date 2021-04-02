@@ -5,8 +5,8 @@ import "./Welcome.css";
 
 export default function WelcomePage() {
   //modal component
-  //CHANGE BACK TO FALSE
-  const [signupModalIsOpen, setSignupModalisOpen] = useState(true);
+ 
+  const [signupModalIsOpen, setSignupModalisOpen] = useState(false);
   const [loginModalIsOpen, setLoginModalisOpen] = useState(false);
 
   const changeSignupModal = () => {
