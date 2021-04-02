@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import ModalSignup from "../SignupModal/SignupModal";
 import ModalLogin from "../LoginModal/LoginModal";
+import * as sessionActions from '../../store/session'
+import { useHistory } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import "./Welcome.css";
 
 export default function WelcomePage() {
+  let history = useHistory()
+
+	const dispatch = useDispatch()
+
   //modal component
  
   const [signupModalIsOpen, setSignupModalisOpen] = useState(false);
@@ -16,6 +23,15 @@ export default function WelcomePage() {
   const changeLoginModal = () => {
     setLoginModalisOpen(true);
   };
+
+  const setDemoLogin = async e => {
+		e.preventDefault()
+		const email = 'demo@aa.io'
+		const password = 'password'
+		const user = await dispatch(sessionActions.loginThunk({ email, password }))
+		if (!user.errors) history.push('/')
+		return user
+	}
 
   return (
     <div className="welcomeContainer">
@@ -59,7 +75,10 @@ export default function WelcomePage() {
               />
             </div>
             <div>
-              <button id="welcomeContainer-top_button_demo">Demo</button>
+              <button 
+              id="welcomeContainer-top_button_demo"
+              onClick={setDemoLogin}
+              >Demo</button>
             </div>
           </div>
         </div>
