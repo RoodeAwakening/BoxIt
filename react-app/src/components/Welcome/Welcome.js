@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import ModalSignup from "../SignupModal/SignupModal";
+import ModalLogin from "../LoginModal/LoginModal";
 import "./Welcome.css";
 
 export default function WelcomePage() {
-
   //modal component
-const [signupModalIsOpen, setSignupModalisOpen] = useState(false)
-const [loginModalIsOpen, setLoginModalisOpen] = useState(false)
+  const [signupModalIsOpen, setSignupModalisOpen] = useState(false);
+  const [loginModalIsOpen, setLoginModalisOpen] = useState(false);
 
-const changeSignupModal = () =>{
-  setSignupModalisOpen(true)
-}
+  const changeSignupModal = () => {
+    setSignupModalisOpen(true);
+  };
 
-
-
+  const changeLoginModal = () => {
+    setLoginModalisOpen(true);
+  };
 
   return (
     <div className="welcomeContainer">
@@ -32,16 +33,29 @@ const changeSignupModal = () =>{
           <h2 id="welcomeContainer-top-h2-text-2">
             Unlock a BETTER , FITTER, HEALTHIER You!
           </h2>
-          <button 
-          id="welcomeContainer-top_button_signup-up"
-          onClick={changeSignupModal} >
+          <button
+            id="welcomeContainer-top_button_signup-up"
+            onClick={changeSignupModal}
+          >
             Signup Today
           </button>
-          <ModalSignup signupModalIsOpen={signupModalIsOpen} setSignupModalisOpen={setSignupModalisOpen}/>
+          <ModalSignup
+            signupModalIsOpen={signupModalIsOpen}
+            setSignupModalisOpen={setSignupModalisOpen}
+          />
           <h2>Already have an account?</h2>
-          <div className='welcome-top_have-account'>
+          <div className="welcome-top_have-account">
             <div>
-              <button id="welcomeContainer-top_button_loginin">Login</button>
+              <button
+                id="welcomeContainer-top_button_loginin"
+                onClick={changeLoginModal}
+              >
+                Login
+              </button>
+              <ModalLogin
+                loginModalIsOpen={loginModalIsOpen}
+                setLoginModalisOpen={setLoginModalisOpen}
+              />
             </div>
             <div>
               <button id="welcomeContainer-top_button_demo">Demo</button>

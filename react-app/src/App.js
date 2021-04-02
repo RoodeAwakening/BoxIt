@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 import * as sessionActions from './store/session'
 // FORMS
-import LoginForm from "./components/auth/LoginForm";
+// import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // COMPONENTS
 import NavBar from "./components/NavBar";
@@ -36,9 +36,7 @@ useEffect(()=>{
           
           <WelcomePage />
         </Route>
-        <Route path="/login" exact={true}>
-          <LoginForm/>
-        </Route>
+       
         
         <div>
 
