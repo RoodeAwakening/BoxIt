@@ -4,6 +4,7 @@
 }
 
 .signup-form{
+  max-width: 360px;
   margin-top: 5px;
   display: flex;
   justify-content: center;
@@ -13,29 +14,62 @@
 
 .signup-names{
   display: flex;
-  
+  justify-content: space-between;
 }
 .signup-email-username{
   display: flex;
+  justify-content: space-between;
   
 }
 .signup-form-password{
   display: flex;
-  
+  justify-content: space-between;
+
 }
 
-.signup-form input{
+#signup-dob-input{
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.signup-boxing-experience-input{
+  text-align: center;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.signup-boxing-experience-input h4{
+  margin: 0px;
+}
+
+.signup-exp-photo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px;
+}
+
+.signup-exp-photo input{
+  margin: 8px;
+}
+
+.signup-form-text-input{
   margin-top: 5px;
   height: 30px;
   background-color: #ff3b4575;
   border: none;
   border-radius: 5px;
   border: 1px solid rgba(var(--b6a,219,219,219),1);
+  
 }
+
 
 .signup-profile-photo{
-
+width: 100%;
 }
+
+
 
 .signup-form button{
   margin-top: 10px;

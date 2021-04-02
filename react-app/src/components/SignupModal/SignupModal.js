@@ -123,71 +123,79 @@ export default function ModalSignup({
           </div>
         </div>
         <form onSubmit={onSignUp} className="signup-form">
-          <div className='signup-names'>
-          <div>
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Fist Name"
-              onChange={updateFirstName}
-              value={first_name}
-            ></input>
+          <div className="signup-names">
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="text"
+                name="firstName"
+                placeholder="Fist Name"
+                onChange={updateFirstName}
+                value={first_name}
+              ></input>
+            </div>
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="text"
+                name="lastName"
+                placeholder="Last Name"
+                onChange={updateLastName}
+                value={last_name}
+              ></input>
+            </div>
+          </div>
+
+          <div className="signup-email-username">
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="text"
+                name="userName"
+                placeholder="User Name"
+                onChange={updateUsername}
+                value={user_name}
+              ></input>
+            </div>
+
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="text"
+                name="email"
+                placeholder="Email"
+                onChange={updateEmail}
+                value={email}
+              ></input>
+            </div>
+          </div>
+          <div className="signup-form-password">
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                onChange={updatePassword}
+                value={password}
+              ></input>
+            </div>
+            <div>
+              <input
+                className="signup-form-text-input"
+                type="password"
+                name="repeat_password"
+                placeholder="Confirm Password"
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+            </div>
           </div>
           <div>
             <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              onChange={updateLastName}
-              value={last_name}
-            ></input>
-          </div>
-          </div>
-         
-          <div className='signup-email-username'>
-          <div>
-            <input
-              type="text"
-              name="userName"
-              placeholder="User Name"
-              onChange={updateUsername}
-              value={user_name}
-            ></input>
-          </div>
-         
-          <div>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              onChange={updateEmail}
-              value={email}
-            ></input>
-          </div>
-          </div>
-          <div className='signup-form-password'>
-          <div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={updatePassword}
-              value={password}
-            ></input>
-          </div>
-          <div>
-            <input
-              type="password"
-              name="repeat_password"
-              placeholder="Confirm Password"
-              onChange={updateRepeatPassword}
-              value={repeatPassword}
-              required={true}
-            ></input>
-          </div>
-          </div>
-          <div>
-            <input
+              className="signup-form-text-input"
+              id="signup-dob-input"
               type="date"
               name="DOB"
               placeholder="Date of Birth"
@@ -197,29 +205,38 @@ export default function ModalSignup({
           </div>
           <div>
             <div>
-              <label>Boxing experience</label>
+              <div>
+                <h4 className="signup-boxing-experience-input">
+                  Boxing experience
+                </h4>
+              </div>
+
               <select
+                className="signup-boxing-experience-input"
                 name="boxingLevel"
                 onChange={updateBoxingLevel}
                 value={boxing_level}
               >
-                <option value="Beginner">--Please Choose an Option--</option>
+                <option value="Beginner">--Choose an Option--</option>
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
                 <option value="Expert">Expert</option>
               </select>
             </div>
-            <label for='profile_photo'>Profile Photo</label>
-            <input
-            
-            className='signup-profile-photo'
-              type="file"
-              name="profile_photo"
-              placeholder="Profile Photo"
-              onChange={updateProfilePhoto}
-              required={true}
-            ></input>
+            <div className="signup-profile-photo">
+              <div>
+                <label for="profile_photo">Profile Photo</label>
+              </div>
+              <input
+                className="signup-profile-photo"
+                type="file"
+                name="profile_photo"
+                placeholder="Profile Photo"
+                onChange={updateProfilePhoto}
+                required={true}
+              ></input>
+            </div>
           </div>
           <button type="submit">Sign Up</button>
         </form>
