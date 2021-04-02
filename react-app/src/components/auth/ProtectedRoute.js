@@ -5,7 +5,6 @@ import { loginThunk } from '../../store/session';
 
 const ProtectedRoute = props => {
   const sessionUser = useSelector(state => state.session.user)
-  console.log('0000',sessionUser);
   return (
     <Route {...props}>
       {sessionUser ? props.children  : <Redirect to="/welcome" />}

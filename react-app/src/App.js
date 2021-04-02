@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
+import * as sessionActions from './store/session'
 // FORMS
 import LoginForm from "./components/auth/LoginForm";
-import SignUpForm from "./components/auth/SignUpForm";
+// import SignUpForm from "./components/auth/SignUpForm";
 // COMPONENTS
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import WelcomePage from "./components/Welcome/Welcome";
 
 
-import * as sessionActions from './store/session'
 
 
 function App() {
@@ -32,19 +33,18 @@ useEffect(()=>{
       
       <Switch>
         <Route path='/welcome' exact={true}>
-          {/* SETUP ROUTE */}
+          
+          <WelcomePage />
         </Route>
         <Route path="/login" exact={true}>
           <LoginForm/>
         </Route>
-        <Route path="/sign-up" exact={true}>
-          <SignUpForm  />
-        </Route>
+        
         <div>
 
         <NavBar />
         <ProtectedRoute path="/" exact={true} >
-          <h1>My Home Page</h1>
+          {/* SETUP ROUTE */}
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>
