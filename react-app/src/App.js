@@ -7,10 +7,10 @@ import * as sessionActions from './store/session'
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // COMPONENTS
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
-import User from "./components/User";
+import User from "./components/User/User";
 import WelcomePage from "./components/Welcome/Welcome";
 
 
@@ -42,7 +42,7 @@ useEffect(()=>{
 
         <NavBar />
         <ProtectedRoute path="/" exact={true} >
-          {/* SETUP ROUTE */}
+          <User />
         </ProtectedRoute>
         <ProtectedRoute path="/users" exact={true} >
           <UsersList/>

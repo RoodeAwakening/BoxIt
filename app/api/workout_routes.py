@@ -29,8 +29,8 @@ def user_workouts():
     method = request.method
     if method == 'GET':
         # Get a users workout
-        user_workouts = User_Workout.query.all()
-        return {"stock_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
+        user_workouts = User_Workout.query.filter(User_Workout.user_id == current_user.id)
+        return {"user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
     elif method == 'POST':
         new_workout = request.json['workout']
         # REPLACE WITH current_user.id

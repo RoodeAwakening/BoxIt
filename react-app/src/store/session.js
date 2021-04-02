@@ -54,9 +54,10 @@ return response
 
 export const restoreUser = () => async dispactch => {
   const response = await fetch('/api/auth/')
+
   const data = await response.json()
-  dispactch(setUser(data.user))
-  console.log(response);
+
+  dispactch(setUser(data))
   return response
 }
 
