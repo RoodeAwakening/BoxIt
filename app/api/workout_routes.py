@@ -42,7 +42,7 @@ def user_workouts():
         return jsonify(workout.to_dict() if workout else 'No Workout Added')
 
 
-@workout_routes.route('/user_workouts/all', methods=['GET'])
+@workout_routes.route('/user_workouts/completed', methods=['GET'])
 # @login_required
 def user_workouts_all():
     method = request.method
@@ -50,14 +50,12 @@ def user_workouts_all():
         workoutList = {}
         # Get all users workout
         # add column in user table to count workouts in the future!!!!
-        allUsersWorkouts = db.session.query(User_Workout).join(User).all()
+        allUsersWorkouts = db.session.query(User_Workout).filter(User_Workout.progress_completed == True).join(User).all()
         for workout in allUsersWorkouts:
             if workout.user_id not in workoutList:
                 workoutList[workout.user_id] = 1
             else:
                 workoutList[workout.user_id] += 1
-        
-        print('----',value_sorted)
         return {'workout_totals': workoutList}
         # return {"users": [c.to_dict() for c in allUsersWorkouts]}
         # return {"all_user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
