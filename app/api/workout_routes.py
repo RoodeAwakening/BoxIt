@@ -57,6 +57,8 @@ def user_workouts_all():
             else:
                 workoutList[workout.user_id] += 1
         return {'workout_totals': workoutList}
+        # return jsonify({'totals': workoutList.to_dict()})
+        # return jsonify(workoutList_dict())
         # return {"users": [c.to_dict() for c in allUsersWorkouts]}
         # return {"all_user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
 

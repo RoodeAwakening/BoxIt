@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./User.css";
 //store stuff
-import { userWorkouts } from "../../store/workouts";
+import { userWorkouts, allWorkoutsComplete } from "../../store/workouts";
 
 function User() {
 
@@ -13,13 +13,16 @@ function User() {
   // const { userId }  = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const workout = useSelector((state) => Object.values(state.workout));
+  const allWorkoutsCompleted = useSelector((state)=> (state.workout.allCompleted))
   
 
   
   useEffect( () => {
     if (!workout.length) {
       dispatch(userWorkouts());
-    
+    }
+    if (!allWorkoutsCompleted){
+      dispatch(allWorkoutsComplete())
     }
   }, [dispatch]);
 
