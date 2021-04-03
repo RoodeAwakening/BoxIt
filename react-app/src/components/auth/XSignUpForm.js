@@ -28,7 +28,6 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      console.log('-----',profile_photo);
       const user = await dispatch(signup({first_name, last_name, DOB, user_name, profile_photo, boxing_level, email, password}));
       if (user.errors) {
         
@@ -56,7 +55,6 @@ const SignUpForm = () => {
   };
 
   const updateProfilePhoto = (e) => {
-    console.log('-a-',e.target.value);
     setProfilePhoto(e.target.files[0]);
   };
 

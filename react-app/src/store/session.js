@@ -64,7 +64,6 @@ export const restoreUser = () => async dispactch => {
 
 export const loginThunk = user => async dispatch => {
   const {email, password} = user
-  console.log('-----', user);
   const response = await fetch('/api/auth/login',{
     method: 'POST',
     headers: {
@@ -77,9 +76,7 @@ export const loginThunk = user => async dispatch => {
   })
   
   const data = await response.json()
-  console.log('---USER-0--',data);
   dispatch(setUser(data))
-  console.log('---USER-1--',data);
 
   return data
 }

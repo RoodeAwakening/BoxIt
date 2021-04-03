@@ -5,7 +5,17 @@
 .user_container-header{
   background-color: green;
   display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.user_container-header-profilePhoto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-left: 80px;
 }
 
 .user_container-header-profilePhoto img{
@@ -19,6 +29,13 @@
   background-color: rosybrown;
   border: 3px solid rgba(0, 0, 0, 0.507);
   width: 100%;
-  justify-content: space-between;
+  height: 100px;
+  justify-content: space-around;
+  margin: 0 200px;
   
 }
+
+#currentLevel{}
+#workoutsCompleted{}
+#hoursCompleted{}
+#overallRank{}

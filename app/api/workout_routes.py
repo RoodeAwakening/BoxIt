@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.models import Stock_Workout, User_Workout, db
+from app.models import Stock_Workout, User_Workout, db, User
 from flask_login import login_required, current_user
 
 
@@ -29,7 +29,8 @@ def user_workouts():
     method = request.method
     if method == 'GET':
         # Get a users workout
-        user_workouts = User_Workout.query.filter(User_Workout.user_id == current_user.id)
+        user_workouts = User_Workout.query.filter(
+            User_Workout.user_id == current_user.id)
         return {"user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
     elif method == 'POST':
         new_workout = request.json['workout']
@@ -39,6 +40,27 @@ def user_workouts():
         db.session.add(workout)
         db.session.commit()
         return jsonify(workout.to_dict() if workout else 'No Workout Added')
+
+
+@workout_routes.route('/user_workouts/all', methods=['GET'])
+# @login_required
+def user_workouts_all():
+    method = request.method
+    if method == 'GET':
+        workoutList = {}
+        # Get all users workout
+        # add column in user table to count workouts in the future!!!!
+        allUsersWorkouts = db.session.query(User_Workout).join(User).all()
+        for workout in allUsersWorkouts:
+            if workout.user_id not in workoutList:
+                workoutList[workout.user_id] = 1
+            else:
+                workoutList[workout.user_id] += 1
+        
+        print('----',value_sorted)
+        return {'workout_totals': workoutList}
+        # return {"users": [c.to_dict() for c in allUsersWorkouts]}
+        # return {"all_user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
 
 
 @workout_routes.route('/user_workouts/<int:id>', methods=['GET', 'PATCH', 'DELETE'])

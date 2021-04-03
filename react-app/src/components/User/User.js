@@ -6,34 +6,35 @@ import "./User.css";
 import { userWorkouts } from "../../store/workouts";
 
 function User() {
-  const [workouts, setWorkouts] = useState({});
+
   const dispatch = useDispatch();
   // Notice we use useParams here instead of getting the params
   // From props.
   // const { userId }  = useParams();
   const sessionUser = useSelector((state) => state.session.user);
+  const workout = useSelector((state) => Object.values(state.workout));
+  
 
-  console.log("test", workouts);
-
-  useEffect(() => {
-    if (!workouts.length) {
-       dispatch(userWorkouts());
+  
+  useEffect( () => {
+    if (!workout.length) {
+      dispatch(userWorkouts());
+    
     }
   }, [dispatch]);
 
+  //get total hours completed
+ const hoursCompleted = (()=>{
+   const totalWorkouts = workout.length
+   const workoutTime = (totalWorkouts * 31 / 60)
+   return `${Math.floor(workoutTime)} Hours Completed`
+ })
 
-  // useEffect(() => {
-  //   if (!sessionUser) {
-  //     return
-  //   }
-  //   (async () => {
-  //     // const response = await fetch(`/api/workouts/user_workouts`);
-  //     // const workout = await response.json();
-  //     const workout = await dispatch(userWorkouts)
-  //    console.log('dispatch',workout);
-  //    setWorkouts(workout);
-  //   })();
-  // }, [sessionUser]);
+ //get overall rank
+ const overallRank = (()=>{
+   return 'Complete this'
+ })
+
 
   if (!sessionUser) {
     return null;
@@ -43,44 +44,43 @@ function User() {
     <div className="user_container">
       <div className="user_container-header">
         <div className="user_container-header-profilePhoto">
-          <img src={sessionUser.profile_photo} />
+          <div><img src={sessionUser.profile_photo} /></div>
+          <div>{sessionUser.user_name}</div>
         </div>
 
         <div className="user_container-header-ContentBox">
+
           <div id="currentLevel">
             <div>
               <h5>Current Level</h5>
             </div>
             <div>{sessionUser.boxing_level}</div>
           </div>
+
           <div id="workoutsCompleted">
             <div>
               <h5>User Workouts</h5>
             </div>
-            {/* <div>{userWorkouts.length}</div> */}
+            <div>{workout.length}</div>
           </div>
-          <div id="hoursCompleted"></div>
-          <div id="currentRank"></div>
+
+          <div id="hoursCompleted">
+            <div><h5>Hours Completed</h5></div>
+          <div>{hoursCompleted()}</div>
+          </div>
+
+          <div id="overallRank">
+            <div><h5>Current Rank</h5></div>
+          <div>{overallRank()}</div>
+          </div>
+
+
+
+
         </div>
       </div>
 
-      <ul>
-        <li>
-          <strong>User Id</strong> {sessionUser.id}
-        </li>
-        <li>
-          <strong>Username</strong> {sessionUser.user_name}
-        </li>
-        <li>
-          <strong>Email</strong> {sessionUser.email}
-        </li>
-        <li>
-          <strong>Boxing Level</strong>
-        </li>
-        <li>
-          <strong>Profile Photo</strong>
-        </li>
-      </ul>
+    <h2>MORE STUFF HERE</h2>
     </div>
   );
 }
