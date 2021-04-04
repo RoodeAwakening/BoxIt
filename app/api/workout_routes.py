@@ -47,20 +47,29 @@ def user_workouts():
 def user_workouts_all():
     method = request.method
     if method == 'GET':
-        workoutList = {}
-        # Get all users workout
-        # add column in user table to count workouts in the future!!!!
-        allUsersWorkouts = db.session.query(User_Workout).filter(User_Workout.progress_completed == True).join(User).all()
-        for workout in allUsersWorkouts:
-            if workout.user_id not in workoutList:
-                workoutList[workout.user_id] = 1
-            else:
-                workoutList[workout.user_id] += 1
-        return {'workout_totals': workoutList}
-        # return jsonify({'totals': workoutList.to_dict()})
-        # return jsonify(workoutList_dict())
-        # return {"users": [c.to_dict() for c in allUsersWorkouts]}
-        # return {"all_user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
+        users = User.query.with_entities(User.id, User.workouts_completed).order_by(User.workouts_completed.desc())
+        return {"workoutsCompleted":[user for user in users]}
+
+
+@workout_routes.route('/user_workouts/completed/user', methods=['GET','PATCH'])
+# @login_required
+def user_workouts_single():
+    method = request.method
+    if method == 'GET':
+        # current_user.id
+        users = User.query.with_entities(User.workouts_completed).filter(User.id == 3)
+        return {"workoutsCompleted":[user for user in users]}
+    if method == 'PATCH':
+        id = 3
+        user = User.query.get(id)
+        if user:
+            add_workout = request.json['new_workout']
+            user.workouts_completed = add_workout
+            db.session.commit()
+        return jsonify(user.to_dict() if user else 'Invalid operation.')
+
+
+
 
 
 @workout_routes.route('/user_workouts/<int:id>', methods=['GET', 'PATCH', 'DELETE'])

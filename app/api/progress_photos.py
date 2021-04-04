@@ -19,7 +19,7 @@ def progress_photo():
       # Create a progress photo
         new_photo = request.json['progress_photo']
         # REPLACE WITH current_user.id
-        photo = Progress_Photo(user_id=1, photo_url=new_photo)
+        photo = Progress_Photo(user_id=current_user.id, photo_url=new_photo)
         db.session.add(photo)
         db.session.commit()
         return {'new_progress_photo': [photo.to_dict()]}
