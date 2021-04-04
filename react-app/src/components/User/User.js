@@ -10,24 +10,28 @@ import { loginThunk } from "../../store/session";
 function User() {
 
   const dispatch = useDispatch();
-  // Notice we use useParams here instead of getting the params
-  // From props.
-  // const { userId }  = useParams();
+
   const sessionUser = useSelector((state) => state.session.user);
   const workout = useSelector((state) => Object.values(state.workout));
   const allWorkoutsCompleted = useSelector((state)=> Object.values(state.ranking))
 
+  const [loaderBoard, setloaderBoard] = useState('')
 
-  
 
+FINISH CALCULATING USER RANK AND LEADERBOARD
   
-  useEffect( () => {
+  useEffect( async() => {
     if (!workout.length) {
       dispatch(userWorkouts());
     }
     if (!allWorkoutsCompleted.length){
       dispatch(allWorkoutsComplete())
     }
+    if(!loaderBoard.length){
+    const response = await fetch("/api/workouts/user_workouts/completed");
+    const completedWorkouts = await response.json();
+    setloaderBoard(completedWorkouts.all_completed_workouts)
+  }
   }, [dispatch]);
 
   //get total hours completed
