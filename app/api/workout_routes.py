@@ -47,8 +47,12 @@ def user_workouts():
 def user_workouts_all():
     method = request.method
     if method == 'GET':
-        users = User.query.with_entities(User.id, User.workouts_completed).order_by(User.workouts_completed.desc())
-        return {"workoutsCompleted":[user for user in users]}
+        # workouts = []
+        users = User.query.with_entities(User.id, User.workouts_completed).order_by(
+            User.workouts_completed.desc())
+
+        return {"all_completed_workouts": [{"user_id":user[0],"workouts":user[1]} for user in users]}
+
 
 
 @workout_routes.route('/user_workouts/completed/user', methods=['GET','PATCH'])
@@ -57,10 +61,16 @@ def user_workouts_single():
     method = request.method
     if method == 'GET':
         # current_user.id
-        users = User.query.with_entities(User.workouts_completed).filter(User.id == 3)
-        return {"workoutsCompleted":[user for user in users]}
+        workouts = []
+        users = User.query.with_entities(User.workouts_completed).filter(User.id == current_user.id)
+        for user in users:
+            workouts.append({
+                "User": user[0],
+                "Workouts": user[1],
+            })
+        return jsonify(workouts)
     if method == 'PATCH':
-        id = 3
+        id = current_user.id
         user = User.query.get(id)
         if user:
             add_workout = request.json['new_workout']

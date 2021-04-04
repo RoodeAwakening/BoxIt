@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./User.css";
 //store stuff
-import { userWorkouts, allWorkoutsComplete } from "../../store/workouts";
+import { userWorkouts } from "../../store/workouts";
+import { allWorkoutsComplete } from "../../store/ranking";
+import { loginThunk } from "../../store/session";
 
 function User() {
 
@@ -13,7 +15,9 @@ function User() {
   // const { userId }  = useParams();
   const sessionUser = useSelector((state) => state.session.user);
   const workout = useSelector((state) => Object.values(state.workout));
-  const allWorkoutsCompleted = useSelector((state)=> (state.workout.allCompleted))
+  const allWorkoutsCompleted = useSelector((state)=> Object.values(state.ranking))
+
+
   
 
   
@@ -21,7 +25,7 @@ function User() {
     if (!workout.length) {
       dispatch(userWorkouts());
     }
-    if (!allWorkoutsCompleted){
+    if (!allWorkoutsCompleted.length){
       dispatch(allWorkoutsComplete())
     }
   }, [dispatch]);
@@ -34,9 +38,12 @@ function User() {
  })
 
  //get overall rank
- const overallRank = (()=>{
-   return 'Complete this'
- })
+ const overallRank =   (()  =>{
+
+  
+  return 'finish this route'
+})
+
 
 
   if (!sessionUser) {
