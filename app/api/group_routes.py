@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms import CommentForm
-from app.models import Group, db, Comment
+from app.models import Group, db, Comment, User_Group
 
 
 group_routes = Blueprint('groups', __name__)
@@ -77,3 +77,20 @@ def group_comments(id):
             db.session.add(comment)
             db.session.commit()
         return jsonify({'comment': comment.to_dict()} if comment else 'Invalid Operation')
+
+
+@group_routes.route('/user_group', methods=['GET', 'POST','DELETE'])
+# @login_required
+def user_group():
+    method = request.method
+    if method == 'GET':
+      # Get all user groups
+        user_groups = Group.query.join(User_Group).filter(User_Group.user_id == 1).all()
+        return {"user_groups": [group.to_dict() for group in user_groups]}
+    elif method == 'POST':
+      # Add a new Group
+        group_name = request.json['group']
+        group = User(name=group_name)
+        db.session.add(group)
+        db.session.commit()
+        return jsonify(group.to_dict())

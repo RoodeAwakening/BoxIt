@@ -49,30 +49,52 @@
 
 
 .user_container-middle-leaderboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  
+}
+
+.user_container-middle-leaderboard h2{
+text-align: center;
 }
 
 #leaderboard{
   display: flex;
   flex-direction: column;
-  max-height: 180px;
+  height: 180px;
   overflow-y: scroll;
+  width: 150px;
   
 }
 
-.leaderboard-each{
+
+
+
+
+
+.user_container-middle-myGroups{
+  text-align: center;
+}
+
+#myGroups{
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  height: 180px;
+  overflow-y: scroll;
+  width: 150px;
+}
+.user_container-middle-links{
+  text-align: center;
 }
 
-.user_container-middle-leaderboard-name{
-  
-}
-.user_container-middle-leaderboard.workotus{
-  
+
+#links{
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  overflow-y: scroll;
+  width: 150px;
 }
 
-
-.user_container-middle-myGroups{}
-#myGroups{}
-.user_container-middle-links{}
-#links{}

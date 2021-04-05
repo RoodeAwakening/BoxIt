@@ -6,6 +6,8 @@ import "./User.css";
 import { userWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 import { loginThunk } from "../../store/session";
+import LeaderBoard  from "../../components/LeaderBoard/LeaderBoard"
+import Groups  from "../../components/Groups/Groups"
 
 function User() {
   const dispatch = useDispatch();
@@ -51,18 +53,6 @@ function User() {
     return place;
   };
 
-  //leaderboard
-const leaderboard = () =>{
-  let leaders = allWorkoutsCompleted.map(each =>{
-    return (
-      <div className='leaderboard-each'>
-        <div className='user_container-middle-leaderboard-name'>{each.username}</div>
-        <div className='user_container-middle-leaderboard-workouts'>{each.workouts}</div>
-      </div>
-    );
-  })
-  return leaders
-}
 
   if (!sessionUser) {
     return null;
@@ -113,14 +103,14 @@ const leaderboard = () =>{
         <div className="user_container-middle-leaderboard">
           <h2>leaderboard</h2>
           <div id="leaderboard">
-            {leaderboard()}
+            <LeaderBoard />
           </div>
         </div>
 
         <div className="user_container-middle-myGroups">
           <h2>myGroups</h2>
           <div id="myGroups">
-            <h2>myGroups content</h2>
+            <Groups/>
           </div>
         </div>
 
