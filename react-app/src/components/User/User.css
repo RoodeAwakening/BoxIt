@@ -39,3 +39,18 @@
 #workoutsCompleted{}
 #hoursCompleted{}
 #overallRank{}
+
+
+.user_container-middle-ContentBox{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+.user_container-middle-leaderboard{}
+#leaderboard{}
+.user_container-middle-myGroups{}
+#myGroups{}
+.user_container-middle-links{}
+#links{}
