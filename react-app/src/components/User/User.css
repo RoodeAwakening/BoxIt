@@ -1,0 +1,101 @@
+.user_container{
+  background-color: red;
+}
+
+.user_container-header{
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.user_container-header-profilePhoto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-left: 80px;
+}
+
+.user_container-header-profilePhoto img{
+  max-height: 150px;
+  border-radius: 50%;
+}
+
+.user_container-header-ContentBox{
+  display: flex;
+  flex-direction: row;
+  background-color: rosybrown;
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  width: 100%;
+  height: 100px;
+  justify-content: space-around;
+  margin: 0 200px;
+  
+}
+
+#currentLevel{}
+#workoutsCompleted{}
+#hoursCompleted{}
+#overallRank{}
+
+
+.user_container-middle-ContentBox{
+  display: flex;
+  justify-content: space-around;
+  height: 350px;
+}
+
+
+
+.user_container-middle-leaderboard{
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+  
+}
+
+.user_container-middle-leaderboard h2{
+text-align: center;
+}
+
+#leaderboard{
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  overflow-y: scroll;
+  width: 190px;
+  
+}
+
+
+
+
+
+
+.user_container-middle-myGroups{
+  text-align: center;
+}
+
+#myGroups{
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  overflow-y: scroll;
+  width: 190px;
+}
+.user_container-middle-links{
+  text-align: center;
+}
+
+
+#links{
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  overflow-y: scroll;
+  width: 190px;
+}
+

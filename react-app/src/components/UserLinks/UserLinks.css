@@ -1,0 +1,24 @@
+.links-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.links-group a{
+  text-decoration: none;
+  color: black;
+  margin-bottom: 18px;
+}
+
+
+.links-each {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 8px 0px;
+  
+
+}
+
+

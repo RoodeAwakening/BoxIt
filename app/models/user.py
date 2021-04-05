@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
     profile_photo = db.Column(db.String, nullable=False)
     boxing_level = db.Column(db.String, nullable=False)
+    workouts_completed = db.Column(db.Integer, nullable=True)
 
     # relationships
     users_groups = db.relationship("User_Group", backref="users")
@@ -43,5 +44,6 @@ class User(db.Model, UserMixin):
             "DOB": self.DOB,
             "email": self.email,
             "profile_photo": self.profile_photo,
-            "boxing_level": self.boxing_level
+            "boxing_level": self.boxing_level,
+            "workouts_completed": self.workouts_completed
         }
