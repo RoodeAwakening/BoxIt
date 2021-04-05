@@ -48,8 +48,30 @@
 
 
 
-.user_container-middle-leaderboard{}
-#leaderboard{}
+.user_container-middle-leaderboard{
+}
+
+#leaderboard{
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  overflow-y: scroll;
+  
+}
+
+.leaderboard-each{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user_container-middle-leaderboard-name{
+  
+}
+.user_container-middle-leaderboard.workotus{
+  
+}
+
+
 .user_container-middle-myGroups{}
 #myGroups{}
 .user_container-middle-links{}

@@ -16,8 +16,7 @@ function User() {
     Object.values(state.ranking)
   );
 
-  console.log("allWorkoutsCompleted", allWorkoutsCompleted);
-  console.log("sessionUser", sessionUser.id);
+
   const [currentRank, setcurrentRank] = useState("");
 
   // console.log('2222222222', loaderBoard);
@@ -47,11 +46,23 @@ function User() {
       if (el.user_id === sessionUser.id) {
         place = i + 1;
       }
-   
     }
 
     return place;
   };
+
+  //leaderboard
+const leaderboard = () =>{
+  let leaders = allWorkoutsCompleted.map(each =>{
+    return (
+      <div className='leaderboard-each'>
+        <div className='user_container-middle-leaderboard-name'>{each.username}</div>
+        <div className='user_container-middle-leaderboard-workouts'>{each.workouts}</div>
+      </div>
+    );
+  })
+  return leaders
+}
 
   if (!sessionUser) {
     return null;
@@ -102,7 +113,7 @@ function User() {
         <div className="user_container-middle-leaderboard">
           <h2>leaderboard</h2>
           <div id="leaderboard">
-            <h2>leaderboard content</h2>
+            {leaderboard()}
           </div>
         </div>
 
@@ -120,12 +131,6 @@ function User() {
           </div>
         </div>
       </div>
-
-
-
-
-
-
     </div>
   );
 }

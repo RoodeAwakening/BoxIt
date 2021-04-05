@@ -16,7 +16,7 @@ export const allWorkoutsComplete = () => async (dispatch) => {
   const completedWorkouts = await response.json();
 
   dispatch(getAllWorkoutCompleted(completedWorkouts));
-  // console.log('completedworkouts',completedWorkouts);
+  console.log('completedworkouts',completedWorkouts);
   return completedWorkouts;
 };
 
