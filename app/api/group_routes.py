@@ -94,3 +94,17 @@ def user_group():
         db.session.add(group)
         db.session.commit()
         return jsonify(group.to_dict())
+
+@group_routes.route('/user_group/<int:id>', methods=['GET','DELETE'])
+# @login_required
+def user_group_single(id):
+    method = request.method
+    if method == 'GET':
+      # Get single user group
+        user_group = Group.query.join(User_Group).filter(User_Group.id == id)
+        return {"user_groups": [group.to_dict() for group in user_group]}
+    elif method == 'DELETE':
+      # Delete a group from users groups
+        success = User_Group.query.filter(User_Group.id == id).delete()
+        db.session.commit()
+        return jsonify('Successfully deleted' if success else 'No Group Exists')
