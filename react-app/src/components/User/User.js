@@ -5,9 +5,13 @@ import "./User.css";
 //store stuff
 import { userWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
+import { userGroups } from "../../store/userGroups";
+
+
 import { loginThunk } from "../../store/session";
 import LeaderBoard  from "../../components/LeaderBoard/LeaderBoard"
-import Groups  from "../../components/Groups/Groups"
+import MyGroups  from "../MyGroups/MyGroups"
+import UserLinks  from "../UserLinks/UserLinks"
 
 function User() {
   const dispatch = useDispatch();
@@ -30,6 +34,9 @@ function User() {
     if (!allWorkoutsCompleted.length) {
       dispatch(allWorkoutsComplete());
     }
+  
+      dispatch(userGroups());
+    
   }, [dispatch]);
 
   //get total hours completed
@@ -110,14 +117,14 @@ function User() {
         <div className="user_container-middle-myGroups">
           <h2>myGroups</h2>
           <div id="myGroups">
-            <Groups/>
+            <MyGroups/>
           </div>
         </div>
 
         <div className="user_container-middle-links">
           <h2>links</h2>
           <div id="links">
-            <h2>links content</h2>
+            <UserLinks />
           </div>
         </div>
       </div>

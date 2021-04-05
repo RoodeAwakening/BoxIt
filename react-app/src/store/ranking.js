@@ -2,7 +2,6 @@ const GET_ALL_WORKOUT_COMPLETED = "getAllWorkoutCompleted";
 
 //ACTION
 const getAllWorkoutCompleted = (allCompletedWorkouts) => {
-  console.log("completedworkouts", allCompletedWorkouts);
   return {
     type: GET_ALL_WORKOUT_COMPLETED,
     allCompletedWorkouts,
@@ -16,7 +15,6 @@ export const allWorkoutsComplete = () => async (dispatch) => {
   const completedWorkouts = await response.json();
 
   dispatch(getAllWorkoutCompleted(completedWorkouts));
-  console.log('completedworkouts',completedWorkouts);
   return completedWorkouts;
 };
 

@@ -44,6 +44,7 @@
 .user_container-middle-ContentBox{
   display: flex;
   justify-content: space-around;
+  height: 350px;
 }
 
 
@@ -51,7 +52,7 @@
 .user_container-middle-leaderboard{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
   align-content: center;
   
 }
@@ -63,9 +64,9 @@ text-align: center;
 #leaderboard{
   display: flex;
   flex-direction: column;
-  height: 180px;
+  height: 270px;
   overflow-y: scroll;
-  width: 150px;
+  width: 190px;
   
 }
 
@@ -81,9 +82,9 @@ text-align: center;
 #myGroups{
   display: flex;
   flex-direction: column;
-  height: 180px;
+  height: 270px;
   overflow-y: scroll;
-  width: 150px;
+  width: 190px;
 }
 .user_container-middle-links{
   text-align: center;
@@ -93,8 +94,8 @@ text-align: center;
 #links{
   display: flex;
   flex-direction: column;
-  height: 180px;
+  height: 270px;
   overflow-y: scroll;
-  width: 150px;
+  width: 190px;
 }
 

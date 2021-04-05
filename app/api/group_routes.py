@@ -79,7 +79,7 @@ def group_comments(id):
         return jsonify({'comment': comment.to_dict()} if comment else 'Invalid Operation')
 
 
-@group_routes.route('/user_group', methods=['GET', 'POST','DELETE'])
+@group_routes.route('/user_group', methods=['GET', 'POST'])
 # @login_required
 def user_group():
     method = request.method
