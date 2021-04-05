@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-
+import * as sessionActions from '../../store/session'
 import { useHistory } from "react-router-dom";
 
 // import { createPost } from '../../store/posts'
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
-import { loginThunk } from "../../store/session";
 import "./LoginModal.css";
 
 const customStyles = {
@@ -33,7 +32,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
   const onLogin = async (e) => {
     e.preventDefault();
     setErrors([]);
-    const user = await dispatch(loginThunk({ email, password }));
+    const user = await dispatch(sessionActions.loginThunk({ email, password }));
     if (user.errors) {
       setErrors(user.errors);
     } else {
