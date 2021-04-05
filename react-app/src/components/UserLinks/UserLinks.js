@@ -1,20 +1,55 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 import "./UserLinks.css";
 
-export default function UserLinks(){
+export default function UserLinks() {
   return (
-    <div className='links-group '> 
+    <div className="links-group ">
+      {/* <a className='links-each' href='/users'>Start a new workout</a>  */}
 
-      <a className='links-each' href='/'>Start a new workout</a> 
+      <NavLink
+        to="/workout"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+      >
+        Start a new workout
+      </NavLink>
 
-      <a className='links-each' href='/'>Groups</a> 
-      <a className='links-each' href='/'>Favorite Workouts</a> 
-      <a className='links-each' href='/'>Progress Photos</a> 
-      <a className='links-each' href='/'>Action Shots</a> 
-
-
-      </div>
-  )
+      <NavLink
+        to="/"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+      >
+        Groups
+       </NavLink>
+      <NavLink
+        to="/"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+      >
+        Favorite Workouts
+       </NavLink>
+      <NavLink
+        to="/"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+      >
+        Progress Photos
+       </NavLink>
+      <NavLink
+        to="/"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+      >
+        Action Shots
+       </NavLink>
+    </div>
+  );
 }

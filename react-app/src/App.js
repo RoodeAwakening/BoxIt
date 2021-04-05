@@ -13,6 +13,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User/User";
 import WelcomePage from "./components/Welcome/Welcome";
+import Workouts from "./components/Workouts/Workouts";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(true);
@@ -42,49 +43,57 @@ function App() {
 
   return (
     <>
-      {loaded &&
+      {loaded && (
         <BrowserRouter>
           <Switch>
             <Route path="/welcome" exact={true}>
               <WelcomePage />
             </Route>
-            
 
             <div>
               <NavBar setAuthenticated={setAuthenticated} />
               <ProtectedRoute path="/" exact={true} authenticated>
                 <User />
               </ProtectedRoute>
-              <ProtectedRoute path="/users" exact={true} authenticated>
+              <Route path="/users" exact={true} >
                 <UsersList />
-              </ProtectedRoute>
-              <ProtectedRoute path="/users/:userId" exact={true} authenticated>
+                </Route>
+              <Route path="/workout" exact={true}  >
+                <Workouts />
+                </Route>
+              <Route path="/users/:userId" exact={true} >
                 <User />
-              </ProtectedRoute>
-              <ProtectedRoute
+                </Route>
+
+
+
+
+
+              <Route
                 path="/users/:userId/progress"
                 exact={true}
                 authenticated
               >
                 {/* SETUP ROUTE */}
-              </ProtectedRoute>
-              <ProtectedRoute
+                </Route>
+
+              <Route
                 path="/workout/:workoutId"
                 exact={true}
                 authenticated
               >
                 {/* SETUP ROUTE */}
-              </ProtectedRoute>
-              <ProtectedRoute path="/groups" exact={true} authenticated>
+                </Route>
+              <Route path="/groups" exact={true} authenticated>
                 {/* SETUP ROUTE */}
-              </ProtectedRoute>
-              <ProtectedRoute path="/groups/:groupId" exact={true}>
+                </Route>
+              <Route path="/groups/:groupId" exact={true}>
                 {/* SETUP ROUTE */}
-              </ProtectedRoute>
+                </Route>
             </div>
           </Switch>
         </BrowserRouter>
-      }
+      )}
     </>
   );
 }
