@@ -85,12 +85,12 @@ def user_group():
     method = request.method
     if method == 'GET':
       # Get all user groups
-        user_groups = Group.query.join(User_Group).filter(User_Group.user_id == 1).all()
+        user_groups = Group.query.join(User_Group).filter(User_Group.user_id == current_user.id).all()
         return {"user_groups": [group.to_dict() for group in user_groups]}
     elif method == 'POST':
       # Add a new Group
-        group_name = request.json['group']
-        group = User(name=group_name)
+        group_id = request.json['group']
+        group = User_Group(user_id=current_user.id, groups_id=group_id)
         db.session.add(group)
         db.session.commit()
         return jsonify(group.to_dict())
