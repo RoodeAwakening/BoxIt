@@ -28,14 +28,13 @@ function User() {
   // console.log('2222222222', loaderBoard);
 
   useEffect(async () => {
-    if (!workout.length) {
+    if (sessionUser) {
       dispatch(userWorkouts());
-    }
-    if (!allWorkoutsCompleted.length) {
       dispatch(allWorkoutsComplete());
+      dispatch(userGroups());
     }
   
-      dispatch(userGroups());
+  
     
   }, [dispatch]);
 

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import "./Welcome.css";
 
-export default function WelcomePage() {
+export default function WelcomePage({ authenticated, setAuthenticated }) {
   let history = useHistory()
 
 	const dispatch = useDispatch()

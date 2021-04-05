@@ -8,8 +8,9 @@ const LogoutButton = ({setAuthenticated}) => {
   const dispatch = useDispatch();
   
   const onLogout = async (e) => {
-    dispatch(sessionActions.logoutThunk());
-    history.push("/")
+    await dispatch(sessionActions.logoutThunk())
+    setAuthenticated(false);
+    history.push("/welcome")
   }
 
   return <button onClick={onLogout}>Logout</button>;

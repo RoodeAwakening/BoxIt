@@ -83,7 +83,7 @@ export const loginThunk = user => async dispatch => {
 
 export const logoutThunk = user => async dispatch => {
   const response = await fetch('/api/auth/logout',{
-    method:'DELETE',
+    method:'GET',
   })
   dispatch(removeUser())
   return response
