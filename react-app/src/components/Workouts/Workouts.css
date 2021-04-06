@@ -6,12 +6,12 @@ background-color: red;
   display: flex;
   background-color: green;
 }
-.workouts_header-coach{
+.workouts_header-coach img{
   background-color: yellow;
+  max-height: 150px;
+  border-radius: 50%;
 }
-.workouts_header-workout-progress{
-  background-color:teal;
-}
+
 
 .workouts_body{
   background-color: violet;

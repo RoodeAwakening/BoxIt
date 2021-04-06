@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import "./User.css";
 //store stuff
-import { userWorkouts } from "../../store/workouts";
+import { userWorkouts, allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 import { userGroups } from "../../store/userGroups";
 
@@ -33,6 +33,7 @@ function User() {
       dispatch(userWorkouts());
       dispatch(allWorkoutsComplete());
       dispatch(userGroups());
+      dispatch(allWorkouts())
     }
   
   

@@ -1,34 +1,78 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
+//store
+import { userWorkouts, allWorkouts } from "../../store/workouts";
+import { allWorkoutsComplete } from "../../store/ranking";
 
 import "./Workouts.css";
 
-const Workouts = () => {
+const Workouts = (workout) => {
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
+const workouts =  useSelector((state) => state.workout.workouts);
 
+  const [box, setBox] = useState('')
+
+  
+  
   /////
-
+  
   //////
+  
+  // useEffect( () => {
+    
+  //     // dispatch(userWorkouts());
+  //     // dispatch(allWorkoutsComplete());
+  //     dispatch(allWorkouts())
+    
+    
+  // }, [sessionUser]);
+  
+  const userWorkout =  ()  => {
+    let num = 1
+    for (const val in workouts) {
+      num += 1
+    }
+    
+    
+
+    let pos = Math.floor(Math.random() * (num - 1)+ 1)
+ 
+    return (
+        <>
+      <div className="workouts_header">
+        <div className="workouts_header-coach">
+      <img src={workouts[pos].coach_photo_url} />
+        </div>
+        </div>
+
+        <div className="workouts_body">
+        <div className="workouts_body-clock">
+          
+      <video src={workouts[pos].audio_url} autoPlay />
+  
+        </div>
+      </div>
+
+
+
+        </>
+    )
+    
+
+}
+
+
 
   if (!sessionUser) {
     return <Redirect to="/welcome" />;
   }
   return (
     <div className="workouts_container">
-      <div className="workouts_header">
-        <div className="workouts_header-coach">
-          <h6>Coach</h6>
-        </div>
-        <div className="workouts_header-workout-progress">
-          <h6>Progress</h6>
-        </div>
-      </div>
-      <div className="workouts_body">
-        <div className="workouts_body-clock">
-          <h6>Clock</h6>
-        </div>
-      </div>
+
+    
+          {workouts ? userWorkout(): "No Workouts Available"}
       <div className="workouts_footer">
         <div className="workouts_footer-rating">
           <h6>Ratings</h6>
