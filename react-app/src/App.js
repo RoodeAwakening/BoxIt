@@ -37,9 +37,9 @@ function App() {
     })();
   }, []);
 
-  if (!loaded) {
-    history.push("/welcome");
-  }
+  // if (!loaded) {
+  //   history.push("/welcome");
+  // }
 
   return (
     <>
@@ -52,9 +52,12 @@ function App() {
 
             <div>
               <NavBar setAuthenticated={setAuthenticated} />
-              <ProtectedRoute path="/" exact={true} authenticated>
+              {/* <ProtectedRoute path="/" exact={true} authenticated>
                 <User />
-              </ProtectedRoute>
+              </ProtectedRoute> */}
+              <Route  path="/" exact={true} authenticated>
+                <User />
+                </Route>
               <Route path="/users" exact={true} >
                 <UsersList />
                 </Route>

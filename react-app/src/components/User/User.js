@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import "./User.css";
 //store stuff
@@ -61,7 +62,7 @@ function User() {
 
 
   if (!sessionUser) {
-    return null;
+    return <Redirect to='/welcome'/>;
   }
 
   return (
