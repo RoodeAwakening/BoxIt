@@ -1,11 +1,14 @@
 .userGroups-each {
   display: flex;
   justify-content: center;
+  border: 1px solid black;
+  padding: 8px 2px;
+  margin-bottom: 18px;
 }
 
 
 .userGroups-name {
-  margin-bottom: 12px;
-  border: 1px solid black;
-  padding: 8px 6px;
+  /* margin-bottom: 12px; */
+  /* border: 1px solid black; */
+  /* padding: 8px 6px; */
 }

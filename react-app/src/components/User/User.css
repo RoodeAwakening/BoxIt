@@ -3,7 +3,6 @@
 }
 
 .user_container-header{
-  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,6 +17,11 @@
   margin-left: 80px;
 }
 
+#username{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
 .user_container-header-profilePhoto img{
   max-height: 150px;
   border-radius: 50%;
@@ -26,7 +30,8 @@
 .user_container-header-ContentBox{
   display: flex;
   flex-direction: row;
-  background-color: rosybrown;
+  background-color:#231F20;
+  color: white;
   border: 3px solid rgba(0, 0, 0, 0.507);
   width: 100%;
   height: 100px;
@@ -45,7 +50,7 @@
   display: flex;
   justify-content: space-around;
   height: 350px;
-  background-color: red;
+  border: 3px solid rgba(0, 0, 0, 0.507);
 }
 
 

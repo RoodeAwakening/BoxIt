@@ -4,7 +4,9 @@ import { Redirect } from "react-router-dom";
 
 import "./User.css";
 //store stuff
-import { userWorkouts, allWorkouts } from "../../store/workouts";
+import { userWorkouts } from "../../store/userWorkouts";
+import { allWorkouts } from "../../store/workouts";
+// import { userWorkouts, allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 import { userGroups } from "../../store/userGroups";
 
@@ -21,7 +23,7 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-  const userWorkout = useSelector((state) => state.workout.userWorkouts);
+  const userWorkout = useSelector((state) => state.userWorkouts);
 
   useEffect(() => {
     dispatch(userWorkouts());
@@ -72,7 +74,7 @@ function User() {
           <div>
             <img src={sessionUser.profile_photo} />
           </div>
-          <div>{sessionUser.user_name}</div>
+          <div id='username'>{sessionUser.user_name}</div>
         </div>
 
         <div className="user_container-header-ContentBox">

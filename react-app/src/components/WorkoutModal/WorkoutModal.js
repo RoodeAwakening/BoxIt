@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/workouts";
 import { useHistory } from "react-router-dom";
 
-
-
 import Modal from "react-modal";
 import "./WorkoutModal.css";
 
@@ -29,16 +27,21 @@ export default function WorkoutModal({
   const dispatch = useDispatch();
   let history = useHistory();
 
-
-  const sessionUserWorkouts = useSelector((state) => state.session.user.workouts_completed);
+  const sessionUserWorkouts = useSelector(
+    (state) => state.session.user.workouts_completed
+  );
   const [favorited, setFavorited] = useState(false);
-console.log('sessionUserWorkouts',sessionUserWorkouts);
+  console.log("sessionUserWorkouts", sessionUserWorkouts);
 
   const saveWorkout = async (e) => {
     e.preventDefault();
 
     const workout = await dispatch(
-      sessionActions.addNewWorkout({ workoutId, favorited, sessionUserWorkouts })
+      sessionActions.addNewWorkout({
+        workoutId,
+        favorited,
+        sessionUserWorkouts,
+      })
     );
 
     history.push("/");
@@ -71,11 +74,8 @@ console.log('sessionUserWorkouts',sessionUserWorkouts);
       </div>
       <div className="workout_modal-container">
         <form onSubmit={saveWorkout} className="login-form">
-          <div className='saveworkout'>
-            
-
+          <div className="saveworkout">
             <label>Add To Favorites</label>
-            
 
             <input
               name="favorite"
@@ -83,32 +83,32 @@ console.log('sessionUserWorkouts',sessionUserWorkouts);
               placeholder="favorite"
               value="true"
               onChange={updateFavorite}
-              />
-              
+            />
           </div>
           <div className="rate-container">
-
-          <div className="rate">
-            
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
-  
+            <div className="rate">
+              <input type="radio" id="star5" name="rate" value="5" />
+              <label for="star5" title="text">
+                5 stars
+              </label>
+              <input type="radio" id="star4" name="rate" value="4" />
+              <label for="star4" title="text">
+                4 stars
+              </label>
+              <input type="radio" id="star3" name="rate" value="3" />
+              <label for="star3" title="text">
+                3 stars
+              </label>
+              <input type="radio" id="star2" name="rate" value="2" />
+              <label for="star2" title="text">
+                2 stars
+              </label>
+              <input type="radio" id="star1" name="rate" value="1" />
+              <label for="star1" title="text">
+                1 star
+              </label>
+            </div>
           </div>
-
-
-
-
-
-
 
           <div>
             <button type="submit">Save Workout</button>

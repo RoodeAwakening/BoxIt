@@ -1,110 +1,74 @@
-
-
-const GET_USER_WORKOUT = "setUserWorkout";
-const GET_ALL_WORKOUTS = 'getAllWorkouts'
-
-
+const GET_ALL_WORKOUTS = "getAllWorkouts";
 
 //ACTION
-const getUserWorkout = (userWorkout) => {
+
+const getAllWorkouts = (allWorkouts) => {
   return {
-    type: GET_USER_WORKOUT,
-    userWorkout,
+    type: GET_ALL_WORKOUTS,
+    allWorkouts,
   };
 };
 
-
-const getAllWorkouts = (allWorkouts) => {
-
-  return {
-    type: GET_ALL_WORKOUTS,
-    allWorkouts
-  }
-}
-
-
-
-
-
-
 //Thunk Action Creator
-//get a users total workouts
-export const userWorkouts = () => async (dispatch) => {
-  const response = await fetch("/api/workouts/user_workouts");
-  const workouts = await response.json();
-
-  dispatch(getUserWorkout(workouts));
-  return workouts;
-};
-
 
 // get all workouts
 export const allWorkouts = () => async (dispatch) => {
-  const response = await fetch('/api/workouts/')
-  const workouts = await response.json()
+  const response = await fetch("/api/workouts/");
+  const workouts = await response.json();
 
-  dispatch(getAllWorkouts(workouts))
-  return workouts
-}
+  dispatch(getAllWorkouts(workouts));
+  return workouts;
+};
 
 // add workout
-export const addNewWorkout = workoutObject => async dispatch => {
-  const {workoutId, favorited, sessionUserWorkouts} = workoutObject
-// add to the users_workouts table
-  const response = await fetch(`/api/workouts/user_workouts`,{
-    method: 'POST',
+export const addNewWorkout = (workoutObject) => async (dispatch) => {
+  const { workoutId, favorited, sessionUserWorkouts } = workoutObject;
+  // add to the users_workouts table
+  const response = await fetch(`/api/workouts/user_workouts`, {
+    method: "POST",
     headers: {
-			'Content-Type': 'application/json',
-		},
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
-	    workout: {
+      workout: {
         stock_workouts_id: workoutId,
         favorited: favorited,
-        progress_completed: true
+        progress_completed: true,
+      },
+    }),
+  });
+  const data1 = await response.json();
+
+  // update the total user workouts completed on the user table
+  const newTotalWorkouts = (await sessionUserWorkouts) + 1;
+  const responseAdd = await fetch(
+    `/api/workouts/user_workouts/completed/user`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        new_workout: newTotalWorkouts,
+      }),
     }
-  }),
-})
-  const data1 = await response.json()
-
-// update the total user workouts completed on the user table
-const newTotalWorkouts = await sessionUserWorkouts + 1
-const responseAdd = await fetch(`/api/workouts/user_workouts/completed/user`,{
-  method: 'PATCH',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    new_workout: newTotalWorkouts
-}),
-})
-const data2 = await responseAdd.json()
-}
-
-
+  );
+  const data2 = await responseAdd.json();
+};
 
 //Reducer
 const initialState = {};
 export default function workoutReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_USER_WORKOUT:
-      const workouts = {};
-      action.userWorkout.user_workouts.forEach((workout) => {
-        workouts[workout.id] = workout;
+    case GET_ALL_WORKOUTS:
+      const allWorkouts = {};
+      action.allWorkouts.stock_workouts.forEach((workouts) => {
+        allWorkouts[workouts.id] = workouts;
       });
       return {
         ...state,
-        userWorkouts:workouts
+        ...allWorkouts,
       };
-    case GET_ALL_WORKOUTS:
-      const allWorkouts = {}
-      action.allWorkouts.stock_workouts.forEach((workouts)=>{
-        allWorkouts[workouts.id] = workouts
-      })
-      return {
-        ...state,
-        workouts:allWorkouts
-        ,
-      }
 
     default:
       return state;
