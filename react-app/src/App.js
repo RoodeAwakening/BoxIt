@@ -55,44 +55,32 @@ function App() {
               {/* <ProtectedRoute path="/" exact={true} authenticated>
                 <User />
               </ProtectedRoute> */}
-              <Route  path="/" exact={true} authenticated>
+              <Route path="/" exact={true} authenticated>
                 <User />
-                </Route>
-              <Route path="/users" exact={true} >
+              </Route>
+              <Route path="/users" exact={true}>
                 <UsersList />
-                </Route>
-              <Route path="/workout" exact={true}  >
+              </Route>
+              <Route path="/workout" exact={true}>
                 <Workouts />
-                </Route>
-              <Route path="/users/:userId" exact={true} >
+              </Route>
+              <Route path="/users/:userId" exact={true}>
                 <User />
-                </Route>
+              </Route>
 
-
-
-
-
-              <Route
-                path="/users/:userId/progress"
-                exact={true}
-                authenticated
-              >
+              <Route path="/users/:userId/progress" exact={true} authenticated>
                 {/* SETUP ROUTE */}
-                </Route>
+              </Route>
 
-              <Route
-                path="/workout/:workoutId"
-                exact={true}
-                authenticated
-              >
+              <Route path="/workout/:workoutId" exact={true} authenticated>
                 {/* SETUP ROUTE */}
-                </Route>
+              </Route>
               <Route path="/groups" exact={true} authenticated>
                 {/* SETUP ROUTE */}
-                </Route>
+              </Route>
               <Route path="/groups/:groupId" exact={true}>
                 {/* SETUP ROUTE */}
-                </Route>
+              </Route>
             </div>
           </Switch>
         </BrowserRouter>

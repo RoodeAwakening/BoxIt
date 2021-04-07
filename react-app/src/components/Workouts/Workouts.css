@@ -5,19 +5,28 @@ background-color: red;
 .workouts_header{
   display: flex;
   background-color: green;
+  padding-left: 20px;
 }
+
 .workouts_header-coach img{
   background-color: yellow;
   max-height: 150px;
   border-radius: 50%;
 }
 
+.workouts_header-coach h2{
+  text-align: center;
+}
+
 
 .workouts_body{
+  display: flex;
+  justify-content: center;
   background-color: violet;
 }
 
 .workouts_body-clock{
+
   background-color: aquamarine;
 }
 
