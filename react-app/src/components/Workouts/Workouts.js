@@ -33,6 +33,7 @@ const Workouts = (workout) => {
     let pos = Math.floor(Math.random() * (num - 1) + 1);
     return (
       <>
+      
         <div className="workouts_header">
           <div className="workouts_header-coach">
             <h2>Your Coach</h2>
@@ -43,7 +44,6 @@ const Workouts = (workout) => {
         <div className="workouts_body">
           <div className="workouts_body-clock">
             <video src={workouts[pos].audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
-
           </div>
         </div>
       </>
@@ -75,14 +75,9 @@ const Workouts = (workout) => {
             workoutId={workoutId}
             />
             </div>
-          <h6>Ratings</h6>
+
         </div>
-        <div className="workouts_footer-favorite">
-          <h6>Favorite</h6>
-        </div>
-        <div className="workouts_footer-pause-end">
-          <h6>pause end</h6>
-        </div>
+      
       </div>
     </div>
   );

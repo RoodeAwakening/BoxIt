@@ -4,8 +4,9 @@ background-color: red;
 
 .workouts_header{
   display: flex;
-  background-color: green;
-  padding-left: 20px;
+
+  padding-right: 20px;
+  color:white;
 }
 
 .workouts_header-coach img{
@@ -20,26 +21,14 @@ background-color: red;
 
 
 .workouts_body{
+  
   display: flex;
   justify-content: center;
-  background-color: violet;
+  background-color: black;
+  padding: 20px 0px;
 }
 
 .workouts_body-clock{
 
-  background-color: aquamarine;
-}
 
-.workouts_footer{
-  display: flex;
-  background-color: blueviolet;
-}
-.workouts_footer-rating{
-  background-color:burlywood;
-}
-.workouts_footer-favorite{
-  background-color: rgb(54, 146, 58);
-}
-.workouts_footer-pause-end{
-  background-color: rgb(187, 21, 49);
 }
