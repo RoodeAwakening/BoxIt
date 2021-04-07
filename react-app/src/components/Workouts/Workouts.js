@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 //store
-import {  allWorkouts } from "../../store/workouts";
+// import {  allWorkouts } from "../../store/workouts";
+import { userWorkouts } from "../../store/userWorkouts";
+import { allWorkouts } from "../../store/workouts";
 
 
 import WorkoutModal from "../WorkoutModal/WorkoutModal";
@@ -11,7 +13,7 @@ import "./Workouts.css";
 const Workouts = (workout) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  const workouts = useSelector((state) => state.workout.workouts);
+  const workouts = useSelector((state) => state.workout);
   const [workoutModalIsOpen, setWorkoutModalisOpen] = useState(false);
   const [workoutId, setWorkoutid] = useState(0);
 

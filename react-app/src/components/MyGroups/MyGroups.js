@@ -19,7 +19,3 @@ export default function Groups() {
   return userGroups;
 }
 
-// # Get all user groups
-// @group_routes.route('/user_group', methods=['GET', 'POST'])
-// # Get single user group
-// @group_routes.route('/user_group/<int:id>', methods=['GET','DELETE'])

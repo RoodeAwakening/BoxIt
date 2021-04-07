@@ -4,6 +4,7 @@ import sessionReducer from './session'
 import workoutReducer from './workouts'
 import rankingReducer from './ranking'
 import userGroupReducer from './userGroups'
+import userWorkoutsReducer from './userWorkouts'
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
 	workout: workoutReducer,
 	ranking: rankingReducer,
 	userGroup: userGroupReducer,
+	userWorkouts: userWorkoutsReducer,
 
 	// add more reducers here
 })
