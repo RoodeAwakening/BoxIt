@@ -9,7 +9,7 @@ const LogoutButton = ({setAuthenticated}) => {
   
   const onLogout = async (e) => {
     await dispatch(sessionActions.logoutThunk())
-    setAuthenticated(false);
+    // setAuthenticated(false);
     history.push("/welcome")
   }
 

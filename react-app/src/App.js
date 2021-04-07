@@ -9,14 +9,13 @@ import { useHistory } from "react-router";
 // import SignUpForm from "./components/auth/SignUpForm";
 // COMPONENTS
 import NavBar from "./components/NavBar/NavBar";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User/User";
 import WelcomePage from "./components/Welcome/Welcome";
 import Workouts from "./components/Workouts/Workouts";
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(true);
+  // const [authenticated, setAuthenticated] = useState(true);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   let history = useHistory();
@@ -30,9 +29,9 @@ function App() {
       const user = await authenticate();
       if (!user.errors) {
         await dispatch(sessionActions.restoreUser());
-        setAuthenticated(true);
+        ;
       }
-      setAuthenticated(true);
+      ;
       setLoaded(true);
     })();
   }, []);
@@ -50,12 +49,12 @@ function App() {
               <WelcomePage />
             </Route>
 
-            <div>
-              <NavBar setAuthenticated={setAuthenticated} />
+            <>
+              <NavBar />
               {/* <ProtectedRoute path="/" exact={true} authenticated>
                 <User />
               </ProtectedRoute> */}
-              <Route path="/" exact={true} authenticated>
+              <Route path="/" exact={true} >
                 <User />
               </Route>
               <Route path="/users" exact={true}>
@@ -68,20 +67,20 @@ function App() {
                 <User />
               </Route>
 
-              <Route path="/users/:userId/progress" exact={true} authenticated>
+              <Route path="/users/:userId/progress" exact={true} >
                 {/* SETUP ROUTE */}
               </Route>
 
-              <Route path="/workout/:workoutId" exact={true} authenticated>
+              <Route path="/workout/:workoutId" exact={true} >
                 {/* SETUP ROUTE */}
               </Route>
-              <Route path="/groups" exact={true} authenticated>
+              <Route path="/groups" exact={true} >
                 {/* SETUP ROUTE */}
               </Route>
               <Route path="/groups/:groupId" exact={true}>
                 {/* SETUP ROUTE */}
               </Route>
-            </div>
+            </>
           </Switch>
         </BrowserRouter>
       )}

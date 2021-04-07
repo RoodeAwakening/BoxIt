@@ -26,18 +26,16 @@ export default function rankingReducer(state = initialState, action) {
       const totalCompleted = [];
       const completed = action.allCompletedWorkouts.all_completed_workouts;
       for (let i = 0; i < completed.length; i++) {
-        // const x = { [completed[i].user_id]: completed[i] };
         const x = completed[i] ;
-        // const x = { [completed[i].workouts]: completed[i] };
+        if (x.workouts === null) {
+          x.workouts = 0
+        }
+  
       
         totalCompleted.push(x);
       }
 
-      // action.allCompletedWorkouts.all_completed_workouts.forEach(
-      //   (completed) => {
-      //     totalCompleted[completed.workouts] = completed;
-      //   }
-      // );
+
 
       return {
         ...state,

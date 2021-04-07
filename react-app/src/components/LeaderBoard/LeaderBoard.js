@@ -10,11 +10,15 @@ export default function LeaderBoard() {
     Object.values(state.ranking)
   );
 
+
+
+
   let pos = 0;
   let leaders = allWorkoutsCompleted.map((each) => {
     pos += 1;
+  
     return (
-      <div className="leaderboard-each">
+      <div className="leaderboard-each" key={each.user_id}>
         <div className="leaderboard-pos">{`#${pos}`}</div>
         <div className="leaderboard-name">
           {each.username}

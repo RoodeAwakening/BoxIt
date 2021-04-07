@@ -20,6 +20,8 @@ export const signup = user => async dispatch => {
   // fetch to image route to get image url
   const formData = new FormData()
   formData.append('image', profile_photo)
+
+
   const responseImageUrl = await fetch('/api/images/',{
     method: 'POST',
     body: formData,

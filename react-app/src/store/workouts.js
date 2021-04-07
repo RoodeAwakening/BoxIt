@@ -55,7 +55,7 @@ export const allWorkouts = () => async (dispatch) => {
 // add workout
 export const addNewWorkout = workoutObject => async dispatch => {
   const {workoutId, favorited} = workoutObject
-  console.log('----------','object',workoutObject);
+
   const response = await fetch(`/api/workouts/user_workouts`,{
     method: 'POST',
     headers: {
