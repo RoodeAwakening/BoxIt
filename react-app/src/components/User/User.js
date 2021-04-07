@@ -18,12 +18,12 @@ import WorkoutsList from "../WorkoutList/WorkoutList";
 function User() {
   const dispatch = useDispatch();
 
+  const userWorkout = useSelector((state) => Object.values(state.userWorkouts));
   const sessionUser = useSelector((state) => state.session.user);
   const workout = useSelector((state) => Object.values(state.workout));
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-  const userWorkout = useSelector((state) => state.userWorkouts);
 
   useEffect(() => {
     dispatch(userWorkouts());
@@ -34,7 +34,7 @@ function User() {
 
   //get total hours completed
   const hoursCompleted = () => {
-    const totalWorkouts = workout.length;
+    const totalWorkouts = userWorkout.length;
     const workoutTime = (totalWorkouts * 31) / 60;
     return `${Math.floor(workoutTime)} Hours Completed`;
   };
