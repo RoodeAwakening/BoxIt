@@ -7,7 +7,7 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
+*** RoodeAwakening, Boxit, twitter_handle, derek.i.roode@gmail.com, BoxIt, Your AI Boxing Coach! Get the workout you deserve!
 -->
 
 
@@ -27,28 +27,28 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
+gitImages/boxit_logo.png
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/RoodeAwakening/Boxit">
+    <img src="gitImages/boxit_logo.png" alt="Logo" width="180" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">BoxIt</h3>
 
   <p align="center">
-    project_description
+    Your AI Boxing Coach! Get the workout you deserve!
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/RoodeAwakening/Boxit"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/RoodeAwakening/Boxit">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/RoodeAwakening/Boxit/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/RoodeAwakening/Boxit/issues">Request Feature</a>
   </p>
 </p>
 
@@ -67,7 +67,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -76,7 +75,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+
   </ol>
 </details>
 
@@ -87,16 +86,21 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+
 
 
 ### Built With
+<img src="gitImages/react.svg " alt="react" width="150"/><img src="gitImages/python.svg " alt="python" width="100"/><img src="gitImages/flask.png " alt="flask" width="100"/><img src="gitImages/sqlalchemy.png " alt="sqlalchemy" width="100"/><img src="gitImages/redux.png " alt="react" width="100"/>
 
-* []()
-* []()
-* []()
+
+
+
+
+* [React](https://reactjs.org/docs/hooks-effect.html)
+* [Python](https://www.python.org/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [SQLAlchemy](https://www.sqlalchemy.org/)
+* [Redux](https://redux.js.org/)
 
 
 
@@ -107,38 +111,82 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/RoodeAwakening/Boxit.git
    ```
 2. Install NPM packages
-   ```sh
-   npm install
+      ```sh
+      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+      ```      
+3. Create a **.env** file based on the example with proper settings for your
+   development environment
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+
+   ```bash
+   pipenv shell
    ```
 
+   ```bash
+   flask db upgrade
+   ```
+
+   ```bash
+   flask seed all
+   ```
+
+   ```bash
+   flask run
+   ```  
+6. Start the front end and back end
+   ```sh
+    frontend - 
+    cd react-app npm start
+    backend - 
+    flask run
+   ```
+***
+*IMPORTANT!*
+   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
+   You can do this by running:
+
+   ```bash
+   pipenv lock -r > requirements.txt
+   ```
+
+*ALSO IMPORTANT!*
+   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
+   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
+***
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This website was designed as an alternative to going to a boxing gym. Giving you a personalized workout in the comfort of your own home!
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
+### Feature 1 
+![feature](https://media1.tenor.com/images/e9d9d40eef4ab994670c08524e35bbdb/tenor.gif?itemid=5393841)
+
+### Feature 2 
+![feature](https://thumbs.gfycat.com/AlienatedFalseBison-size_restricted.gif)
+
+### Feature 3 
+![feature](https://i.gifer.com/L64Q.gif)
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/RoodeAwakening/Boxit/issues) for a list of proposed features (and known issues).
 
 
 
@@ -165,18 +213,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Derek Roode - Derek.I.Roode@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/RoodeAwakening/Boxit](https://github.com/RoodeAwakening/Boxit)
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
 
 
 
@@ -184,15 +226,16 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/RoodeAwakening/BoxIt.svg?style=for-the-badge
+[contributors-url]: https://github.com/RoodeAwakening/BoxIt/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/RoodeAwakening/BoxIt.svg?style=for-the-badge
+[forks-url]: https://github.com/RoodeAwakening/BoxIt/network/members
+[stars-shield]: https://img.shields.io/github/stars/RoodeAwakening/BoxIt.svg?style=for-the-badge
+[stars-url]: https://github.com/RoodeAwakening/BoxIt/stargazers
+[issues-shield]: https://img.shields.io/github/issues/RoodeAwakening/BoxIt.svg?style=for-the-badge
+[issues-url]: https://github.com/RoodeAwakening/BoxIt/issues
+[license-shield]: https://img.shields.io/github/license/RoodeAwakening/BoxIt.svg?style=for-the-badge
+[license-url]: https://github.com/RoodeAwakening/BoxIt/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://www.linkedin.com/in/derek-roode-9014a796/
+
