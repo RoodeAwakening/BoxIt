@@ -7,7 +7,7 @@ def seed_users_workouts():
     workout2 = User_Workout(user_id='1', stock_workouts_id='2', favorited=True, progress_completed=True)
     workout3 = User_Workout(user_id='1', stock_workouts_id='1', favorited=True, progress_completed=True)
     workout4 = User_Workout(user_id='1', stock_workouts_id='1', favorited=True, progress_completed=True)
-    workout5 = User_Workout(user_id='1', stock_workouts_id='2', favorited=True, progress_completed=False)
+
 
     workout6 = User_Workout(user_id='2', stock_workouts_id='2', favorited=True, progress_completed=True)
     workout7 = User_Workout(user_id='2', stock_workouts_id='1', favorited=True, progress_completed=True)
@@ -19,10 +19,10 @@ def seed_users_workouts():
     workout12 = User_Workout(user_id='3', stock_workouts_id='2', favorited=True, progress_completed=True)
     workout13 = User_Workout(user_id='3', stock_workouts_id='1', favorited=True, progress_completed=True)
     workout14 = User_Workout(user_id='3', stock_workouts_id='2', favorited=True, progress_completed=True)
-    workout15 = User_Workout(user_id='3', stock_workouts_id='2', favorited=True, progress_completed=False)
 
 
-    workouts = [workout1, workout2, workout3, workout4, workout5, workout6, workout7, workout8, workout9, workout10, workout11, workout12, workout13, workout14, workout14, workout15]
+
+    workouts = [workout1, workout2, workout3, workout4,  workout6, workout7, workout8, workout9, workout10, workout11, workout12, workout13, workout14, workout14]
 
 
     for workout in workouts:
