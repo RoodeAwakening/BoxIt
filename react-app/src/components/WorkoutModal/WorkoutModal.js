@@ -27,13 +27,12 @@ export default function WorkoutModal({
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const sessionUserWorkouts = useSelector(
-    (state) => state.session.user.workouts_completed
-  );
-
+ 
+  const userWorkout = useSelector((state) => Object.values(state.userWorkouts));
+  const sessionUserWorkouts = userWorkout.length
  
   const [favorited, setFavorited] = useState(false);
-  console.log("sessionUserWorkouts", sessionUserWorkouts);
+
 
   const saveWorkout = async (e) => {
     e.preventDefault();
@@ -62,7 +61,7 @@ export default function WorkoutModal({
     } else {
       setFavorited(false);
     }
-    console.log('--favorited--', favorited);
+    // console.log('--favorited--', favorited);
   };
 
   return (

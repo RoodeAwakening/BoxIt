@@ -84,7 +84,7 @@ export default function ModalSignup({
   };
 
   const updateProfilePhoto = (e) => {
-    console.log("-a-", e.target.value);
+    // console.log("-a-", e.target.value);
     setProfilePhoto(e.target.files[0]);
   };
 

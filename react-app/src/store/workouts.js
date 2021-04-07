@@ -23,7 +23,6 @@ export const allWorkouts = () => async (dispatch) => {
 // add workout
 export const addNewWorkout = (workoutObject) => async (dispatch) => {
   const { workoutId, favorited, sessionUserWorkouts } = workoutObject;
-  console.log('thunkfav', favorited, 'sessionuserworkouts',sessionUserWorkouts);
   // add to the users_workouts table
   const response = await fetch(`/api/workouts/user_workouts`, {
     method: "POST",
@@ -39,9 +38,10 @@ export const addNewWorkout = (workoutObject) => async (dispatch) => {
     }),
   });
   const data1 = await response.json();
-
+  
   // update the total user workouts completed on the user table
   let newTotalWorkouts = sessionUserWorkouts + 1  ;
+  // console.log('ace!',newTotalWorkouts);
  
   const responseAdd = await fetch(
     `/api/workouts/user_workouts/completed/user`,

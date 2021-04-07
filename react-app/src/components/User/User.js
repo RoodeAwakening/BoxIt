@@ -25,12 +25,13 @@ function User() {
     Object.values(state.ranking)
   );
 
+  console.log('--------aaa',userWorkout.length);
   useEffect(() => {
     dispatch(userWorkouts());
     dispatch(allWorkoutsComplete());
     dispatch(userGroups());
     dispatch(allWorkouts());
-  }, [dispatch, sessionUser]);
+  }, [dispatch, sessionUser,userWorkout.length]);
 
   //get total hours completed
   const hoursCompleted = () => {

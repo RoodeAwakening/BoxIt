@@ -9,12 +9,13 @@ export default function LeaderBoard() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-
+  
+  const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
 
     dispatch(allWorkoutsComplete());
 
-  }, [dispatch]);
+  }, [dispatch,sessionUser]);
 
   // go through each compelted workout and give user ranks
   let pos = 0;
