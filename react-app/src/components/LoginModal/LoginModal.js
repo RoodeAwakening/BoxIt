@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as sessionActions from '../../store/session'
+import * as sessionActions from "../../store/session";
 import { useHistory } from "react-router-dom";
 
 // import { createPost } from '../../store/posts'
@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import "./LoginModal.css";
 
+//styling for modal
 const customStyles = {
   content: {
     top: "50%",
@@ -17,7 +18,6 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     padding: "0px",
-    
   },
 };
 
@@ -57,42 +57,38 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
 
   return (
     <Modal isOpen={loginModalIsOpen} style={customStyles}>
-        <div className='login-container-exit'>
-          <button onClick={closeLoginModal}>
-            <i class="fas fa-times loginexit"></i>
-          </button>
-          
-        </div>
+      <div className="login-container-exit">
+        <button onClick={closeLoginModal}>
+          <i class="fas fa-times loginexit"></i>
+        </button>
+      </div>
 
-      <div className='login-container'>
-
+      <div className="login-container">
         <h1>Login</h1>
-        <form onSubmit={onLogin} className='login-form'>
+        <form onSubmit={onLogin} className="login-form">
           <div>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </div>
-          <div >
-          <div className='login-inputs'>
-           
-            <input
-              name="email"
-              type="text"
-              placeholder="Email"
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div className='login-inputs'>
-            
-            <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={updatePassword}
-            />
+          <div>
+            <div className="login-inputs">
+              <input
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div className="login-inputs">
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={updatePassword}
+              />
             </div>
             <div>
               <button type="submit">Login</button>

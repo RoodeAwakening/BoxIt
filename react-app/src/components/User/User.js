@@ -8,11 +8,10 @@ import { userWorkouts, allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 import { userGroups } from "../../store/userGroups";
 
-
-
-import LeaderBoard  from "../../components/LeaderBoard/LeaderBoard"
-import MyGroups  from "../MyGroups/MyGroups"
-import UserLinks  from "../UserLinks/UserLinks"
+import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
+import MyGroups from "../MyGroups/MyGroups";
+import UserLinks from "../UserLinks/UserLinks";
+import WorkoutsList from "../WorkoutList/WorkoutList";
 
 function User() {
   const dispatch = useDispatch();
@@ -24,20 +23,11 @@ function User() {
   );
   const userWorkout = useSelector((state) => state.workout.userWorkouts);
 
-
-
-
-
-  useEffect( () => {
-    
-      dispatch(userWorkouts());
-      dispatch(allWorkoutsComplete());
-      dispatch(userGroups());
-      dispatch(allWorkouts())
-
-  
-  
-    
+  useEffect(() => {
+    dispatch(userWorkouts());
+    dispatch(allWorkoutsComplete());
+    dispatch(userGroups());
+    dispatch(allWorkouts());
   }, [dispatch, sessionUser]);
 
   //get total hours completed
@@ -63,17 +53,16 @@ function User() {
 
   //get workouts completed
   const workoutData = () => {
-    let num = 0
-    for (const val in userWorkout){
-      num += 1
+    let num = 0;
+    for (const val in userWorkout) {
+      num += 1;
     }
 
-    return num
-  }
- 
+    return num;
+  };
 
   if (!sessionUser) {
-    return <Redirect to='/welcome'/>;
+    return <Redirect to="/welcome" />;
   }
 
   return (
@@ -128,34 +117,26 @@ function User() {
         <div className="user_container-middle-myGroups">
           <h2>My Groups</h2>
           <div id="myGroups">
-            <MyGroups/>
+            <MyGroups />
           </div>
         </div>
 
         <div className="user_container-middle-links">
           <h2>Links</h2>
           <div id="links">
-            <UserLinks/>
+            <UserLinks />
           </div>
         </div>
       </div>
 
-
       <div className="user_container-bottom">
         <div className="user_container-bottom-warmup">
-
-        <h2>warmup</h2>
+          <h2>warmup</h2>
         </div>
         <div className="user_container-bottom-workouts">
-
-        <h2>workouts</h2>
+          <WorkoutsList />
         </div>
-
-
-
       </div>
-
-
     </div>
   );
 }
