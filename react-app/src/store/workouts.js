@@ -2,7 +2,7 @@
 
 const GET_USER_WORKOUT = "setUserWorkout";
 const GET_ALL_WORKOUTS = 'getAllWorkouts'
-const ADD_WORKOUT = 'addWorkout'
+
 
 
 //ACTION
@@ -22,12 +22,7 @@ const getAllWorkouts = (allWorkouts) => {
   }
 }
 
-const addWorkout = (id) =>{
-  return {
-    type:ADD_WORKOUT,
-    id
-  }
-}
+
 
 
 
@@ -54,8 +49,8 @@ export const allWorkouts = () => async (dispatch) => {
 
 // add workout
 export const addNewWorkout = workoutObject => async dispatch => {
-  const {workoutId, favorited} = workoutObject
-  console.log('----------','object',workoutObject);
+  const {workoutId, favorited, sessionUserWorkouts} = workoutObject
+// add to the users_workouts table
   const response = await fetch(`/api/workouts/user_workouts`,{
     method: 'POST',
     headers: {
@@ -69,8 +64,20 @@ export const addNewWorkout = workoutObject => async dispatch => {
     }
   }),
 })
-  const data = await response.json()
+  const data1 = await response.json()
 
+// update the total user workouts completed on the user table
+const newTotalWorkouts = await sessionUserWorkouts + 1
+const responseAdd = await fetch(`/api/workouts/user_workouts/completed/user`,{
+  method: 'PATCH',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    new_workout: newTotalWorkouts
+}),
+})
+const data2 = await responseAdd.json()
 }
 
 

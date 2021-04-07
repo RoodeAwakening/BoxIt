@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+
 import { NavLink } from "react-router-dom";
 
 import "./UserLinks.css";
@@ -14,6 +14,7 @@ export default function UserLinks() {
         exact={true}
         activeClassName="active"
         className="links-each"
+        
       >
         Start a new workout
       </NavLink>

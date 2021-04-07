@@ -14,7 +14,7 @@ export const userGroups = () => async (dispatch) => {
   const groups = await response.json();
 
   dispatch(allUserGroups(groups));
-  console.log('completedworkouts',groups);
+
   return groups;
 };
 

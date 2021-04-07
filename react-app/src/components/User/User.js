@@ -9,7 +9,7 @@ import { allWorkoutsComplete } from "../../store/ranking";
 import { userGroups } from "../../store/userGroups";
 
 
-import { loginThunk } from "../../store/session";
+
 import LeaderBoard  from "../../components/LeaderBoard/LeaderBoard"
 import MyGroups  from "../MyGroups/MyGroups"
 import UserLinks  from "../UserLinks/UserLinks"
@@ -22,23 +22,23 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
+  const userWorkout = useSelector((state) => state.workout.userWorkouts);
 
 
-  const [currentRank, setcurrentRank] = useState("");
 
-  // console.log('2222222222', loaderBoard);
 
-  useEffect(async () => {
-    if (sessionUser) {
+
+  useEffect( () => {
+    
       dispatch(userWorkouts());
       dispatch(allWorkoutsComplete());
       dispatch(userGroups());
       dispatch(allWorkouts())
-    }
+
   
   
     
-  }, [dispatch]);
+  }, [dispatch, sessionUser]);
 
   //get total hours completed
   const hoursCompleted = () => {
@@ -61,6 +61,16 @@ function User() {
     return place;
   };
 
+  //get workouts completed
+  const workoutData = () => {
+    let num = 0
+    for (const val in userWorkout){
+      num += 1
+    }
+
+    return num
+  }
+ 
 
   if (!sessionUser) {
     return <Redirect to='/welcome'/>;
@@ -88,7 +98,7 @@ function User() {
             <div>
               <h5>User Workouts</h5>
             </div>
-            <div>{workout.length}</div>
+            <div>{userWorkout ? workoutData() : "Start a workout!"}</div>
           </div>
 
           <div id="hoursCompleted">
@@ -109,26 +119,43 @@ function User() {
 
       <div className="user_container-middle-ContentBox">
         <div className="user_container-middle-leaderboard">
-          <h2>leaderboard</h2>
+          <h2>Leaderboard</h2>
           <div id="leaderboard">
             <LeaderBoard />
           </div>
         </div>
 
         <div className="user_container-middle-myGroups">
-          <h2>myGroups</h2>
+          <h2>My Groups</h2>
           <div id="myGroups">
             <MyGroups/>
           </div>
         </div>
 
         <div className="user_container-middle-links">
-          <h2>links</h2>
+          <h2>Links</h2>
           <div id="links">
-            <UserLinks />
+            <UserLinks/>
           </div>
         </div>
       </div>
+
+
+      <div className="user_container-bottom">
+        <div className="user_container-bottom-warmup">
+
+        <h2>warmup</h2>
+        </div>
+        <div className="user_container-bottom-workouts">
+
+        <h2>workouts</h2>
+        </div>
+
+
+
+      </div>
+
+
     </div>
   );
 }

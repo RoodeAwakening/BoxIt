@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import * as sessionActions from "../../store/workouts";
 import { useHistory } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
+
 import Modal from "react-modal";
 import "./WorkoutModal.css";
 
@@ -28,14 +29,16 @@ export default function WorkoutModal({
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const [favorited, setFavorited] = useState(false);
 
+  const sessionUserWorkouts = useSelector((state) => state.session.user.workouts_completed);
+  const [favorited, setFavorited] = useState(false);
+console.log('sessionUserWorkouts',sessionUserWorkouts);
 
   const saveWorkout = async (e) => {
     e.preventDefault();
 
     const workout = await dispatch(
-      sessionActions.addNewWorkout({ workoutId, favorited })
+      sessionActions.addNewWorkout({ workoutId, favorited, sessionUserWorkouts })
     );
 
     history.push("/");

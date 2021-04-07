@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 //store
-import { userWorkouts, allWorkouts } from "../../store/workouts";
-import { allWorkoutsComplete } from "../../store/ranking";
+import {  allWorkouts } from "../../store/workouts";
+
 
 import WorkoutModal from "../WorkoutModal/WorkoutModal";
 import "./Workouts.css";
@@ -22,7 +22,7 @@ const Workouts = (workout) => {
       // dispatch(allWorkoutsComplete());
       dispatch(allWorkouts())
 
-  }, [sessionUser]);
+  }, [dispatch, sessionUser]);
 
   const userWorkout =  () => {
     let num = 1;
@@ -33,20 +33,12 @@ const Workouts = (workout) => {
     let pos = Math.floor(Math.random() * (num - 1) + 1);
     return (
       <>
-      
      
-
-     
-
-
-
-
-
         <div className="workouts_body">
         <div className="workouts_header">
           <div className="workouts_header-coach">
             <h2>Your Coach</h2>
-            <img src={workouts[pos].coach_photo_url} />
+            <img src={workouts[pos].coach_photo_url } alt='coach'/>
           </div>
         </div>
           <div className="workouts_body-clock">
@@ -55,7 +47,7 @@ const Workouts = (workout) => {
           <div className="workouts_header">
         <div className="workouts_header-coach">
             <h2>You</h2>
-            <img src={sessionUser.profile_photo} />
+            <img src={sessionUser.profile_photo} alt='profile picture'/>
           </div>
           </div>
         </div>

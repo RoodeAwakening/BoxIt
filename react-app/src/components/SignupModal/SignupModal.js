@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
 import { signup } from "../../store/session";
 import "./SignupModal.css";
-import boxer1 from "../../images/boxer1.jpg";
+
 import boxer2 from "../../images/boxer2.jpg";
 
 const customStyles = {
@@ -93,7 +93,7 @@ export default function ModalSignup({
   };
 
   const updateEmail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   };
 
   const updatePassword = (e) => {
@@ -121,7 +121,7 @@ export default function ModalSignup({
           </button>
           <div className="signup-left">
             <div className="singup-boxer-images">
-              <img src={boxer2} className="signup-boxer" />
+              <img src={boxer2} className="signup-boxer" alt='Boxer'/>
             </div>
             
           </div>

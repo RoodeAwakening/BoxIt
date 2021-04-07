@@ -24,7 +24,7 @@ function UsersList() {
   return (
     <>
       <h1>User List: </h1>
-      <ul>{userComponents}</ul>
+      <h2>{userComponents}</h2>
     </>
   );
 }
