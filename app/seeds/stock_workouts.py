@@ -4,9 +4,9 @@ from app.models import db, Stock_Workout
 def seed_stock_workouts():
 
     workout1 = Stock_Workout(coach_photo_url='https://boxit.s3.us-east-2.amazonaws.com/coaches/cisco.PNG',
-                             audio_url='https://boxit.s3.us-east-2.amazonaws.com/workouts/workout1.mp3')
+                             audio_url='https://boxit.s3.us-east-2.amazonaws.com/workouts/Workout1-compressed.m4v')
     workout2 = Stock_Workout(coach_photo_url='https://boxit.s3.us-east-2.amazonaws.com/coaches/mary.PNG',
-                             audio_url='https://boxit.s3.us-east-2.amazonaws.com/workouts/workout2.mp3')
+                             audio_url='https://boxit.s3.us-east-2.amazonaws.com/workouts/Workout2-compressed.m4v')
 
     workouts = [workout1, workout2]
     for workout in workouts:
