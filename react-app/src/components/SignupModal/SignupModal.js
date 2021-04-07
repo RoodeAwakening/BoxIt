@@ -8,9 +8,8 @@ import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
 import { signup } from "../../store/session";
 import "./SignupModal.css";
-import boxer1 from '../../images/boxer1.jpg'
-import boxer2 from '../../images/boxer2.jpg'
-
+import boxer1 from "../../images/boxer1.jpg";
+import boxer2 from "../../images/boxer2.jpg";
 
 const customStyles = {
   content: {
@@ -20,6 +19,7 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    padding: "0px",
   },
 };
 
@@ -117,25 +117,22 @@ export default function ModalSignup({
       <div className="signup-container">
         <div>
           <button onClick={closeSignupModal}>
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times signupexit"></i>
           </button>
-          
-          <div className="signUp-header">
-            <h1>At-Home Boxing Workouts</h1>
-            <h2>Experience BoxIt from any device, anytime.</h2>
-            <h2>Reach your goals with workouts tailored to you.</h2>
-          </div>
-          <div className='singup-boxer-images'>
-
-          <div>
-            <img src={boxer1} className='signup-boxer'/>
-          </div>
-          <div>
-            <img src={boxer2} className='signup-boxer'/>
-          </div>
+          <div className="signup-left">
+            <div className="singup-boxer-images">
+              <img src={boxer2} className="signup-boxer" />
+            </div>
+            
           </div>
         </div>
+        
         <form onSubmit={onSignUp} className="signup-form">
+        <div className="signUp-header">
+              <h1>At-Home Boxing Workouts</h1>
+              <h2>Experience BoxIt from any device, anytime.</h2>
+              <h2>Reach your goals with workouts tailored to you.</h2>
+            </div>
           <div className="signup-names">
             <div>
               <input
@@ -218,10 +215,8 @@ export default function ModalSignup({
           </div>
           <div>
             <div className="signup-boxing-experience-input">
-              <div >
-                <h4 >
-                  Boxing experience
-                </h4>
+              <div>
+                <h4>Boxing experience</h4>
               </div>
 
               <select
@@ -239,7 +234,12 @@ export default function ModalSignup({
             </div>
             <div className="signup-profile-photo-label">
               <div>
-                <label for="profile_photo" className='signup-profile-photo-label'>Profile Photo</label>
+                <label
+                  for="profile_photo"
+                  className="signup-profile-photo-label"
+                >
+                  Profile Photo
+                </label>
               </div>
               <input
                 className="signup-profile-photo"

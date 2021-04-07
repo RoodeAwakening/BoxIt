@@ -16,6 +16,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
+    padding: "0px",
+    
   },
 };
 
@@ -55,9 +57,9 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
 
   return (
     <Modal isOpen={loginModalIsOpen} style={customStyles}>
-        <div>
+        <div className='login-container-exit'>
           <button onClick={closeLoginModal}>
-            <i class="fas fa-times"></i>
+            <i class="fas fa-times loginexit"></i>
           </button>
           
         </div>
@@ -71,7 +73,8 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
               <div>{error}</div>
             ))}
           </div>
-          <div>
+          <div >
+          <div className='login-inputs'>
            
             <input
               name="email"
@@ -81,7 +84,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
               onChange={updateEmail}
             />
           </div>
-          <div>
+          <div className='login-inputs'>
             
             <input
               name="password"
@@ -90,6 +93,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
               value={password}
               onChange={updatePassword}
             />
+            </div>
             <div>
               <button type="submit">Login</button>
             </div>

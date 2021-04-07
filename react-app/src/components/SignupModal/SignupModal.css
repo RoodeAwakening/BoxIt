@@ -1,14 +1,37 @@
 .signup-container{
-  
+  background-color: #231F20;
   display: flex;
   justify-content: center;
+}
+
+.signup-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.ReactModal__Content  {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+
 }
 
 .singup-boxer-images{
   display: flex;
   justify-content: space-between;
 
+  
 }
+
+.signup-boxer{
+ 
+}
+
+
+
 
 .signUp-header{
   display: flex;
@@ -30,17 +53,18 @@
 }
 
 .signup-form{
-  max-width: 360px;
+ color: white;
   margin-top: 5px;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left: 60px;
+  margin:0 60px 20px 0;
   align-items: center;
 }
 
-.signup-boxer{
-  max-height: 200px;
+.signupexit{
+  padding-left: 10px;
+  color: white;
 }
 
 
