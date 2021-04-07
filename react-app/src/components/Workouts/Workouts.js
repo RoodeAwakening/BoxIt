@@ -5,63 +5,57 @@ import { Redirect } from "react-router-dom";
 import { userWorkouts, allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 
+import WorkoutModal from "../WorkoutModal/WorkoutModal";
 import "./Workouts.css";
 
 const Workouts = (workout) => {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-const workouts =  useSelector((state) => state.workout.workouts);
+  const workouts = useSelector((state) => state.workout.workouts);
+  const [workoutModalIsOpen, setWorkoutModalisOpen] = useState(false);
+  const [workoutId, setWorkoutid] = useState(0);
 
-  const [box, setBox] = useState('')
 
-  
-  
-  /////
-  
-  //////
-  
-  // useEffect( () => {
-    
-  //     // dispatch(userWorkouts());
-  //     // dispatch(allWorkoutsComplete());
-  //     dispatch(allWorkouts())
-    
-    
-  // }, [sessionUser]);
-  
-  const userWorkout =  ()  => {
-    let num = 1
+  useEffect( () => {
+
+      // dispatch(userWorkouts());
+      // dispatch(allWorkoutsComplete());
+      dispatch(allWorkouts())
+
+  }, [sessionUser]);
+
+  const userWorkout =  () => {
+    let num = 1;
     for (const val in workouts) {
-      num += 1
+      num += 1;
     }
-    
-    
 
-    let pos = Math.floor(Math.random() * (num - 1)+ 1)
- 
+    let pos = Math.floor(Math.random() * (num - 1) + 1);
     return (
-        <>
-      <div className="workouts_header">
-        <div className="workouts_header-coach">
-      <img src={workouts[pos].coach_photo_url} />
-        </div>
+      <>
+      
+        <div className="workouts_header">
+          <div className="workouts_header-coach">
+            <h2>Your Coach</h2>
+            <img src={workouts[pos].coach_photo_url} />
+          </div>
         </div>
 
         <div className="workouts_body">
-        <div className="workouts_body-clock">
-          
-      <video src={workouts[pos].audio_url} autoPlay />
-  
+          <div className="workouts_body-clock">
+            <video src={workouts[pos].audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
+          </div>
         </div>
-      </div>
-
-
-
-        </>
-    )
+      </>
+    );
+  };
+  
+  const logWorkout = (id) =>{
     
+    setWorkoutid(id)
+    setWorkoutModalisOpen(true)
+  }
 
-}
 
 
 
@@ -70,19 +64,20 @@ const workouts =  useSelector((state) => state.workout.workouts);
   }
   return (
     <div className="workouts_container">
-
-    
-          {workouts ? userWorkout(): "No Workouts Available"}
+      {workouts ? userWorkout() : "No Workouts Available"}
       <div className="workouts_footer">
         <div className="workouts_footer-rating">
-          <h6>Ratings</h6>
+          <div>
+
+        <WorkoutModal
+            workoutModalIsOpen={workoutModalIsOpen}
+            setWorkoutModalisOpen={setWorkoutModalisOpen}
+            workoutId={workoutId}
+            />
+            </div>
+
         </div>
-        <div className="workouts_footer-favorite">
-          <h6>Favorite</h6>
-        </div>
-        <div className="workouts_footer-pause-end">
-          <h6>pause end</h6>
-        </div>
+      
       </div>
     </div>
   );

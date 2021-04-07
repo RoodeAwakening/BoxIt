@@ -4,33 +4,31 @@ background-color: red;
 
 .workouts_header{
   display: flex;
-  background-color: green;
+
+  padding-right: 20px;
+  color:white;
 }
+
 .workouts_header-coach img{
   background-color: yellow;
   max-height: 150px;
   border-radius: 50%;
 }
 
+.workouts_header-coach h2{
+  text-align: center;
+}
+
 
 .workouts_body{
-  background-color: violet;
+  
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding: 20px 0px;
 }
 
 .workouts_body-clock{
-  background-color: aquamarine;
-}
 
-.workouts_footer{
-  display: flex;
-  background-color: blueviolet;
-}
-.workouts_footer-rating{
-  background-color:burlywood;
-}
-.workouts_footer-favorite{
-  background-color: rgb(54, 146, 58);
-}
-.workouts_footer-pause-end{
-  background-color: rgb(187, 21, 49);
+
 }
