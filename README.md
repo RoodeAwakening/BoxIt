@@ -179,8 +179,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ### Feature 2 
 ![feature](https://thumbs.gfycat.com/AlienatedFalseBison-size_restricted.gif)
 
-### Feature 3 
-![feature](https://i.gifer.com/L64Q.gif)
+
 
 
 <!-- ROADMAP -->
