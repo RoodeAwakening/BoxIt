@@ -1,5 +1,35 @@
 .navbar-container{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 20px;
+  background-color: #231F20;
+
   
   
+}
+
+.navbar-left{
+  display: flex;
+  
+}
+
+#nav-logo{
+  height: 60px;
+}
+
+.navbar-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.navbar-right div{
+  padding-left: 10px;
+}
+
+.navbar-right div h3{
+  color: white;
+
 }

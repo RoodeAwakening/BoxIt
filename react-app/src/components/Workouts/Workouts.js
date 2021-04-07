@@ -34,16 +34,29 @@ const Workouts = (workout) => {
     return (
       <>
       
+     
+
+     
+
+
+
+
+
+        <div className="workouts_body">
         <div className="workouts_header">
           <div className="workouts_header-coach">
             <h2>Your Coach</h2>
             <img src={workouts[pos].coach_photo_url} />
           </div>
         </div>
-
-        <div className="workouts_body">
           <div className="workouts_body-clock">
             <video src={workouts[pos].audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
+          </div>
+          <div className="workouts_header">
+        <div className="workouts_header-coach">
+            <h2>You</h2>
+            <img src={sessionUser.profile_photo} />
+          </div>
           </div>
         </div>
       </>
