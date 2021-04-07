@@ -6,32 +6,38 @@ import "./User.css";
 //store stuff
 import { userWorkouts } from "../../store/userWorkouts";
 import { allWorkouts } from "../../store/workouts";
-// import { userWorkouts, allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 import { userGroups } from "../../store/userGroups";
 
+// import { userWorkouts, allWorkouts } from "../../store/workouts";
 import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
 import MyGroups from "../MyGroups/MyGroups";
 import UserLinks from "../UserLinks/UserLinks";
 import WorkoutsList from "../WorkoutList/WorkoutList";
 
 function User() {
+  
   const dispatch = useDispatch();
-
+  
   const userWorkout = useSelector((state) => Object.values(state.userWorkouts));
   const sessionUser = useSelector((state) => state.session.user);
   const workout = useSelector((state) => Object.values(state.workout));
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
-  );
+    );
+    
+    console.log('--------aaa',userWorkout);
 
-  console.log('--------aaa',userWorkout.length);
-  useEffect(() => {
-    dispatch(userWorkouts());
-    dispatch(allWorkoutsComplete());
-    dispatch(userGroups());
-    dispatch(allWorkouts());
-  }, [dispatch, sessionUser,userWorkout.length]);
+
+
+
+    useEffect(  () => {
+     
+     dispatch(userWorkouts());
+     dispatch(allWorkoutsComplete());
+     dispatch(userGroups());
+   dispatch(allWorkouts());
+  }, [dispatch, sessionUser]);
 
   //get total hours completed
   const hoursCompleted = () => {
