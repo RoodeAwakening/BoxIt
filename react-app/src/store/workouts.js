@@ -40,7 +40,8 @@ export const addNewWorkout = (workoutObject) => async (dispatch) => {
   const data1 = await response.json();
 
   // update the total user workouts completed on the user table
-  const newTotalWorkouts = (await sessionUserWorkouts) + 1;
+  let newTotalWorkouts = sessionUserWorkouts + 1  ;
+ 
   const responseAdd = await fetch(
     `/api/workouts/user_workouts/completed/user`,
     {
@@ -52,7 +53,8 @@ export const addNewWorkout = (workoutObject) => async (dispatch) => {
         new_workout: newTotalWorkouts,
       }),
     }
-  );
+    );
+
   const data2 = await responseAdd.json();
 };
 

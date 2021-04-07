@@ -30,6 +30,8 @@ export default function WorkoutModal({
   const sessionUserWorkouts = useSelector(
     (state) => state.session.user.workouts_completed
   );
+
+ 
   const [favorited, setFavorited] = useState(false);
   console.log("sessionUserWorkouts", sessionUserWorkouts);
 

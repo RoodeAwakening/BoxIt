@@ -9,6 +9,7 @@ export default function LeaderBoard() {
     Object.values(state.ranking)
   );
 
+
   // go through each compelted workout and give user ranks
   let pos = 0;
   let leaders = allWorkoutsCompleted.map((each) => {
