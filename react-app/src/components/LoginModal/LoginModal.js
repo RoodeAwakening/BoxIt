@@ -3,8 +3,8 @@ import * as sessionActions from '../../store/session'
 import { useHistory } from "react-router-dom";
 
 // import { createPost } from '../../store/posts'
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import Modal from "react-modal";
 import "./LoginModal.css";
 
@@ -44,7 +44,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
   };
 
   const updateEmail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   };
 
   const updatePassword = (e) => {

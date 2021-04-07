@@ -93,7 +93,7 @@ export default function ModalSignup({
   };
 
   const updateEmail = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value.toLowerCase());
   };
 
   const updatePassword = (e) => {

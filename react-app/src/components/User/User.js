@@ -25,21 +25,20 @@ function User() {
   const userWorkout = useSelector((state) => state.workout.userWorkouts);
 
 
-  const [currentRank, setcurrentRank] = useState("");
 
 
 
-  useEffect(async () => {
-    if (sessionUser) {
+  useEffect( () => {
+    
       dispatch(userWorkouts());
       dispatch(allWorkoutsComplete());
       dispatch(userGroups());
       dispatch(allWorkouts())
-    }
+
   
   
     
-  }, [dispatch]);
+  }, [dispatch, sessionUser]);
 
   //get total hours completed
   const hoursCompleted = () => {
@@ -68,9 +67,10 @@ function User() {
     for (const val in userWorkout){
       num += 1
     }
+
     return num
   }
-
+ 
 
   if (!sessionUser) {
     return <Redirect to='/welcome'/>;
@@ -135,7 +135,7 @@ function User() {
         <div className="user_container-middle-links">
           <h2>Links</h2>
           <div id="links">
-            <UserLinks />
+            <UserLinks/>
           </div>
         </div>
       </div>

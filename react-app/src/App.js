@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 import * as sessionActions from "./store/session";
-import { useHistory } from "react-router";
+
 // FORMS
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
@@ -18,7 +18,7 @@ function App() {
   // const [authenticated, setAuthenticated] = useState(true);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
-  let history = useHistory();
+
 
   // useEffect(() => {
   //   dispatch(sessionActions.restoreUser()).then(() => setLoaded(true));
