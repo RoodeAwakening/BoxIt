@@ -23,3 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /aws
+.m4v
