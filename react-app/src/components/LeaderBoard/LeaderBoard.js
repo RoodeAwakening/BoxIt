@@ -1,14 +1,20 @@
 //leaderboard
-import React from "react";
-import { useSelector } from "react-redux";
-
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { allWorkoutsComplete } from "../../store/ranking";
 import "./LeaderBoard.css";
 
 export default function LeaderBoard() {
+  const dispatch = useDispatch();
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
 
+  useEffect(() => {
+
+    dispatch(allWorkoutsComplete());
+
+  }, [dispatch]);
 
   // go through each compelted workout and give user ranks
   let pos = 0;

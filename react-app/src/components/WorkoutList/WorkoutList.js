@@ -6,9 +6,9 @@ import { userWorkouts } from "../../store/userWorkouts";
 
 const WorkoutsList = () => {
   const dispatch = useDispatch();
-  const userWorkout = useSelector((state) => Object.values(state.userWorkouts));
+  const userWorkout = useSelector((state) => Object.values(state?.userWorkouts));
 
-  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
+  const allUserGroups = useSelector((state) => Object.values(state?.userGroup));
 
 
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as sessionActions from "../../store/workouts";
+import { addNewWorkout } from "../../store/workouts";
 import { useHistory } from "react-router-dom";
 
 import Modal from "react-modal";
@@ -39,7 +39,7 @@ export default function WorkoutModal({
     e.preventDefault();
 
     const workout = await dispatch(
-      sessionActions.addNewWorkout({
+      addNewWorkout({
         workoutId,
         favorited,
         sessionUserWorkouts,
@@ -57,11 +57,12 @@ export default function WorkoutModal({
   };
 
   const updateFavorite = (e) => {
-    if (favorited === false) {
+    if (favorited == false) {
       setFavorited(true);
     } else {
       setFavorited(false);
     }
+    console.log('--favorited--', favorited);
   };
 
   return (
@@ -83,7 +84,7 @@ export default function WorkoutModal({
               name="favorite"
               type="checkbox"
               placeholder="favorite"
-              value="true"
+              // value="true"
               onChange={updateFavorite}
             />
           </div>

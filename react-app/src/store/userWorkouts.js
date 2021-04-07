@@ -24,9 +24,9 @@ const initialState = {};
 export default function workoutReducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER_WORKOUT:
-
+console.log('testing',action.userWorkout);
       const workouts = {};
-      action.userWorkout.user_workouts.forEach((workout) => {
+      action.userWorkout.forEach((workout) => {
         workouts[workout.id] = workout;
       });
       return {
