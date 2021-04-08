@@ -6,6 +6,8 @@ import rankingReducer from './ranking'
 import userGroupReducer from './userGroups'
 import userWorkoutsReducer from './userWorkouts'
 ////
+
+// split the appReducer and combined reducers to set initial state to undefined 
 const appReducer = combineReducers({
   /* your app’s top-level reducers */
 	session: sessionReducer,
