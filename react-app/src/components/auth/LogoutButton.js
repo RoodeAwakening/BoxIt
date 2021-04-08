@@ -3,13 +3,12 @@ import { useDispatch } from 'react-redux'
 import * as sessionActions from '../../store/session'
 import { useHistory } from 'react-router'
 
-const LogoutButton = ({setAuthenticated}) => {
+const LogoutButton = () => {
   let history = useHistory()
   const dispatch = useDispatch();
   
   const onLogout = async (e) => {
     await dispatch(sessionActions.logoutThunk())
-    // setAuthenticated(false);
     history.push("/welcome")
   }
 

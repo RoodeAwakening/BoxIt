@@ -59,7 +59,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
     <Modal isOpen={loginModalIsOpen} style={customStyles}>
       <div className="login-container-exit">
         <button onClick={closeLoginModal}>
-          <i class="fas fa-times loginexit"></i>
+          <i className="fas fa-times loginexit"></i>
         </button>
       </div>
 
