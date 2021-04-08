@@ -51,6 +51,7 @@
   justify-content: space-around;
   height: 350px;
   border: 3px solid rgba(0, 0, 0, 0.507);
+  margin:0 30px ;
 }
 
 
@@ -106,13 +107,21 @@ text-align: center;
 }
 
 .user_container-bottom{
-  background-color: blue;
+
+  padding-bottom: 20px;
 }
+
 .user_container-bottom-warmup{
-  background-color: coral;
+
+  text-align: center;
 }
 .user_container-bottom-workouts{
-  background-color: chocolate;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: scroll ;
+
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  margin:0 30px ;
 }
 
 

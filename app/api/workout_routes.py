@@ -26,8 +26,8 @@ def stock_workouts():
         return jsonify("Successfully Added Workout")
 #POST TO SEND TO ADD WORKOUT
 # {
-#         "add_workout":"https://picture.PNG",
-#         "add_photo":"https://Workout1-compressed.m4v"
+#         "add_workout":"https://Workout1-compressed.m4v",
+#         "add_photo":"https://picture.PNG"
     
 # }
 
@@ -47,7 +47,8 @@ def user_workouts():
     if method == 'GET':
         # Get a users workout
         user_workouts = User_Workout.query.filter(
-            User_Workout.user_id == current_user.id)
+            User_Workout.user_id == current_user.id).order_by(
+            User_Workout.createdAt.desc())
         return jsonify([user_workout.to_dict() for user_workout in user_workouts])
         # return {"user_workouts": [user_workout.to_dict() for user_workout in user_workouts]}
     elif method == 'POST':

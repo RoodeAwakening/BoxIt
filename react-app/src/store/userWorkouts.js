@@ -21,7 +21,7 @@ export const userWorkouts = () => async (dispatch) => {
     const  x = { ...el, ...stockWorkouts };
     workout.push(x);
   }
-  console.log('el---',workout);
+
 
   dispatch(getUserWorkout(workout));
   return workout;

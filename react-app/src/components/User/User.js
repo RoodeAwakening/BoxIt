@@ -133,10 +133,13 @@ function User() {
 
       <div className="user_container-bottom">
         <div className="user_container-bottom-warmup">
-          <h2>warmup</h2>
+          <h1>My Workouts</h1>
         </div>
         <div className="user_container-bottom-workouts">
+          
+
           <WorkoutsList />
+          
         </div>
       </div>
     </div>
