@@ -1,0 +1,22 @@
+
+.WorkoutList-container{
+
+ display: flex;
+
+ 
+
+
+}
+
+.workoutList-coach-photo{
+  max-height: 150px;
+  border-radius: 50%;
+}
+
+.WorkoutList-each{
+  width: 186px;
+  text-align: center;
+  padding: 0 20px;
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  margin: 3px 10px;
+}

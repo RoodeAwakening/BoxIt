@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addNewWorkout } from "../../store/workouts";
 import { useHistory } from "react-router-dom";
+import { userWorkouts } from "../../store/userWorkouts";
 
 import Modal from "react-modal";
 import "./WorkoutModal.css";
@@ -42,11 +43,11 @@ export default function WorkoutModal({
         workoutId,
         favorited,
         sessionUserWorkouts,
-      })
-    );
+      }),
+      );
 
-    history.push("/");
 
+    window.location.href = '/'
     return workout;
   };
 
