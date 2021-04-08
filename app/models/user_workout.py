@@ -10,6 +10,9 @@ class User_Workout(db.Model):
         "stock_workouts.id"), nullable=False)
     favorited = db.Column(db.Boolean, default=False, nullable=False)
     progress_completed = db.Column(db.Boolean, default=False, nullable=False)
+    createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
+    updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(
+    ), onupdate=db.func.current_timestamp())
 
     def to_dict(self):
         return{
@@ -17,5 +20,7 @@ class User_Workout(db.Model):
             "user_id": self.user_id,
             "stock_workouts_id": self.stock_workouts_id,
             "favorited": self.favorited,
-            "progress_completed": self.progress_completed
+            "progress_completed": self.progress_completed,
+            "createdAt": self.createdAt,
+            "updatedAt": self.updatedAt
         }
