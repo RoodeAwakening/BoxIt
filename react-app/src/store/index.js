@@ -5,17 +5,36 @@ import workoutReducer from './workouts'
 import rankingReducer from './ranking'
 import userGroupReducer from './userGroups'
 import userWorkoutsReducer from './userWorkouts'
-
-
-const rootReducer = combineReducers({
+////
+const appReducer = combineReducers({
+  /* your app’s top-level reducers */
 	session: sessionReducer,
 	workout: workoutReducer,
 	ranking: rankingReducer,
 	userGroup: userGroupReducer,
 	userWorkouts: userWorkoutsReducer,
+});
 
-	// add more reducers here
-})
+const rootReducer = (state, action) => {
+  // when a logout action is dispatched it will reset redux state
+  if (action.type === 'removeUser') {
+    state = undefined;
+  }
+
+  return appReducer(state, action);
+};
+
+
+////
+// const rootReducer = combineReducers({
+	// session: sessionReducer,
+	// workout: workoutReducer,
+	// ranking: rankingReducer,
+	// userGroup: userGroupReducer,
+	// userWorkouts: userWorkoutsReducer,
+
+// 	// add more reducers here
+// })
 
 let enhancer
 
