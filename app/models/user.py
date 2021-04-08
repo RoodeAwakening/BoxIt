@@ -16,6 +16,9 @@ class User(db.Model, UserMixin):
     profile_photo = db.Column(db.String, nullable=False)
     boxing_level = db.Column(db.String, nullable=False)
     workouts_completed = db.Column(db.Integer, nullable=True)
+    createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
+    updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(
+    ), onupdate=db.func.current_timestamp())
 
     # relationships
     users_groups = db.relationship("User_Group", backref="users")
@@ -45,5 +48,7 @@ class User(db.Model, UserMixin):
             "email": self.email,
             "profile_photo": self.profile_photo,
             "boxing_level": self.boxing_level,
-            "workouts_completed": self.workouts_completed
+            "workouts_completed": self.workouts_completed,
+            "createdAt": self.createdAt,
+            "updatedAt": self.updatedAt
         }

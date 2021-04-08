@@ -9,9 +9,14 @@ class Group(db.Model):
     # RELATIONSHIPS
     comments = db.relationship("Comment", backref="groups")
     users_groups = db.relationship("User_Group", backref="users_groups")
+    createdAt = db.Column(db.DateTime, default=db.func.current_timestamp())
+    updatedAt = db.Column(db.DateTime, default=db.func.current_timestamp(
+    ), onupdate=db.func.current_timestamp())
 
     def to_dict(self):
         return{
             "id": self.id,
-            "name": self.name
+            "name": self.name,
+            "createdAt": self.createdAt,
+            "updatedAt": self.updatedAt
         }
