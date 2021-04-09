@@ -50,7 +50,7 @@ export default function Groups() {
             <img src={randomBackground()} />
           </div>
           <div className="groups-detail">
-            <a className="groups-name" href="/">
+            <a className="groups-name" href={`/groups/${each.id}`}>
               <h2>{each.name}</h2>
             </a>
           </div>

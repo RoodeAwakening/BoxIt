@@ -9,9 +9,11 @@ export default function MyGroups() {
   let userGroups = allUserGroups.map((each) => {
 
     return (
-      <div className="userGroups-each" key={each.id}>
-        <a className="userGroups-name" href='/'>{each.name}</a>
+      <a className="userGroups-name" href={`/groups/${each.id}`} key={each.id}>
+      <div className="userGroups-each" >
+        {each.name}
         </div>
+        </a>
     );
   });
 
