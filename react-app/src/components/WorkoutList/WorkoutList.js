@@ -16,12 +16,22 @@ const WorkoutsList = () => {
     dispatch(userWorkouts());
   }, [dispatch]);
 
+  const playWorkout = ()=>{
+    return alert ('Workout')
+  }
+
   return (
     <>
       {userWorkout && (
-        <div className='WorkoutList-container'>
+        <div className='WorkoutList-container' >
           {userWorkout.map((each, index) => (
             <div key={index} className='WorkoutList-each'>
+              
+              <div className='WorkoutList-each-background'>
+                <img src={each.coach_photo_url} />
+              </div>
+           
+            
               <div>
                 <h4>Workout Date</h4><h4>{each.createdAt}</h4>
               </div>
@@ -36,6 +46,8 @@ const WorkoutsList = () => {
               <div>
                 <h4>Workout Favorited</h4><h4>{each.favorited? "True": "False"}</h4>
               </div>
+           
+            
             </div>
           ))}
         </div>

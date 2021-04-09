@@ -1,22 +1,39 @@
 
 .WorkoutList-container{
-
+color: white;
  display: flex;
-
  
-
-
 }
 
 .workoutList-coach-photo{
+  
   max-height: 150px;
   border-radius: 50%;
+  
+}
+.WorkoutList-each-background {
+  display: flex;
+  margin: 0;
+
+}
+
+
+.WorkoutList-each-background img{
+  height: 450px;
+  z-index: -1;
+  max-width: 186px;
+  position: absolute;
+ 
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  
 }
 
 .WorkoutList-each{
+  position: relative;
+  z-index: 3;
   width: 186px;
   text-align: center;
-  padding: 0 20px;
   border: 3px solid rgba(0, 0, 0, 0.507);
-  margin: 3px 10px;
+  margin: 10px ;
 }

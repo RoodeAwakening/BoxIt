@@ -4,9 +4,9 @@ from app.models import db, User_Workout
 def seed_users_workouts():
 
     workout1 = User_Workout(user_id='1', stock_workouts_id='2', favorited=True, progress_completed=True)
-    workout2 = User_Workout(user_id='1', stock_workouts_id='2', favorited=True, progress_completed=True)
+    workout2 = User_Workout(user_id='1', stock_workouts_id='3', favorited=True, progress_completed=True)
     workout3 = User_Workout(user_id='1', stock_workouts_id='1', favorited=True, progress_completed=True)
-    workout4 = User_Workout(user_id='1', stock_workouts_id='1', favorited=True, progress_completed=True)
+    workout4 = User_Workout(user_id='1', stock_workouts_id='2', favorited=True, progress_completed=True)
 
 
     workout6 = User_Workout(user_id='2', stock_workouts_id='2', favorited=True, progress_completed=True)
