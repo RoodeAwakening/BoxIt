@@ -44,6 +44,7 @@ export default function Groups() {
 
     return (
       <>
+      <a href={`/groups/${each.id}`}>
         <div className="groups-each" key={index}>
           <div className="groups-each-background">
             <img src={randomBackground()} />
@@ -54,6 +55,7 @@ export default function Groups() {
             </a>
           </div>
         </div>
+        </a>
       </>
     );
   });
