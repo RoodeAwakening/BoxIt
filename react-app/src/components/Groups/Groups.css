@@ -1,3 +1,20 @@
+.groups-top_button_newGroup-container{
+  display: flex;
+  justify-content: center;
+}
+
+
+#groups-top_button_newGroup{
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 210px;
+  border-style: none;
+}
+
+
+
 .groups-each {
   width: 200px;
   height: 200px;
