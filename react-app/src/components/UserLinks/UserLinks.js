@@ -20,13 +20,14 @@ export default function UserLinks() {
       </NavLink>
 
       <NavLink
-        to="/"
+        to="/groups"
         exact={true}
         activeClassName="active"
         className="links-each"
       >
         Groups
        </NavLink>
+
       <NavLink
         to="/"
         exact={true}
