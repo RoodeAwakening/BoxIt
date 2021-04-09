@@ -1,0 +1,48 @@
+.groups-each {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  /* padding: 8px 2px; */
+  margin: 18px;
+}
+
+.groups-detail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+
+.groups-name {
+  color: white;
+  text-align: center;
+ }
+
+.groups-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.groups-each-background{
+  display: flex;
+  margin: 0;
+}
+
+
+
+.groups-each-background img{
+  height: 200px;
+  max-width: 200px;
+  z-index: -1;
+  position: absolute;
+ 
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  
+}

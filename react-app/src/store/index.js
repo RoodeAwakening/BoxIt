@@ -5,6 +5,7 @@ import workoutReducer from './workouts'
 import rankingReducer from './ranking'
 import userGroupReducer from './userGroups'
 import userWorkoutsReducer from './userWorkouts'
+import groupsReducer from './groups'
 ////
 
 // split the appReducer and combined reducers to set initial state to undefined 
@@ -15,6 +16,7 @@ const appReducer = combineReducers({
 	ranking: rankingReducer,
 	userGroup: userGroupReducer,
 	userWorkouts: userWorkoutsReducer,
+	groups: groupsReducer,
 });
 
 const rootReducer = (state, action) => {

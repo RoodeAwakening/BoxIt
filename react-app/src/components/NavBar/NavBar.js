@@ -11,7 +11,10 @@ const NavBar = ({ setAuthenticated }) => {
       <div className='navbar-left'>
 
       <div>
+        <a href='/'>
+
         <img alt="logo" src={logo} id='nav-logo' />
+        </a>
         </div>
       </div>
       <div className='navbar-right'>
