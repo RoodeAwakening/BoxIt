@@ -13,11 +13,11 @@ def groups():
     method = request.method
     if method == 'GET':
       # Get all Groups
-        groups = Group.query.all()
+        groups = Group.query.order_by(Group.createdAt.desc())
         return {"groups": [group.to_dict() for group in groups]}
     elif method == 'POST':
       # Add a new Group
-        group_name = request.json['name']
+        group_name = request.json["groupName"]
         group = Group(name=group_name)
         db.session.add(group)
         db.session.commit()
@@ -60,7 +60,8 @@ def group_comments(id):
             comments.append({
                 "comment": comment.to_dict()
             })
-        return jsonify(comments if comments else 'Be there first to comment!')
+        # return jsonify(comments if comments else 'Be there first to comment!')
+        return jsonify(comments)
     if method == 'POST':
       # Add a comment to a given group
         form = CommentForm()
@@ -89,7 +90,7 @@ def user_group():
         return {"user_groups": [group.to_dict() for group in user_groups]}
     elif method == 'POST':
       # Add a new Group
-        group_id = request.json['group']
+        group_id = request.json["addGroup"]
         group = User_Group(user_id=current_user.id, groups_id=group_id)
         db.session.add(group)
         db.session.commit()

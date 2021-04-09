@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import ModalGroup from "../GroupsModal/GroupsModal";
 
 //store
 import { getAllGroups } from "../../store/groups";
@@ -19,6 +20,7 @@ export default function Groups() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const groups = useSelector((state) => Object.values(state?.groups));
+  const [groupModalIsOpen, setGroupModalisOpen] = useState(false);
 
   useEffect(() => {
     dispatch(getAllGroups());
@@ -26,37 +28,51 @@ export default function Groups() {
 
   const backgroundImages = [boxer1, boxer2, boxer3, boxer4, boxer5, boxer6];
 
+  // modal
+  const changeGroupModal = () => {
+    setGroupModalisOpen(true);
+  };
+
+  // add background images to the groups
+  // also renders each group block
   let allGroups = groups.map((each, index) => {
     let randomBackground = () => {
       let pos = Math.floor(Math.random() * (6 - 0));
-      console.log("rand", pos);
+
       return backgroundImages[pos];
     };
 
     return (
       <>
+      <a href={`/groups/${each.id}`}>
         <div className="groups-each" key={index}>
           <div className="groups-each-background">
             <img src={randomBackground()} />
           </div>
-          <div className='groups-detail'>
-
-          <a className="groups-name" href="/">
-            <h2>{each.name}</h2>
-          </a>
+          <div className="groups-detail">
+            <a className="groups-name" href={`/groups/${each.id}`}>
+              <h2>{each.name}</h2>
+            </a>
           </div>
         </div>
-
+        </a>
       </>
     );
   });
 
+  // rendered on page
   return (
     <div>
-<div>
-  <h2>Add a new group modal button</h2>
-</div>
-  <div className="groups-container">{allGroups}</div>
+      <div className="groups-top_button_newGroup-container">
+        <button id="groups-top_button_newGroup" onClick={changeGroupModal}>
+          Start a new group.
+        </button>
+        <ModalGroup
+          groupModalIsOpen={groupModalIsOpen}
+          setGroupModalisOpen={setGroupModalisOpen}
+        />
+      </div>
+      <div className="groups-container">{allGroups}</div>
     </div>
   );
 }

@@ -14,6 +14,7 @@ import User from "./components/User/User";
 import WelcomePage from "./components/Welcome/Welcome";
 import Workouts from "./components/Workouts/Workouts";
 import Groups from "./components/Groups/Groups";
+import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(true);
@@ -79,7 +80,7 @@ function App() {
                 <Groups/>
               </Route>
               <Route path="/groups/:groupId" exact={true}>
-                {/* SETUP ROUTE */}
+                <GroupsIndividual/>
               </Route>
             </>
           </Switch>
