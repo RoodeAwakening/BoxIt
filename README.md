@@ -173,11 +173,17 @@ This website was designed as an alternative to going to a boxing gym. Giving you
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-### Feature 1 
-![feature](https://media1.tenor.com/images/e9d9d40eef4ab994670c08524e35bbdb/tenor.gif?itemid=5393841)
+### Eye catching splash screen
+  <img src="gitImages/readme/box-1.gif" alt="LogIn" >
 
-### Feature 2 
-![feature](https://thumbs.gfycat.com/AlienatedFalseBison-size_restricted.gif)
+### A full featured workout screen
+  <img src="gitImages/readme/box-2.gif" alt="Workout" >
+
+### Easy to access workout stats
+<img src="gitImages/readme/1.PNG" alt="LogIn" >
+
+### View your most recent workouts
+<img src="gitImages/readme/2.PNG" alt="LogIn" >
 
 
 
