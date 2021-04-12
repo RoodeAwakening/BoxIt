@@ -27,7 +27,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-gitImages/boxit_logo.png
+
 
 <!-- PROJECT LOGO -->
 <br />
