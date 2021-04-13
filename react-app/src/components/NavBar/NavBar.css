@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 0px 20px;
-  background-color: #231F20;
+  background-color: black;
   margin-bottom: 15px;
 
   
@@ -29,7 +29,15 @@
   padding-left: 10px;
 }
 
-.navbar-right div h3{
+.navbar-right div h4{
   color: white;
 
+  padding-right: 5px;
+  border-right: 2px solid #f0f0f5;
+
 }
+
+.navbar-right div h3{
+  color: white;
+}
+

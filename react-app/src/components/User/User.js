@@ -25,18 +25,21 @@ function User() {
     Object.values(state.ranking)
   );
 
+  const [quote, setQuote] = useState("");
+
   useEffect(() => {
     dispatch(userWorkouts());
     dispatch(allWorkoutsComplete());
     dispatch(userGroups());
     dispatch(allWorkouts());
+    getQuote();
   }, [dispatch, sessionUser]);
 
   //get total hours completed
   const hoursCompleted = () => {
     const totalWorkouts = userWorkout.length;
     const workoutTime = (totalWorkouts * 31) / 60;
-    return `${Math.floor(workoutTime)} Hours Completed`;
+    return `${Math.floor(workoutTime)}`;
   };
 
   //get overall rank
@@ -50,7 +53,7 @@ function User() {
       }
     }
 
-    return place;
+    return <h3> # {place}</h3>;
   };
 
   //get workouts completed
@@ -63,67 +66,119 @@ function User() {
     return num;
   };
 
+  //get quote
+  async function getQuote() {
+    const response = await fetch("https://type.fit/api/quotes/");
+    const data = await response.json();
+    let pos = Math.floor(Math.random() * (1642 - 0));
+
+    setQuote(`${data[pos].text} - ${data[pos].author}`);
+  }
+
   if (!sessionUser) {
     return <Redirect to="/welcome" />;
   }
 
   return (
     <div className="user_container">
-      <div className="user_container-header">
-        <div className="user_container-header-profilePhoto">
-          <div>
-            <img src={sessionUser.profile_photo} />
-          </div>
-          <div id="username">{sessionUser.user_name}</div>
-        </div>
-
-        <div className="user_container-header-ContentBox">
-          <div id="currentLevel">
-            <div>
-              <h5>Current Level</h5>
-            </div>
-            <div>{sessionUser.boxing_level}</div>
-          </div>
-
-          <div id="workoutsCompleted">
-            <div>
-              <h5>User Workouts</h5>
-            </div>
-            <div>{userWorkout ? workoutData() : "Start a workout!"}</div>
-          </div>
-
-          <div id="hoursCompleted">
-            <div>
-              <h5>Hours Completed</h5>
-            </div>
-            <div>{hoursCompleted()}</div>
-          </div>
-
-          <div id="overallRank">
-            <div>
-              <h5>Current Rank</h5>
-            </div>
-            <div>{overallRank()}</div>
-          </div>
-        </div>
+      <div className="quote-of-the-day">
+        <h2>{quote}</h2>
       </div>
+      <div className="user_container-header">
+        {/* TOP SECTION 1 */}
+        <div className="user_container-header-2">
+          <div className="user_container-header-profilePhoto">
+            <div>
+              <img src={sessionUser.profile_photo} />
+            </div>
+            <div className="username">
+              <h2>{sessionUser.user_name}</h2>
+            </div>
+          </div>
+          {/* TOP SECTION 2 */}
+          <div className="user_container-header-userStats">
+            <div className="user_container-header-ContentBox">
+              <div id="overallRank">
+                <div>
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <div>
+                  <h3>Current Rank</h3>
+                </div>
+                <div>
+                  <h5>{overallRank()}</h5>
+                </div>
+              </div>
 
-      <div className="user_container-middle-ContentBox">
-        <div className="user_container-middle-leaderboard">
-          <h2>Leaderboard</h2>
+              <div id="workoutsCompleted">
+                <div>
+                  <i class="fas fa-dumbbell"></i>
+                </div>
+                <div>
+                  <h3>Total Workouts</h3>
+                </div>
+                <div>
+                  <h3>{userWorkout ? workoutData() : "Start a workout!"}</h3>
+                </div>
+              </div>
+
+              <div id="hoursCompleted">
+                <div>
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <h3>Hours Completed</h3>
+                </div>
+                <div>
+                  <h3>{hoursCompleted()}</h3>
+                </div>
+              </div>
+
+              <div id="currentLevel">
+                <div>
+                  <i class="fas fa-sliders-h"></i>
+                </div>
+                <div>
+                  <h3>Current Level</h3>
+                </div>
+                <div>
+                  <h5>{sessionUser.boxing_level}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div className="user_container-header-leaderBoard">
+
+
+          <div className="user_container-header-right-leaderboard">
+     
+
+          <h2 className="user_container-header-right-leaderboard-title">Leaderboard</h2>
+          <hr/>
+        
           <div id="leaderboard">
             <LeaderBoard />
           </div>
         </div>
 
-        <div className="user_container-middle-myGroups">
+
+
+          </div>
+      </div>
+
+      {/* SECTION 3 */}
+      <div className="user_container-header-right-ContentBox">
+        
+
+        <div className="user_container-header-right-myGroups">
           <h2>My Groups</h2>
           <div id="myGroups">
             <MyGroups />
           </div>
         </div>
 
-        <div className="user_container-middle-links">
+        <div className="user_container-header-right-links">
           <h2>Links</h2>
           <div id="links">
             <UserLinks />
@@ -131,15 +186,14 @@ function User() {
         </div>
       </div>
 
+      {/* SECTION 3 */}
+
       <div className="user_container-bottom">
         <div className="user_container-bottom-warmup">
           <h1>My Workouts</h1>
         </div>
         <div className="user_container-bottom-workouts">
-          
-
           <WorkoutsList />
-          
         </div>
       </div>
     </div>
