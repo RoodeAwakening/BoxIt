@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, NavLink } from "react-router-dom";
 
 import "./User.css";
 //store stuff
@@ -146,6 +146,22 @@ function User() {
                     <h5>{sessionUser.boxing_level}</h5>
                   </div>
                 </div>
+<div id='startWorkout'>
+
+                <NavLink
+        to="/workout"
+        exact={true}
+        activeClassName="active"
+        className="links-each"
+        
+        >
+        Start a new workout
+      </NavLink>
+
+        </div>
+
+
+
               </div>
             </div>
           </div>

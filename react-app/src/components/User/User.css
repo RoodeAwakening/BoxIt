@@ -58,6 +58,7 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 10px;
+  padding-left: 15px;
 }
 
 .user_container-header-ContentBox {
@@ -96,6 +97,17 @@
 
 #currentLevel h5 {
   color: rgb(2, 233, 2);
+}
+
+#startWorkout{
+  background-color: red;
+  width: 300px;
+  margin-top: 5px;
+  /* margin-bottom: 30px; */
+  border-radius: 25px;
+  height: 30px;
+  border-style: none;
+  
 }
 
 .user_container-bottom {
