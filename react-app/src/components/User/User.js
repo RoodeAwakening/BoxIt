@@ -87,90 +87,95 @@ function User() {
       <div className="user_container-header">
         {/* TOP SECTION 1 */}
         <div className="user_container-header-2">
-          <div className="user_container-header-profilePhoto">
-            <div>
-              <img src={sessionUser.profile_photo} />
+          <div className="user_container-header-2-top">
+            <div className="user_container-header-profilePhoto">
+              <div>
+                <img src={sessionUser.profile_photo} />
+              </div>
+              <div className="username">
+                <h2>{sessionUser.user_name}</h2>
+              </div>
             </div>
-            <div className="username">
-              <h2>{sessionUser.user_name}</h2>
+            {/* TOP SECTION 2 */}
+            <div className="user_container-header-userStats">
+              <div className="user_container-header-ContentBox">
+                <div id="overallRank">
+                  <div>
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <div>
+                    <h3>Current Rank</h3>
+                  </div>
+                  <div>
+                    <h5>{overallRank()}</h5>
+                  </div>
+                </div>
+
+                <div id="workoutsCompleted">
+                  <div>
+                    <i class="fas fa-dumbbell"></i>
+                  </div>
+                  <div>
+                    <h3>Total Workouts</h3>
+                  </div>
+                  <div>
+                    <h3>{userWorkout ? workoutData() : "Start a workout!"}</h3>
+                  </div>
+                </div>
+
+                <div id="hoursCompleted">
+                  <div>
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div>
+                    <h3>Hours Completed</h3>
+                  </div>
+                  <div>
+                    <h3>{hoursCompleted()}</h3>
+                  </div>
+                </div>
+
+                <div id="currentLevel">
+                  <div>
+                    <i class="fas fa-sliders-h"></i>
+                  </div>
+                  <div>
+                    <h3>Current Level</h3>
+                  </div>
+                  <div>
+                    <h5>{sessionUser.boxing_level}</h5>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          {/* TOP SECTION 2 */}
-          <div className="user_container-header-userStats">
-            <div className="user_container-header-ContentBox">
-              <div id="overallRank">
-                <div>
-                  <i class="fas fa-trophy"></i>
-                </div>
-                <div>
-                  <h3>Current Rank</h3>
-                </div>
-                <div>
-                  <h5>{overallRank()}</h5>
-                </div>
+          <div className="user_container-header-2-bottom">
+            <div className="user_container-bottom">
+              <div className="user_container-bottom-warmup">
+                <h1>My Workouts</h1>
               </div>
-
-              <div id="workoutsCompleted">
-                <div>
-                  <i class="fas fa-dumbbell"></i>
-                </div>
-                <div>
-                  <h3>Total Workouts</h3>
-                </div>
-                <div>
-                  <h3>{userWorkout ? workoutData() : "Start a workout!"}</h3>
-                </div>
-              </div>
-
-              <div id="hoursCompleted">
-                <div>
-                  <i class="fas fa-clock"></i>
-                </div>
-                <div>
-                  <h3>Hours Completed</h3>
-                </div>
-                <div>
-                  <h3>{hoursCompleted()}</h3>
-                </div>
-              </div>
-
-              <div id="currentLevel">
-                <div>
-                  <i class="fas fa-sliders-h"></i>
-                </div>
-                <div>
-                  <h3>Current Level</h3>
-                </div>
-                <div>
-                  <h5>{sessionUser.boxing_level}</h5>
-                </div>
+              <div className="user_container-bottom-workouts">
+                <WorkoutsList />
               </div>
             </div>
           </div>
         </div>
-          <div className="user_container-header-leaderBoard">
-
-
+        <div className="user_container-header-leaderBoard">
           <div className="user_container-header-right-leaderboard">
-     
+            <h2 className="user_container-header-right-leaderboard-title">
+              Leaderboard
+            </h2>
+            <hr />
 
-          <h2 className="user_container-header-right-leaderboard-title">Leaderboard</h2>
-          <hr/>
-        
-          <div id="leaderboard">
-            <LeaderBoard />
+            <div id="leaderboard">
+              <LeaderBoard />
+            </div>
           </div>
         </div>
-
-
-
-          </div>
       </div>
 
       {/* SECTION 3 */}
       <div className="user_container-header-right-ContentBox">
-        
-
         <div className="user_container-header-right-myGroups">
           <h2>My Groups</h2>
           <div id="myGroups">
@@ -178,24 +183,15 @@ function User() {
           </div>
         </div>
 
-        <div className="user_container-header-right-links">
+        {/* <div className="user_container-header-right-links">
           <h2>Links</h2>
           <div id="links">
             <UserLinks />
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* SECTION 3 */}
-
-      <div className="user_container-bottom">
-        <div className="user_container-bottom-warmup">
-          <h1>My Workouts</h1>
-        </div>
-        <div className="user_container-bottom-workouts">
-          <WorkoutsList />
-        </div>
-      </div>
     </div>
   );
 }

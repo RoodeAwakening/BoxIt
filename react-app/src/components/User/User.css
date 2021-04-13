@@ -2,37 +2,49 @@
   padding: 0px 80px;
 }
 
+.quote-of-the-day {
+  text-align: center;
+  color: #777e90;
+  width: 100%;
+  max-height: 80px;
+  padding: 0 20px;
+}
+
 .user_container-header {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center;
+  /* align-items: center; */
   margin-left: 20px;
 }
 
 .user_container-header-2 {
-display: flex;
-
-}
-
-.user_container-header-userStats {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding-bottom: 10px;
+}
 
+.user_container-header-2-top {
+  display: flex;
 }
 
 .user_container-header-profilePhoto {
+  margin-top: 62px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #231F20;
+  height: 250px;
+  width: 250px;
+  background-color: #231f20;
   border: 2px solid #332e2f;
   border-radius: 10%;
   padding: 20px;
+}
+
+.user_container-header-profilePhoto img {
+  max-height: 150px;
+  border-radius: 50%;
 }
 
 .username h2 {
@@ -41,14 +53,16 @@ display: flex;
   margin: 10px;
 }
 
-.user_container-header-profilePhoto img {
-  max-height: 150px;
-  border-radius: 50%;
+.user_container-header-userStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 10px;
 }
 
 .user_container-header-ContentBox {
-  color: #777E90;
-
+  color: #777e90;
+  margin-top: 62px;
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -56,7 +70,22 @@ display: flex;
   text-align: center;
 }
 
-.user_container-header-ContentBox div {
+#overallRank {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#workoutsCompleted {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#hoursCompleted {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 #currentLevel {
@@ -65,87 +94,71 @@ display: flex;
   align-items: center;
 }
 
-#currentLevel h5{
-color: greenyellow;
+#currentLevel h5 {
+  color: rgb(2, 233, 2);
 }
 
-
-#workoutsCompleted {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-#hoursCompleted {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-#overallRank {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.user_container-bottom {
+  padding-top: 80px;
 }
 
-.quote-of-the-day{
+.user_container-bottom-warmup {
   text-align: center;
-  color: #777E90;
-  width: 100%;
-  max-height: 80px;
-  padding:0 20px;
+  color: #777e90;
 }
 
-.user_container-header-leaderBoard{
+.user_container-bottom-workouts {
+  color: #332e2f;
+  background-color: #231f20;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: scroll;
+  width: 675px;
+  border: 3px solid rgba(0, 0, 0, 0.507);
+  margin: 0 30px;
+}
+
+.user_container-header-leaderBoard {
   display: flex;
   justify-content: flex-end;
 
-  max-height: 867px;
+  max-height: 1490px;
   width: 75%;
   overflow-y: scroll;
-}
-
-
-
-
-
-.user_container-header-right-ContentBox {
-  display: flex;
-  justify-content: space-around;
-  height: 350px;
-  border: 2px solid #777E90;
-  margin: 0px 30px;
-  background-color: violet;
 }
 
 .user_container-header-right-leaderboard {
   display: flex;
   flex-direction: column;
- 
+
   align-content: center;
   width: 75%;
   align-content: center;
 }
 
-hr {
-
-  border: 1px solid #777E90;
-  width:613px;
-  margin: 5px 0px;
-}
-
-.user_container-header-right-leaderboard-title{
-  color: #777E90;
+.user_container-header-right-leaderboard-title {
+  color: #777e90;
   text-align: center;
   padding-right: 90px;
-
 }
 
 #leaderboard {
-  color: #777E90;;
+  color: #777e90;
   display: flex;
   flex-direction: column;
-  height: 270px;
+  height: 100%;
   overflow-y: scroll;
   width: 75%;
+}
+
+.user_container-header-right-ContentBox {
+  display: flex;
+  justify-content: space-around;
+  height: 350px;
+  border: 2px solid #777e90;
+  margin: 0px 30px;
+  background-color: violet;
+  width: 450px;
 }
 
 .user_container-header-right-myGroups {
@@ -159,6 +172,13 @@ hr {
   overflow-y: scroll;
   width: 190px;
 }
+
+hr {
+  border: 1px solid #777e90;
+  width: 75%;
+  margin: 5px 0px;
+}
+
 .user_container-header-right-links {
   text-align: center;
 }
@@ -169,20 +189,4 @@ hr {
   height: 270px;
   overflow-y: scroll;
   width: 190px;
-}
-
-.user_container-bottom {
-  padding-bottom: 20px;
-}
-
-.user_container-bottom-warmup {
-  text-align: center;
-}
-.user_container-bottom-workouts {
-  display: flex;
-  justify-content: space-between;
-  overflow-y: scroll;
-
-  border: 3px solid rgba(0, 0, 0, 0.507);
-  margin: 0 30px;
 }
