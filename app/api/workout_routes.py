@@ -67,10 +67,10 @@ def user_workouts_all():
     method = request.method
     if method == 'GET':
         # workouts = []
-        users = User.query.with_entities(User.id, User.workouts_completed, User.user_name).order_by(
+        users = User.query.with_entities(User.id, User.workouts_completed, User.user_name, User.profile_photo).order_by(
             User.workouts_completed.desc())
 
-        return {"all_completed_workouts": [{"user_id": user[0], "workouts":user[1], "username":user[2]} for user in users]}
+        return {"all_completed_workouts": [{"user_id": user[0], "workouts":user[1], "username":user[2], "profile_photo":user[3]} for user in users]}
 
 
 @workout_routes.route('/user_workouts/completed/user', methods=['GET', 'PATCH'])

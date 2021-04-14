@@ -9,26 +9,32 @@ export default function LeaderBoard() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-  
+
   const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
-
     dispatch(allWorkoutsComplete());
-
-  }, [dispatch,sessionUser]);
+  }, [dispatch, sessionUser]);
 
   // go through each compelted workout and give user ranks
   let pos = 0;
-  let leaders = allWorkoutsCompleted.map((each) => {
+  let leaders = allWorkoutsCompleted.map((each, index) => {
+    console.log(each);
     pos += 1;
 
     return (
-      <div className="leaderboard-each" key={each.user_id}>
-        <div className="leaderboard-pos">{`#${pos}`}</div>
-        <div className="leaderboard-name">{each.username}</div>
-        <div className="leaderboard-workouts">{each.workouts}</div>
+      <div className="leaderboard-each" key={index}>
+        <div className="leaderboard-each-left">
+          <div className="leaderboard-pos {index}" >
+            <h2 id={`pos${pos}`}>{`#${pos}`}</h2>
+          </div>
+          <div>
+            <img className="leaderboard-img" src={each.profile_photo} />
+          </div>
+        </div>
+          <div className="leaderboard-name"><h3>{each.username}</h3></div>
+          <div className="leaderboard-workouts"><h3>{each.workouts}</h3></div>
       </div>
     );
   });
-  return leaders;
+  return <>{leaders}</>;
 }
