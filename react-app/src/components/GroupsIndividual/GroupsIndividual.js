@@ -47,18 +47,19 @@ export default function GroupsIndividual() {
   });
 
   return (
-    <>
-      <h2>{groupData.name}</h2>
-
-      <h2>
-        {allComments.map((each, index) => {
-          return (
-            <div key={index}>
-              <h2>{each.content}</h2>
-            </div>
-          );
-        })}
-      </h2>
-    </>
+    <div className="comments_page-container">
+      <h2 id="Group_Name">{groupData.name}</h2>
+      <div className="comments-container">
+        <h4 className="comments-each">
+          {allComments.map((each, index) => {
+            return (
+              <div key={index}>
+                <h4>{each.content}</h4>
+              </div>
+            );
+          })}
+        </h4>
+      </div>
+    </div>
   );
 }

@@ -134,7 +134,7 @@
   display: flex;
   justify-content: flex-end;
 
-  max-height: 1490px;
+  max-height: 998px;
   width: 75%;
   overflow-y: scroll;
 }
