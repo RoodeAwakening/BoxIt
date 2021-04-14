@@ -14,10 +14,15 @@ align-items: center;
   background-color: #231f20;
   border: 2px solid #332e2f;
   width: 65%;
+  height: 500px;
 /* background-color: aquamarine; */
 }
 
 
 .comments-each{
+  color: #777e90;
+}
+
+.comments_page-text-box{
   color: #777e90;
 }

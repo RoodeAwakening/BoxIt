@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { createComment } from '../../store/groups'
+
+
 
 import "./GroupsIndividual.css";
 
@@ -11,7 +14,10 @@ export default function GroupsIndividual() {
   const dispatch = useDispatch();
   const [groupData, setGroupData] = useState({});
   const [groupComments, setGroupComments] = useState([]);
-  console.log("--groupComments----", groupComments);
+  const [comment, setComment] = useState("")
+
+
+  
 
   // From props.
   const { groupId } = useParams();
@@ -27,14 +33,23 @@ export default function GroupsIndividual() {
 
       setGroupData(groupData);
       setGroupComments(groupCommentsRes);
-      // if (!groupCommentsRes) {
-      //   setGroupComments(groupCommentsRes);
-      // } else {
-      //   setGroupComments(groupCommentsRes);
-      // }
+
     }
     fetchData();
-  }, [groupId, dispatch]);
+  }, [groupId, dispatch, comment]);
+
+  //comment
+  const updateComment = (e) =>{
+    setComment(e.target.value)
+  }
+
+  const addComment = async e => {
+    e.preventDefault()
+
+    const userComment = await dispatch(createComment({comment, groupId}))
+    setComment('')
+    return userComment
+  }
 
   // get each comment
 
@@ -60,6 +75,34 @@ export default function GroupsIndividual() {
           })}
         </h4>
       </div>
+
+      <div className="comments_page-text-box">
+      <form onSubmit={addComment}>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          name="comment"
+          type="text"
+          placeholder="comment"
+          value={comment}
+          onChange={updateComment}
+        />
+      </div>
+      <button type="submit">Login</button>
+
+
+
+
+
+      </form>
+
+
+
+      </div>
     </div>
   );
+
+
+
+  
 }

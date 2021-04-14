@@ -71,7 +71,7 @@ def group_comments(id):
           # REPLACE WITH current_user.id
             comment = Comment(
                 group_id=id,
-                user_id=1,
+                user_id=current_user.id,
                 content=form.data['content'],
                 photo_url=form.data['photo_url'],
             )
