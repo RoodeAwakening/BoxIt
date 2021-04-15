@@ -54,14 +54,14 @@ def group_comments(id):
     method = request.method
     if method == 'GET':
         comments = []
-        group = Group.query.get(id)
-        comments_from_group = group.comments
+        comments_from_group = Group.query.get(id).comments
+
         for comment in comments_from_group:
             comments.append({
                 "comment": comment.to_dict()
             })
-        # return jsonify(comments if comments else 'Be there first to comment!')
-        return jsonify(comments)
+        return jsonify(comments if comments else 'Be there first to comment!')
+        # return jsonify(comments)
     if method == 'POST':
       # Add a comment to a given group
         form = CommentForm()
