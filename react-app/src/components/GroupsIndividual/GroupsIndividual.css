@@ -20,9 +20,23 @@ align-items: center;
 
 
 .comments-each{
+  margin: 0 20px;
   color: #777e90;
+  height: 100%;
+ overflow-y: scroll;
+
+
+}
+
+.comment{
+  display: flex;
 }
 
 .comments_page-text-box{
   color: #777e90;
+}
+
+.comment_photo{
+  max-height: 50px;
+  border-radius: 50%;
 }
