@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import { createComment } from "../../store/groups";
 
 import "./GroupsIndividual.css";
-
+// import * as classes from "./GroupsIndividual.module.css"
+// GroupsIndividual
 //store
 import { singleGroup } from "../../store/groups";
 import { getComments } from "../../store/GroupComments";

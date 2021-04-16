@@ -55,6 +55,7 @@ def group_comments(id):
     if method == 'GET':
         comments = []
         comments_from_group = Group.query.get(id).comments
+
         for comment in comments_from_group:
             comments.append({
                 "comment": comment.to_dict()
@@ -85,8 +86,7 @@ def user_group():
     method = request.method
     if method == 'GET':
       # Get all user groups
-        user_groups = Group.query.join(User_Group).filter(
-            User_Group.user_id == current_user.id).all()
+        user_groups = Group.query.join(User_Group).filter(User_Group.user_id == current_user.id).all()
         return {"user_groups": [group.to_dict() for group in user_groups]}
     elif method == 'POST':
       # Add a new Group
@@ -96,8 +96,7 @@ def user_group():
         db.session.commit()
         return jsonify(group.to_dict())
 
-
-@group_routes.route('/user_group/<int:id>', methods=['GET', 'DELETE'])
+@group_routes.route('/user_group/<int:id>', methods=['GET','DELETE'])
 # @login_required
 def user_group_single(id):
     method = request.method

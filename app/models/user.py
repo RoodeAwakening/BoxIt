@@ -51,4 +51,13 @@ class User(db.Model, UserMixin):
             "workouts_completed": self.workouts_completed,
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt
+            
+        }
+
+# this is whats being used in the comment route query
+    def comment(self):
+        return {
+             "user_name": self.user_name,
+             "profile_photo": self.profile_photo,
+             "boxing_level": self.boxing_level,
         }
