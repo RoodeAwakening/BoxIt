@@ -1,0 +1,42 @@
+.comments_page-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#Group_Name{
+  text-align: center;
+  color: #777e90;
+}
+
+.comments-container{
+  background-color: #231f20;
+  border: 2px solid #332e2f;
+  width: 65%;
+  height: 500px;
+/* background-color: aquamarine; */
+}
+
+
+.comments-each{
+  margin: 0 20px;
+  color: #777e90;
+  height: 100%;
+ overflow-y: scroll;
+
+
+}
+
+.comment{
+  display: flex;
+}
+
+.comments_page-text-box{
+  color: #777e90;
+}
+
+.comment_photo{
+  max-height: 50px;
+  border-radius: 50%;
+}

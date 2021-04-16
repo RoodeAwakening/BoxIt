@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-//store
-// import {  allWorkouts } from "../../store/workouts";
+//store stuff
 import { userWorkouts } from "../../store/userWorkouts";
 import { allWorkouts } from "../../store/workouts";
+import { allWorkoutsComplete } from "../../store/ranking";
+import { userGroups } from "../../store/userGroups";
 
 
 import WorkoutModal from "../WorkoutModal/WorkoutModal";
@@ -19,12 +20,14 @@ const Workouts = (workout) => {
 
 
   useEffect( () => {
-
-      // dispatch(userWorkouts());
-      // dispatch(allWorkoutsComplete());
-      dispatch(allWorkouts())
+    dispatch(userWorkouts());
+    dispatch(allWorkoutsComplete());
+    dispatch(userGroups());
+    dispatch(allWorkouts());
 
   }, [dispatch, sessionUser]);
+
+
 
   const userWorkout =  () => {
     let num = 1;
@@ -40,16 +43,16 @@ const Workouts = (workout) => {
         <div className="workouts_header">
           <div className="workouts_header-coach">
             <h2>Your Coach</h2>
-            <img src={workouts[pos].coach_photo_url } alt='coach'/>
+            <img src={workouts[pos]?.coach_photo_url } alt='coach'/>
           </div>
         </div>
           <div className="workouts_body-clock">
-            <video src={workouts[pos].audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
+            <video src={workouts[pos]?.audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
           </div>
           <div className="workouts_header">
         <div className="workouts_header-coach">
             <h2>You</h2>
-            <img src={sessionUser.profile_photo} alt='profile picture'/>
+            <img src={sessionUser?.profile_photo} alt='profile picture'/>
           </div>
           </div>
         </div>

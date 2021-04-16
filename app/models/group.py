@@ -1,6 +1,7 @@
 from .db import db
 
 
+
 class Group(db.Model):
     __tablename__ = 'groups'
 
@@ -18,5 +19,5 @@ class Group(db.Model):
             "id": self.id,
             "name": self.name,
             "createdAt": self.createdAt,
-            "updatedAt": self.updatedAt
+            "updatedAt": self.updatedAt,
         }

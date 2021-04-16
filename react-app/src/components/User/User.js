@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 
+
 import "./User.css";
 //store stuff
 import { userWorkouts } from "../../store/userWorkouts";
@@ -24,6 +25,8 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
+  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
+
 
   const [quote, setQuote] = useState("");
 
