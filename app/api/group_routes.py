@@ -109,7 +109,7 @@ def user_group_single(id):
     elif method == 'DELETE':
       # Delete a group from users groups
 
-        success = User_Group.query.filter(User_Group.groups_id == id).filter(User_Group.user_id == 1).delete()
+        success = User_Group.query.filter(User_Group.groups_id == id).filter(User_Group.user_id == current_user.id).delete()
 
         db.session.commit()
         return jsonify('Successfully deleted' if success else 'No Group Exists')

@@ -21,13 +21,14 @@ export const userGroups = () => async (dispatch) => {
 
 // remove from user group
 export const removeUserGroup = (groupid) => async (dispatch) => {
-  console.log('gropuId------',groupid);
+
+  console.log('response',groupid);
   const response = await fetch(`/api/groups/user_group/${groupid}`,{
-    mothod:'DELETE',
-    headers:{
-      'Content-Type':'application/json',
-    }
-  })
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
   const data = await response.json()
   return data
 }

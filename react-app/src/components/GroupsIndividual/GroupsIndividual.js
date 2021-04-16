@@ -4,8 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { createComment } from "../../store/groups";
 
 import "./GroupsIndividual.css";
-// import * as classes from "./GroupsIndividual.module.css"
-// GroupsIndividual
+
 //store
 import { singleGroup } from "../../store/groups";
 import { getComments } from "../../store/GroupComments";
@@ -27,7 +26,6 @@ export default function GroupsIndividual() {
   const [comment, setComment] = useState("");
   const [userGroupId, setuserGroupId] = useState('')
 
-  console.log('group----',groupData);
 
 
   
@@ -38,13 +36,14 @@ export default function GroupsIndividual() {
         return groupId =group.id
       }
     })
-  setuserGroupId(groupId)
-// return groupIdData
-}
-
-
+    setuserGroupId(groupId)
+    // return groupIdData
+  }
+  
+  
   // From props.
   const { groupId } = useParams();
+  console.log('group----',groupId);
 
   useEffect(() => {
     async function fetchData() {
@@ -79,8 +78,8 @@ export default function GroupsIndividual() {
   })
 
   const leaveGroup = (async()=>{
-    await dispatch(removeUserGroup(userGroupId))
-
+    await dispatch(removeUserGroup(groupId))
+    await dispatch(userGroups());
     history.push('/')
    
   })

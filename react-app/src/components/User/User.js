@@ -25,6 +25,8 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
+  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
+
 
   const [quote, setQuote] = useState("");
 
