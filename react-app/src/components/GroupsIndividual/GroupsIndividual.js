@@ -39,6 +39,24 @@ export default function GroupsIndividual() {
     fetchData();
   }, [groupId, dispatch]);
 
+  //group buttons
+  const joinGroup = (async()=>{
+    const response2 = await fetch("/api/groups/user_group", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        addGroup: groupData.id,
+      }),
+    });
+    return alert('joining')
+  })
+
+  const leaveGroup = (()=>{
+    return alert('leaving')
+  })
+
   //comment
   const updateComment = (e) => {
     setComment(e.target.value);
@@ -65,9 +83,13 @@ export default function GroupsIndividual() {
     <div className="comments_page-container">
       <div className="comments_page-container-join_leave">
         
-        <button id="Group_leave">leave</button>
+        <button id="Group_leave"
+        onClick={leaveGroup}
+        >leave</button>
         <h2 id="Group_Name">{groupData.name}</h2>
-        <button id="Group_join">Join</button>
+        <button id="Group_join"
+        onClick={joinGroup}
+        >Join</button>
       </div>
       <div className="comments-container">
         <h4 className="comments-each">
