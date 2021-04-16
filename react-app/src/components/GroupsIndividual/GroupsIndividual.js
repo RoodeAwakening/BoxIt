@@ -16,11 +16,13 @@ import { userGroups } from "../../store/userGroups";
 
 export default function GroupsIndividual() {
   const dispatch = useDispatch();
+
+  const comments = useSelector((state) => state.comments);
+  const users = useSelector((state) => Object.values(state.ranking));
+  // States
   const [groupData, setGroupData] = useState({});
   const [groupComments, setGroupComments] = useState([]);
   const [comment, setComment] = useState("");
-  const comments = useSelector((state) => state.comments);
-  const users = useSelector((state) => Object.values(state.ranking));
 
   // From props.
   const { groupId } = useParams();
@@ -28,8 +30,11 @@ export default function GroupsIndividual() {
   useEffect(() => {
     async function fetchData() {
       await dispatch(allWorkoutsComplete());
-
       await dispatch(getComments(groupId));
+      // get individual group data
+      let response = await fetch(`/api/groups/${groupId}`);
+      let data = await response.json();
+      setGroupData(data);
     }
     fetchData();
   }, [groupId, dispatch]);
@@ -55,40 +60,52 @@ export default function GroupsIndividual() {
   }
   commentsData.reverse();
 
+  // render the comments section
   return (
     <div className="comments_page-container">
-      <h2 id="Group_Name">{groupData.name}</h2>
+      <div className="comments_page-container-join_leave">
+        
+        <button id="Group_leave">leave</button>
+        <h2 id="Group_Name">{groupData.name}</h2>
+        <button id="Group_join">Join</button>
+      </div>
       <div className="comments-container">
-    
         <h4 className="comments-each">
-         {commentsData.map((each, index) => {
+          {commentsData.map((each, index) => {
             return (
-              <div key={index} className='comments-each-line'>
-                <img src={each?.comment?.user.profile_photo}/>
-                <h4 className='comments-each-line-username'>{each?.comment?.user.user_name}:  </h4>
+              <div key={index} className="comments-each-line">
+                <img src={each?.comment?.user.profile_photo} />
+                <h4 className="comments-each-line-username">
+                  {each?.comment?.user.user_name}:{" "}
+                </h4>
                 <h4>{each?.comment?.content}</h4>
               </div>
             );
-          })}  
+          })}
         </h4>
-      
-      </div>
 
-      <div className="comments_page-text-box">
-        <form onSubmit={addComment}>
-          <div>
-            <label htmlFor="email"></label>
-            <input
-              name="comment"
-              type="text"
-              placeholder="comment"
-              value={comment}
-              onChange={updateComment}
-            />
-          </div>
-          <button type="submit">Login</button>
-        </form>
+        {/* add a comment section */}
+        <div className="comments_page-text-box">
+          <form onSubmit={addComment}>
+            <div>
+              <input
+                className="comments_page-text-box-input"
+                name="comment"
+                type="text"
+                placeholder="comment"
+                value={comment}
+                onChange={updateComment}
+              />
+            </div>
+            <button type="submit">Send</button>
+    
+
+       
+          </form>
+        </div>
+        {/* add a comment section */}
       </div>
+      {/* add under comment box */}
     </div>
   );
 }
