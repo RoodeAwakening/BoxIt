@@ -23,7 +23,6 @@ class Comment(db.Model):
 
 
         return{
-
             "id": self.id,
             "groupd_id": self.group_id,
             "user_id": self.user_id,

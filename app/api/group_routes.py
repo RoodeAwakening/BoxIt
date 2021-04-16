@@ -59,7 +59,7 @@ def group_comments(id):
             comments.append({
                 "comment": comment.to_dict()
             })
-        return jsonify(comments if comments else 'Be there first to comment!')
+        return jsonify(comments if comments else '!')
         # return jsonify(comments)
     if method == 'POST':
       # Add a comment to a given group

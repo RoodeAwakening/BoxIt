@@ -24,9 +24,26 @@ align-items: center;
   color: #777e90;
   height: 100%;
  overflow-y: scroll;
-
-
 }
+
+.comments-each-line{
+  display: flex;
+}
+
+
+
+.comments-each img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.comments-each-line-username{
+  padding: 0 10px;
+}
+
 
 .comment{
   display: flex;

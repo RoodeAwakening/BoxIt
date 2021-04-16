@@ -59,22 +59,25 @@ export default function GroupsIndividual() {
     <div className="comments_page-container">
       <h2 id="Group_Name">{groupData.name}</h2>
       <div className="comments-container">
+    
         <h4 className="comments-each">
-          {commentsData.map((each, index) => {
+         {commentsData.map((each, index) => {
             return (
-              <div key={index}>
+              <div key={index} className='comments-each-line'>
+                <img src={each?.comment?.user.profile_photo}/>
+                <h4 className='comments-each-line-username'>{each?.comment?.user.user_name}:  </h4>
                 <h4>{each?.comment?.content}</h4>
-                <h4>{each?.comment?.User}</h4>
               </div>
             );
-          })}
+          })}  
         </h4>
+      
       </div>
 
       <div className="comments_page-text-box">
         <form onSubmit={addComment}>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email"></label>
             <input
               name="comment"
               type="text"
