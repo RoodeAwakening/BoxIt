@@ -87,6 +87,7 @@ def user_group():
       # Get all user groups
         user_groups = Group.query.join(User_Group).filter(
             User_Group.user_id == current_user.id).all()
+
         return {"user_groups": [group.to_dict() for group in user_groups]}
     elif method == 'POST':
       # Add a new Group
@@ -107,6 +108,8 @@ def user_group_single(id):
         return {"user_groups": [group.to_dict() for group in user_group]}
     elif method == 'DELETE':
       # Delete a group from users groups
-        success = User_Group.query.filter(User_Group.id == id).delete()
+
+        success = User_Group.query.filter(User_Group.groups_id == id).filter(User_Group.user_id == 1).delete()
+
         db.session.commit()
         return jsonify('Successfully deleted' if success else 'No Group Exists')

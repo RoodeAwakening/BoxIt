@@ -9,14 +9,28 @@ const allUserGroups = (allUserGroupsData) => {
 };
 
 //Thunk Action Creator
+//get all user groups
 export const userGroups = () => async (dispatch) => {
-  const response = await fetch("api/groups/user_group");
+  const response = await fetch("/api/groups/user_group");
   const groups = await response.json();
 
   dispatch(allUserGroups(groups));
 
   return groups;
 };
+
+// remove from user group
+export const removeUserGroup = (groupid) => async (dispatch) => {
+  console.log('gropuId------',groupid);
+  const response = await fetch(`/api/groups/user_group/${groupid}`,{
+    mothod:'DELETE',
+    headers:{
+      'Content-Type':'application/json',
+    }
+  })
+  const data = await response.json()
+  return data
+}
 
 //Reducer
 const initialState = {};

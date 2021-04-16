@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { createComment } from "../../store/groups";
 
 import "./GroupsIndividual.css";
@@ -12,17 +12,36 @@ import { getComments } from "../../store/GroupComments";
 import { userWorkouts } from "../../store/userWorkouts";
 import { allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
-import { userGroups } from "../../store/userGroups";
+import { removeUserGroup, userGroups } from "../../store/userGroups";
 
 export default function GroupsIndividual() {
   const dispatch = useDispatch();
+  const history = useHistory()
 
   const comments = useSelector((state) => state.comments);
   const users = useSelector((state) => Object.values(state.ranking));
+  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
   // States
   const [groupData, setGroupData] = useState({});
   const [groupComments, setGroupComments] = useState([]);
   const [comment, setComment] = useState("");
+  const [userGroupId, setuserGroupId] = useState('')
+
+  console.log('group----',groupData);
+
+
+  
+  
+  const getUserGroupid = async () => {  
+    const groupIdData = await allUserGroups.map((group) => {
+      if (groupData.name == group.name){
+        return groupId =group.id
+      }
+    })
+  setuserGroupId(groupId)
+// return groupIdData
+}
+
 
   // From props.
   const { groupId } = useParams();
@@ -30,18 +49,24 @@ export default function GroupsIndividual() {
   useEffect(() => {
     async function fetchData() {
       await dispatch(allWorkoutsComplete());
+      // await dispatch(userGroups());
       await dispatch(getComments(groupId));
+      // get user group data
+      await dispatch(userGroups());
       // get individual group data
       let response = await fetch(`/api/groups/${groupId}`);
       let data = await response.json();
-      setGroupData(data);
+      await setGroupData(data);
+      await getUserGroupid()
     }
     fetchData();
+
   }, [groupId, dispatch]);
 
   //group buttons
+
   const joinGroup = (async()=>{
-    const response2 = await fetch("/api/groups/user_group", {
+    const response = await fetch("/api/groups/user_group", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,11 +75,14 @@ export default function GroupsIndividual() {
         addGroup: groupData.id,
       }),
     });
-    return alert('joining')
+    return alert(`Successfully Joined ${groupData.name}`)
   })
 
-  const leaveGroup = (()=>{
-    return alert('leaving')
+  const leaveGroup = (async()=>{
+    await dispatch(removeUserGroup(userGroupId))
+
+    history.push('/')
+   
   })
 
   //comment
