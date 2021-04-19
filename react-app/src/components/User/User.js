@@ -7,7 +7,7 @@ import "./User.css";
 import { userWorkouts } from "../../store/userWorkouts";
 import { allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
-import { userGroups } from "../../store/userGroups";
+// import { userGroups } from "../../store/userGroups";
 
 // components
 import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
@@ -25,14 +25,14 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
+
 
   const [quote, setQuote] = useState("");
 
   useEffect(() => {
     dispatch(userWorkouts());
     dispatch(allWorkoutsComplete());
-    dispatch(userGroups());
+
     dispatch(allWorkouts());
     getQuote();
   }, [dispatch, sessionUser]);
@@ -186,28 +186,6 @@ function User() {
         </div>
       </div>
 
-      {/* SECTION 3 */}
-      <div className="user_container-header-right-ContentBox-groups-container">
-        <div className="user_container-header-right-ContentBox-groups">
-          {/* <div className="user_container-header-right-myGroups"> */}
-            <h2>My Groups - Move this to navbar</h2>
-            <div className="myGroups">
-              <MyGroups />
-            </div>
-          {/* </div> */}
-        </div>
-        {/* RENAME THE CLASSES HERE */}
-        <div className="user_container-header-right-ContentBox-progressPhotos">
-          <div className="user_container-header-right-myProgressPhotos">
-            <h2>My Progress Photos</h2>
-            <div id="myPhotos">
-              <ProgressPhotos />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* SECTION 3 */}
     </div>
   );
 }

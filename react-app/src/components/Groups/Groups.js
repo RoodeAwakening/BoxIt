@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import MyGroups from "../MyGroups/MyGroups";
 import ModalGroup from "../GroupsModal/GroupsModal";
 
 //store
 import { getAllGroups } from "../../store/groups";
+import { userGroups } from "../../store/userGroups";
 
 //images
-
 import boxer1 from "../../images/group/box1.jpg";
 import boxer2 from "../../images/group/box2.jpg";
 import boxer3 from "../../images/group/box3.jpg";
@@ -24,6 +26,7 @@ export default function Groups() {
 
   useEffect(() => {
     dispatch(getAllGroups());
+    dispatch(userGroups());
   }, [dispatch]);
 
   const backgroundImages = [boxer1, boxer2, boxer3, boxer4, boxer5, boxer6];
@@ -72,6 +75,14 @@ export default function Groups() {
           setGroupModalisOpen={setGroupModalisOpen}
         />
       </div>
+      {/* my groups section */}
+      <h2 id='myGroups_header'>My Groups</h2>
+      <div className="groups-container">
+        <MyGroups /></div>
+            
+
+      {/* my groups section */}
+      <h2 id='publicGroups_header'>Public Groups</h2>
       <div className="groups-container">{allGroups}</div>
     </div>
   );
