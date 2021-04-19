@@ -117,7 +117,7 @@ export default function ModalSignup({
       <div className="signup-container">
         <div>
           <button onClick={closeSignupModal}>
-            <i class="fas fa-times signupexit"></i>
+            <i className="fas fa-times signupexit"></i>
           </button>
           <div className="signup-left">
             <div className="singup-boxer-images">
