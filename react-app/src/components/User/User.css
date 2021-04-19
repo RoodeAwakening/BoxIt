@@ -99,7 +99,7 @@
   color: rgb(2, 233, 2);
 }
 
-#startWorkout{
+#startWorkout {
   background-color: red;
   width: 300px;
   margin-top: 5px;
@@ -107,7 +107,6 @@
   border-radius: 25px;
   height: 30px;
   border-style: none;
-  
 }
 
 .user_container-bottom {
@@ -154,6 +153,12 @@
   padding-right: 90px;
 }
 
+hr {
+  border: 1px solid #777e90;
+  width: 75%;
+  margin: 5px 0px;
+}
+
 #leaderboard {
   color: #777e90;
   display: flex;
@@ -163,21 +168,54 @@
   width: 75%;
 }
 
-.user_container-header-right-ContentBox {
+.user_container-header-right-ContentBox-groups-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.user_container-header-right-ContentBox-groups {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 150px;
+  border: 2px solid #777e90;
+  margin: 0px 30px;
+  background-color: violet;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.user_container-header-right-myGroups {
+ 
+  text-align: center;
+  background-color: seagreen;
+ 
+
+}
+
+.myGroups {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  height:auto;
+  overflow-x: scroll;
+  width: 90%;
+}
+
+.user_container-header-right-ContentBox-progressPhotos {
   display: flex;
   justify-content: space-around;
   height: 350px;
   border: 2px solid #777e90;
   margin: 0px 30px;
   background-color: violet;
-  width: 450px;
+  width: 100%;
+  margin-top: 20px;
 }
-
-.user_container-header-right-myGroups {
+.user_container-header-right-myProgressPhotos {
   text-align: center;
 }
-
-#myGroups {
+#myPhotos {
   display: flex;
   flex-direction: column;
   height: 270px;
@@ -185,22 +223,16 @@
   width: 190px;
 }
 
-hr {
-  border: 1px solid #777e90;
-  width: 75%;
-  margin: 5px 0px;
-}
 
-.user_container-header-right-links {
+
+/* .user_container-header-right-links {
   text-align: center;
-}
+} */
 
-
-#links {
+/* #links {
   display: flex;
   flex-direction: column;
   height: 270px;
   overflow-y: scroll;
   width: 190px;
-}
-
+} */
