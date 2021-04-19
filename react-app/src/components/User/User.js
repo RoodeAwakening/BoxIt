@@ -76,15 +76,15 @@ function User() {
       return <h3>Beginner</h3>
     }
     // 31 - 60 workouts is Intermediate
-    if(currentWorkouts <= 60 && currentWorkouts > 30 ){
+    if(currentWorkouts <= 60 && currentWorkouts >= 30 ){
       return <h3>Intermediate</h3>
     }
     // 61 - 99 Advanced
-    if(currentWorkouts <= 99 && currentWorkouts >=61 ){
+    if(currentWorkouts <= 99 && currentWorkouts >= 61 ){
       return <h3>Advanced</h3>
     }
     // 100 + Expert
-    if(currentWorkouts > 100 ){
+    if(currentWorkouts >= 100 ){
       return <h3>Expert</h3>
     }
 
