@@ -3,6 +3,12 @@
   justify-content: center;
 }
 
+#myGroups_header,
+#publicGroups_header{
+  text-align: center;
+  color: white;
+}
+
 
 #groups-top_button_newGroup{
   color: white;
@@ -12,6 +18,13 @@
   width: 210px;
   border-style: none;
 }
+
+
+
+
+
+
+
 
 
 

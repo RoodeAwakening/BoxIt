@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, NavLink } from "react-router-dom";
 
-
 import "./User.css";
 //store stuff
 import { userWorkouts } from "../../store/userWorkouts";
 import { allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
-import { userGroups } from "../../store/userGroups";
+// import { userGroups } from "../../store/userGroups";
 
 // import { userWorkouts, allWorkouts } from "../../store/workouts";
 import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
@@ -25,15 +24,13 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
-  const allUserGroups = useSelector((state) => Object.values(state.userGroup));
-
 
   const [quote, setQuote] = useState("");
 
   useEffect(() => {
     dispatch(userWorkouts());
     dispatch(allWorkoutsComplete());
-    dispatch(userGroups());
+
     dispatch(allWorkouts());
     getQuote();
   }, [dispatch, sessionUser]);
@@ -149,22 +146,16 @@ function User() {
                     <h5>{sessionUser.boxing_level}</h5>
                   </div>
                 </div>
-<div id='startWorkout'>
-
-                <NavLink
-        to="/workout"
-        exact={true}
-        activeClassName="active"
-        className="links-each"
-        
-        >
-        Start a new workout
-      </NavLink>
-
-        </div>
-
-
-
+                <div id="startWorkout">
+                  <NavLink
+                    to="/workout"
+                    exact={true}
+                    activeClassName="active"
+                    className="links-each"
+                  >
+                    Start a new workout
+                  </NavLink>
+                </div>
               </div>
             </div>
           </div>
@@ -192,25 +183,6 @@ function User() {
           </div>
         </div>
       </div>
-
-      {/* SECTION 3 */}
-      <div className="user_container-header-right-ContentBox">
-        <div className="user_container-header-right-myGroups">
-          <h2>My Groups</h2>
-          <div id="myGroups">
-            <MyGroups />
-          </div>
-        </div>
-
-        {/* <div className="user_container-header-right-links">
-          <h2>Links</h2>
-          <div id="links">
-            <UserLinks />
-          </div>
-        </div> */}
-      </div>
-
-      {/* SECTION 3 */}
     </div>
   );
 }
