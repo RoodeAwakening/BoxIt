@@ -9,11 +9,12 @@ import { allWorkouts } from "../../store/workouts";
 import { allWorkoutsComplete } from "../../store/ranking";
 // import { userGroups } from "../../store/userGroups";
 
-// import { userWorkouts, allWorkouts } from "../../store/workouts";
+// components
 import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
 import MyGroups from "../MyGroups/MyGroups";
 import UserLinks from "../UserLinks/UserLinks";
 import WorkoutsList from "../WorkoutList/WorkoutList";
+import ProgressPhotos from "../ProgressPhotos/ProgressPhotos";
 
 function User() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function User() {
   const allWorkoutsCompleted = useSelector((state) =>
     Object.values(state.ranking)
   );
+
 
   const [quote, setQuote] = useState("");
 
@@ -183,6 +185,7 @@ function User() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

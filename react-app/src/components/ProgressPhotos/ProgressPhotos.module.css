@@ -1,0 +1,10 @@
+.progress_photos__container{
+  background-color: royalblue;
+}
+
+.progress_photos__user_images img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+
+}

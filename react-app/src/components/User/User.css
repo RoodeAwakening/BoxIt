@@ -99,7 +99,7 @@
   color: rgb(2, 233, 2);
 }
 
-#startWorkout{
+#startWorkout {
   background-color: red;
   width: 300px;
   margin-top: 5px;
@@ -107,7 +107,6 @@
   border-radius: 25px;
   height: 30px;
   border-style: none;
-  
 }
 
 .user_container-bottom {
@@ -154,6 +153,12 @@
   padding-right: 90px;
 }
 
+hr {
+  border: 1px solid #777e90;
+  width: 75%;
+  margin: 5px 0px;
+}
+
 #leaderboard {
   color: #777e90;
   display: flex;
@@ -165,22 +170,16 @@
 
 
 
-hr {
-  border: 1px solid #777e90;
-  width: 75%;
-  margin: 5px 0px;
-}
 
-.user_container-header-right-links {
+
+/* .user_container-header-right-links {
   text-align: center;
-}
+} */
 
-
-#links {
+/* #links {
   display: flex;
   flex-direction: column;
   height: 270px;
   overflow-y: scroll;
   width: 190px;
-}
-
+} */
