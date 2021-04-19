@@ -70,6 +70,8 @@ function User() {
   
   //update boxers level
   const levelUp = () =>{
+    // NEED TO UPDATE THIS TO INCLUDE A 
+    // PATCH REQUEST TO UPDATE LEVEL IN DB
     let currentWorkouts =  workoutData()
     // 1 - 30 workouts is Beginner
     if(currentWorkouts <= 30 ){
