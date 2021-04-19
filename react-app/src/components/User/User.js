@@ -64,9 +64,31 @@ function User() {
     for (const val in userWorkout) {
       num += 1;
     }
-
+    
     return num;
   };
+  
+  //update boxers level
+  const levelUp = () =>{
+    let currentWorkouts =  workoutData()
+    // 1 - 30 workouts is Beginner
+    if(currentWorkouts <= 30 ){
+      return <h3>Beginner</h3>
+    }
+    // 31 - 60 workouts is Intermediate
+    if(currentWorkouts <= 60 && currentWorkouts > 30 ){
+      return <h3>Intermediate</h3>
+    }
+    // 61 - 99 Advanced
+    if(currentWorkouts <= 99 && currentWorkouts >=61 ){
+      return <h3>Advanced</h3>
+    }
+    // 100 + Expert
+    if(currentWorkouts > 100 ){
+      return <h3>Expert</h3>
+    }
+
+  }
 
   //get quote
   async function getQuote() {
@@ -103,19 +125,19 @@ function User() {
               <div className="user_container-header-ContentBox">
                 <div id="overallRank">
                   <div>
-                    <i class="fas fa-trophy"></i>
+                    <i className="fas fa-trophy"></i>
                   </div>
                   <div>
                     <h3>Current Rank</h3>
                   </div>
                   <div>
-                    <h5>{overallRank()}</h5>
+                    <div>{overallRank()}</div>
                   </div>
                 </div>
 
                 <div id="workoutsCompleted">
                   <div>
-                    <i class="fas fa-dumbbell"></i>
+                    <i className="fas fa-dumbbell"></i>
                   </div>
                   <div>
                     <h3>Total Workouts</h3>
@@ -127,7 +149,7 @@ function User() {
 
                 <div id="hoursCompleted">
                   <div>
-                    <i class="fas fa-clock"></i>
+                    <i className="fas fa-clock"></i>
                   </div>
                   <div>
                     <h3>Hours Completed</h3>
@@ -139,13 +161,13 @@ function User() {
 
                 <div id="currentLevel">
                   <div>
-                    <i class="fas fa-sliders-h"></i>
+                    <i className="fas fa-sliders-h"></i>
                   </div>
                   <div>
                     <h3>Current Level</h3>
                   </div>
                   <div>
-                    <h5>{sessionUser.boxing_level}</h5>
+                    <div id='currentLevel-text'>{levelUp()}</div>
                   </div>
                 </div>
                 <div id="startWorkout">
