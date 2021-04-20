@@ -1,0 +1,34 @@
+.actionShots-container h1{
+  text-align: center;
+  color: white;
+}
+
+.action_photos-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 95vw;
+  padding: 20px;
+
+}
+
+.actionShots-form-container{
+  display: flex;
+  justify-content: center;
+}
+
+.action_photos img{
+  max-height: 300px;
+  width: auto;
+  padding: 10px;
+}
+
+.actionShots-form button{
+  margin-top: 20px;
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 210px;
+  border-style: none;
+}
