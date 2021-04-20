@@ -31,13 +31,9 @@ const NavBar = ({ setAuthenticated }) => {
             <h4>Groups</h4>
           </NavLink>
         </div>
+        
         <div>
-          <NavLink to="/" exact={true} activeClassName="active">
-            <h4>Favorite Workouts</h4>
-          </NavLink>
-        </div>
-        <div>
-          <NavLink to="/" exact={true} activeClassName="active">
+          <NavLink to="/my_progress" exact={true} activeClassName="active">
             <h4>Progress Photos</h4>
           </NavLink>
         </div>
