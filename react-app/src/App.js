@@ -15,6 +15,8 @@ import WelcomePage from "./components/Welcome/Welcome";
 import Workouts from "./components/Workouts/Workouts";
 import Groups from "./components/Groups/Groups";
 import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"
+import ActionShots from "./components/ActionShots/ActionShots";
+
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(true);
@@ -81,6 +83,9 @@ function App() {
               </Route>
               <Route path="/groups/:groupId" exact={true}>
                 <GroupsIndividual/>
+              </Route>
+              <Route path='/action_shots' exact={true}>
+                <ActionShots/>
               </Route>
             </>
           </Switch>
