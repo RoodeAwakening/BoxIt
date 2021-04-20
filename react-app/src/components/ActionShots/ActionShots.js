@@ -8,23 +8,32 @@ import { getAllActionShots } from "../../store/ActionShots";
 
 function ActionShots() {
   const dispatch = useDispatch();
-  const pictures = useSelector((state)=>(state.actionShots.action_shots))
+  const pictures = useSelector((state)=>(state?.actionShots.action_shots))
   console.log(pictures);
-
+  
   useEffect(() => {
     dispatch(getAllActionShots());
   }, [dispatch]);
+  
+  // get each action shot
+  const actionShots = () => {
+    let pic = pictures.map((picture, index) => {
+      console.log(picture.photo_url);
+      
+      return (
+        <div className='action_photos' key={index}>
 
-  //get each action shot
-  // const actionShots = () => {
-
-  //   return <img src="" />;
-  // };
+        <img src={picture.photo_url}/>
+        </div>
+      );
+    })
+return (pic)
+  };
 
   return (
     <div className="actionShots-container">
       <h2>Action Shots</h2>
-      <div></div>
+      <div className='action_photos-container'>{pictures ? actionShots(): "Loading"}</div>
     </div>
   );
 }

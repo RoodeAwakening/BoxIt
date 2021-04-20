@@ -28,7 +28,7 @@ export default function actionShotReducer(state = initialState, action) {
     case GET_ACTION_SHOTS:
       return {
         ...state,
-        ...action.actionShots.action_shots,
+        ...action.actionShots,
       };
 
 
