@@ -18,6 +18,35 @@ export const getAllActionShots = () => async (dispatch) => {
   dispatch(allActionShots(actionShots))
   return actionShots
 }
+
+export const newPhoto = ({actionPhoto}) => async (dispatch) => {
+
+   // fetch to image route to get image url
+   const formData = new FormData()
+   formData.append('image', actionPhoto)
+ 
+ // sends to amazon for file storage
+   const responseImageUrl = await fetch('/api/images/',{
+     method: 'POST',
+     body: formData,
+   })
+   const photoData = await responseImageUrl.json()
+   actionPhoto = photoData.url
+
+   // add the photo to action photos
+   const response = await fetch('/api/action_shots/',{
+     method:'POST',
+     headers:{
+       'Content-Type':'application/json',
+     },
+     body:JSON.stringify({
+       action_shot_post:actionPhoto
+     })
+   })
+   const data = await response.json()
+   console.log('data',data);
+  
+}
 ////////////////ACTION-CREATOR////////////////////
 
 

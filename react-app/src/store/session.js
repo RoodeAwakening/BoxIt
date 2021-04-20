@@ -21,7 +21,7 @@ export const signup = user => async dispatch => {
   const formData = new FormData()
   formData.append('image', profile_photo)
 
-
+// sends to amazon for file storage
   const responseImageUrl = await fetch('/api/images/',{
     method: 'POST',
     body: formData,

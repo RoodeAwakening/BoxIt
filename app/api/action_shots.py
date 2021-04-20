@@ -12,7 +12,7 @@ def action_shot():
     method = request.method
     if method == 'GET':
         # Get all action shots
-        action_photos = Action_Shot.query.all()
+        action_photos = Action_Shot.query.order_by((Action_Shot.createdAt).desc()).all()
         return {"action_shots": [action_photo.to_dict() for action_photo in action_photos]}
     elif method == 'POST':
         # post a new action shot
