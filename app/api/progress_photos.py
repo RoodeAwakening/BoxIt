@@ -13,7 +13,7 @@ def progress_photo():
     if method == 'GET':
       # Get all the progress photos
         # REPLACE WITH current_user.id
-        user_photos = Progress_Photo.query.filter(Progress_Photo.user_id == current_user.id)
+        user_photos = Progress_Photo.query.order_by((Progress_Photo.createdAt).desc()).filter(Progress_Photo.user_id == current_user.id)
         return {"progress_photo": [user_photo.to_dict() for user_photo in user_photos]}
     elif method == 'POST':
       # Create a progress photo
