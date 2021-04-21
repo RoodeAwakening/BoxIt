@@ -8,6 +8,7 @@ import userWorkoutsReducer from './userWorkouts'
 import groupsReducer from './groups'
 import commentReducer from './GroupComments'
 import actionShotReducer from './ActionShots'
+import progressPhotoReducer from './ProgressPhotos'
 ////
 
 // split the appReducer and combined reducers to set initial state to undefined 
@@ -20,7 +21,8 @@ const appReducer = combineReducers({
 	userWorkouts: userWorkoutsReducer,
 	groups: groupsReducer,
 	comments: commentReducer,
-	actionShots: actionShotReducer
+	actionShots: actionShotReducer,
+	progressPhoto: progressPhotoReducer
 });
 
 const rootReducer = (state, action) => {
