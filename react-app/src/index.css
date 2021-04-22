@@ -36,3 +36,19 @@ a {
   color: black;
 }
 
+
+#noPhone{
+  visibility:hidden;
+}
+
+
+@media only screen and (min-width: 100px) and (max-width: 675px) {
+  .user_container,
+  .navbar-container{
+    visibility: hidden;
+  }
+
+  #noPhone{
+    visibility:visible;
+  }
+  }

@@ -109,8 +109,10 @@ function User() {
     <div className="user_container">
       <div className="quote-of-the-day">
         <h2>{quote}</h2>
+        <h2 id='noPhone'>Please Open this on your PC or Tablet</h2>
       </div>
       <div className="user_container-header">
+
         {/* TOP SECTION 1 */}
         <div className="user_container-header-2">
           <div className="user_container-header-2-top">
