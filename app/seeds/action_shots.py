@@ -4,7 +4,7 @@ from app.models import db, Action_Shot
 def seed_action_shots():
 
     photo1 = Action_Shot(user_id='1', photo_url='https://www.elitefts.com/wp/wp-content/uploads/2015/05/back-exercises-dom-brosciencelife.jpg')
-    photo2 = Action_Shot(user_id='2', photo_url='https://lh3.googleusercontent.com/proxy/pJ4kazWOCbc574hmJCfS4W4Q7FAZqYaeIiTZgvwlP0tnSyhaAouRvzVQ8UeqkxH4ErEztu1TkzpX7Rxe_wDT_9SOkdmArfaBHoWqHeE')
+    photo2 = Action_Shot(user_id='2', photo_url='https://classpass-res.cloudinary.com/image/upload/f_auto,q_auto/nmdoxpsoel8hlihfn5gh.png')
     photo4 = Action_Shot(user_id='2', photo_url='https://www.t-nation.com/system/publishing/articles/10005584/original/The-Case-for-Gym-Selfies.jpg?1510260084')
     photo5 = Action_Shot(user_id='1', photo_url='https://scontent.fyip1-1.fna.fbcdn.net/v/t1.6435-9/48360455_2015425471867428_7660561092858347520_n.jpg?_nc_cat=1&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=uWw_PoDhNwoAX8iSg5X&_nc_ht=scontent.fyip1-1.fna&oh=098cb73a44803767b20432d62a2f224d&oe=6088C41C')
     photo6 = Action_Shot(user_id='3', photo_url='https://i.pinimg.com/originals/cb/9e/67/cb9e6733fe2b814a997705b28f763cb6.jpg')
