@@ -22,7 +22,7 @@ export const userGroups = () => async (dispatch) => {
 // remove from user group
 export const removeUserGroup = (groupid) => async (dispatch) => {
 
-  console.log('response',groupid);
+
   const response = await fetch(`/api/groups/user_group/${groupid}`,{
 		method: 'DELETE',
 		headers: {

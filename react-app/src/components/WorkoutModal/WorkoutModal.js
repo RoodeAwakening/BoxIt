@@ -62,7 +62,7 @@ export default function WorkoutModal({
     } else {
       setFavorited(false);
     }
-    // console.log('--favorited--', favorited);
+
   };
 
   return (

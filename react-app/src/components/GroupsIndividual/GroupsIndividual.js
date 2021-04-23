@@ -43,7 +43,7 @@ export default function GroupsIndividual() {
   
   // From props.
   const { groupId } = useParams();
-  console.log('group----',groupId);
+
 
   useEffect(() => {
     async function fetchData() {

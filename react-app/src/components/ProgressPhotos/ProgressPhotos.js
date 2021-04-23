@@ -8,7 +8,7 @@ export default function ProgressPhotos() {
   const dispatch = useDispatch();
  const photos = useSelector((state)=> state?.progressPhoto.progress_photo)
   const [progressPhoto, setProgressPhoto] = useState("");
-  console.log('1',photos);
+ 
 
   useEffect(() => {
     dispatch(getProgressPhotos());
@@ -34,7 +34,7 @@ export default function ProgressPhotos() {
 
   const getMyProgressPhotos = () => {
     let pic = photos.map((photo, index) => {
-      console.log(photo);
+
 
       return (
         <div className="action_photos" key={index}>

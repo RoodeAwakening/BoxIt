@@ -44,7 +44,7 @@ export const newPhoto = ({actionPhoto}) => async (dispatch) => {
      })
    })
    const data = await response.json()
-   console.log('data',data);
+
   
 }
 ////////////////ACTION-CREATOR////////////////////

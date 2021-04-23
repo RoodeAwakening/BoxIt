@@ -24,7 +24,7 @@ function ActionShots() {
   };
 
   const updateActionPhoto = (e) => {
-    // console.log("-a-", e.target.value);
+ 
     setActionPhoto(e.target.files[0]);
   };
 
@@ -35,7 +35,7 @@ function ActionShots() {
   // get each action shot
   const actionShots = () => {
     let pic = pictures.map((picture, index) => {
-      console.log(picture.photo_url);
+
 
       return (
         <div className="action_photos" key={index}>
