@@ -18,10 +18,6 @@ class Comment(db.Model):
     ), onupdate=db.func.current_timestamp())
 
     def to_dict(self):
-
-
-
-
         return{
             "id": self.id,
             "groupd_id": self.group_id,

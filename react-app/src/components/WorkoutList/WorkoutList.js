@@ -19,6 +19,7 @@ const WorkoutsList = () => {
   const playWorkout = ()=>{
     return alert ('Workout')
   }
+  
 
   return (
     <>
