@@ -17,6 +17,7 @@ import Groups from "./components/Groups/Groups";
 import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"
 import ActionShots from "./components/ActionShots/ActionShots";
 import ProgressPhotos from "./components/ProgressPhotos/ProgressPhotos";
+import About from "./components/About/About"
 
 
 function App() {
@@ -83,6 +84,9 @@ function App() {
               </Route>
               <Route path='/action_shots' exact={true}>
                 <ActionShots/>
+              </Route>
+              <Route path='/about' exact={true}>
+                <About/>
               </Route>
             </>
           </Switch>

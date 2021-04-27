@@ -42,6 +42,11 @@ const NavBar = ({ setAuthenticated }) => {
             <h4>Action Shots</h4>
           </NavLink>
         </div>
+        <div>
+          <NavLink to="/about" exact={true} activeClassName="active">
+            <h4>About</h4>
+          </NavLink>
+        </div>
 
         <div>
           <LogoutButton setAuthenticated={setAuthenticated} />
