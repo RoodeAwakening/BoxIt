@@ -32,17 +32,20 @@ useEffect(async ()=>{
 
   
   const deleteProgressPhoto = async () => {
-    await dispatch(removeProgressPhoto(photo.id));
-    await dispatch(getProgressPhotos());
     history.push("/my_progress");
+   let deleted = await dispatch(removeProgressPhoto(photo.id));
   };
+
+  const goBack = (()=>{
+    history.push("/my_progress");
+  })
 
 
 
   return (
 
 
-      <div className="login-container">
+      <div className='Progress-Photo-Container'>
         <img src={photo.photo_url}></img>
         <h1>Would you like to remove this photo?</h1>
         <form onSubmit={deleteProgressPhoto} className="login-form">
@@ -53,7 +56,7 @@ useEffect(async ()=>{
           </div>
           <div>
             <div>
-              <button>Cancel</button>
+              <button onClick={goBack}>Go Back</button>
             </div>
             <div>
               <button type="submit">Delete</button>

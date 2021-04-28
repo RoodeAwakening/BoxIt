@@ -13,7 +13,7 @@ export default function ProgressPhotos() {
 
   useEffect(() => {
     dispatch(getProgressPhotos());
-   }, [dispatch]);
+   }, []);
 
 
   // add new progress photo
