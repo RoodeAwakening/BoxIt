@@ -123,9 +123,9 @@ export default function GroupsIndividual() {
           {commentsData.map((each, index) => {
             return (
               <div key={index} className="comments-each-line">
-                <img src={each?.comment?.user.profile_photo} />
+                {each?.comment?.user.user_name ? <img src={each?.comment?.user.profile_photo} /> : " " }
                 <h4 className="comments-each-line-username">
-                  {each?.comment?.user.user_name}:{" "}
+                {each?.comment?.user.user_name ? each?.comment?.user.user_name : "Leave the first comment! " }
                 </h4>
                 <h4>{each?.comment?.content}</h4>
               </div>
