@@ -37,6 +37,7 @@ color: rgb(2, 233, 2);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
+  margin-left: 15px;
 }
 
 .leaderboard-each-right{

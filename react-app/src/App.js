@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 import * as sessionActions from "./store/session";
+import { useSelector, useDispatch } from "react-redux";
 
 // FORMS
 // import LoginForm from "./components/auth/LoginForm";
@@ -17,12 +17,19 @@ import Groups from "./components/Groups/Groups";
 import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"
 import ActionShots from "./components/ActionShots/ActionShots";
 import ProgressPhotos from "./components/ProgressPhotos/ProgressPhotos";
+import About from "./components/About/About"
+import ProgressPhotoIndividual from "./components/ProgressPhotoIndividual/ProgressPhotoIndividual";
+
 
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(true);
+  const [authenticated, setAuthenticated] = useState(true);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
+  
+
+
 
 
 
@@ -38,9 +45,12 @@ function App() {
     })();
   }, []);
 
+
+  
   // if (!loaded) {
-  //   history.push("/welcome");
+  //   return null;
   // }
+
 
   return (
     <>
@@ -68,6 +78,9 @@ function App() {
               <Route path="/my_progress" exact={true} >
                 <ProgressPhotos/>
               </Route>
+              <Route path="/my_progress/:photoId" exact={true} >
+                <ProgressPhotoIndividual/>
+              </Route>
               <Route path="/users/:userId" exact={true}>
                 <User />
               </Route>
@@ -83,6 +96,9 @@ function App() {
               </Route>
               <Route path='/action_shots' exact={true}>
                 <ActionShots/>
+              </Route>
+              <Route path='/about' exact={true}>
+                <About/>
               </Route>
             </>
           </Switch>

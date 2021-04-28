@@ -35,6 +35,7 @@ function User() {
 
     dispatch(allWorkouts());
     getQuote();
+  // }, [dispatch]);
   }, [dispatch, sessionUser]);
 
   //get total hours completed
@@ -168,7 +169,7 @@ function User() {
                     <i className="fas fa-sliders-h"></i>
                   </div>
                   <div>
-                    <h3>Current Level</h3>
+                    <h3>My Level</h3>
                   </div>
                   <div>
                     <div id='currentLevel-text'>{levelUp()}</div>

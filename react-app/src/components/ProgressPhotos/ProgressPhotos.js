@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./ProgressPhotos.css";
 
 import { progress_photo, getProgressPhotos } from "../../store/ProgressPhotos";
+import { Link } from "react-router-dom";
 
 export default function ProgressPhotos() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export default function ProgressPhotos() {
 
   useEffect(() => {
     dispatch(getProgressPhotos());
-   }, [dispatch]);
+   }, []);
 
 
   // add new progress photo
@@ -38,7 +39,10 @@ export default function ProgressPhotos() {
 
       return (
         <div className="action_photos" key={index}>
+          <Link to={`/my_progress/${photo.id}`}>
           <img src={photo.photo_url} />
+          </Link>
+
         </div>
       );
     });
