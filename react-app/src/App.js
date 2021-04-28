@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
 import * as sessionActions from "./store/session";
+import { useSelector, useDispatch } from "react-redux";
 
 // FORMS
 // import LoginForm from "./components/auth/LoginForm";
@@ -21,9 +21,13 @@ import About from "./components/About/About"
 
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(true);
+  const [authenticated, setAuthenticated] = useState(true);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
+  
+
+
 
 
 
@@ -39,9 +43,12 @@ function App() {
     })();
   }, []);
 
+
+  
   // if (!loaded) {
-  //   history.push("/welcome");
+  //   return null;
   // }
+
 
   return (
     <>

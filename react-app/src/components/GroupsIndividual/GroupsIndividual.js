@@ -48,7 +48,7 @@ export default function GroupsIndividual() {
   useEffect(() => {
     async function fetchData() {
       await dispatch(allWorkoutsComplete());
-      // await dispatch(userGroups());
+      await dispatch(userGroups());
       await dispatch(getComments(groupId));
       // get user group data
       await dispatch(userGroups());
@@ -60,7 +60,7 @@ export default function GroupsIndividual() {
     }
     fetchData();
 
-  }, [groupId, dispatch]);
+  }, [dispatch, groupId]);
 
   //group buttons
 

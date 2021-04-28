@@ -25,7 +25,7 @@ const About = () => {
             {/* TOP SECTION 2 */}
             <div className="about_container-header-aboutStats">
               <div className="about_container-header-ContentBox">
-                <div id="overallRank">
+                <div id="AboutoverallRank">
                   <div>
                     <i className="fas fa-trophy"></i>
                   </div>
@@ -35,7 +35,7 @@ const About = () => {
  
                 </div>
 
-                <div id="workoutsCompleted">
+                <div id="AboutworkoutsCompleted">
                   <div>
                     <i className="fas fa-dumbbell"></i>
                   </div>
@@ -45,7 +45,7 @@ const About = () => {
 
                 </div>
 
-                <div id="hoursCompleted">
+                <div id="AbouthoursCompleted">
                   <div>
                     <i className="fas fa-clock"></i>
                   </div>
@@ -55,7 +55,7 @@ const About = () => {
 
                 </div>
 
-                <div id="currentLevel">
+                <div id="AboutcurrentLevel">
                   <div>
                     <i className="fas fa-sliders-h"></i>
                   </div>
@@ -66,7 +66,7 @@ const About = () => {
                     <div id='currentLevel-text'>Yes</div>
                   </div>
                 </div>
-                <div id="startWorkout">
+                <div id="AboutstartWorkout">
                   <a href={'http://derekroode.com'}
                                       activeClassName="active"
                                       className="links-each"

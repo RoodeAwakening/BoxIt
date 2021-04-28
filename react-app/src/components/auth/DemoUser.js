@@ -15,6 +15,7 @@ const LoginForm = () => {
 		const password = 'password'
 		const user = await dispatch(sessionActions.loginThunk({ email, password }))
 		if (!user.errors) history.push('/')
+		
 		return user
 	}
 

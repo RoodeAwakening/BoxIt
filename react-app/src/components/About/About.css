@@ -73,25 +73,25 @@
   text-align: center;
 }
 
-#overallRank {
+#AboutoverallRank {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#workoutsCompleted {
+#AboutworkoutsCompleted {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#hoursCompleted {
+#AbouthoursCompleted {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#currentLevel {
+#AboutcurrentLevel {
   visibility: hidden;
   display: flex;
   justify-content: space-between;
@@ -102,7 +102,7 @@
   color: rgb(2, 233, 2);
 }
 
-#startWorkout {
+#AboutstartWorkout {
   background-color: red;
   width: 300px;
   margin-top: 5px;
