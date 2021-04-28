@@ -47,6 +47,31 @@ export const progress_photo = ({progressPhoto}) => async (dispatch) => {
   return data
   
 }
+
+
+
+// remove image from Progress Photos
+export const removeProgressPhoto = (photoId) => async (dispatch) => {
+
+
+  const response = await fetch(`/api/progress_photos/${photoId}`,{
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	})
+  const data = await response.json()
+  return data
+}
+
+// get indivicual progress photo
+export const getSingleProgressPhoto = (id) => async (dispatch) => {
+  const response = await fetch(`/api/progress_photos/${id}`);
+ const progressPhoto = await response.json();
+ return progressPhoto
+}
+
+
 ////////////////ACTION-CREATOR////////////////////
 
 ////////////////REDUCER////////////////////

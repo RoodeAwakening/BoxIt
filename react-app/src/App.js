@@ -18,6 +18,8 @@ import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"
 import ActionShots from "./components/ActionShots/ActionShots";
 import ProgressPhotos from "./components/ProgressPhotos/ProgressPhotos";
 import About from "./components/About/About"
+import ProgressPhotoIndividual from "./components/ProgressPhotoIndividual/ProgressPhotoIndividual";
+
 
 
 function App() {
@@ -75,6 +77,9 @@ function App() {
               </Route>
               <Route path="/my_progress" exact={true} >
                 <ProgressPhotos/>
+              </Route>
+              <Route path="/my_progress/:photoId" exact={true} >
+                <ProgressPhotoIndividual/>
               </Route>
               <Route path="/users/:userId" exact={true}>
                 <User />
