@@ -5,8 +5,6 @@ def seed_action_shots():
 
     photo1 = Action_Shot(user_id='1', photo_url='https://www.elitefts.com/wp/wp-content/uploads/2015/05/back-exercises-dom-brosciencelife.jpg')
     photo2 = Action_Shot(user_id='2', photo_url='https://classpass-res.cloudinary.com/image/upload/f_auto,q_auto/nmdoxpsoel8hlihfn5gh.png')
-    photo4 = Action_Shot(user_id='2', photo_url='https://www.t-nation.com/system/publishing/articles/10005584/original/The-Case-for-Gym-Selfies.jpg?1510260084')
-    photo5 = Action_Shot(user_id='1', photo_url='https://scontent.fyip1-1.fna.fbcdn.net/v/t1.6435-9/48360455_2015425471867428_7660561092858347520_n.jpg?_nc_cat=1&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=uWw_PoDhNwoAX8iSg5X&_nc_ht=scontent.fyip1-1.fna&oh=098cb73a44803767b20432d62a2f224d&oe=6088C41C')
     photo6 = Action_Shot(user_id='3', photo_url='https://i.pinimg.com/originals/cb/9e/67/cb9e6733fe2b814a997705b28f763cb6.jpg')
     photo7 = Action_Shot(user_id='1', photo_url='https://www.thefightcity.com/wp-content/uploads/2018/11/tyson-fury-action-shot.jpg')
     photo8 = Action_Shot(user_id='4', photo_url='https://i.pinimg.com/originals/3c/43/f3/3c43f3a3b736443526539530690a7c50.jpg')
@@ -20,7 +18,7 @@ def seed_action_shots():
     photo15 = Action_Shot(user_id='10', photo_url='https://pbs.twimg.com/media/CKUbO1vWwAAZ5sA.jpg')
     photo16 = Action_Shot(user_id='2', photo_url='https://fortunegym.com/wp-content/uploads/2015/09/11357508_1591004057818652_1909363438_n-1-300x300.jpg')
 
-    action_shots = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16]
+    action_shots = [photo1, photo2, photo3, photo6, photo7, photo8, photo9, photo10, photo11, photo12, photo13, photo14, photo15, photo16]
 
     for action_shot in action_shots:
         db.session.add(action_shot)
