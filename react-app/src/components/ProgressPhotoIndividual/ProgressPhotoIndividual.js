@@ -21,7 +21,7 @@ export default function ProgressPhotoIndividual() {
   let history = useHistory()
 const dispatch = useDispatch()
 const params = useParams()
-console.log('myPhoto',params.photoId);
+
 
 
 
