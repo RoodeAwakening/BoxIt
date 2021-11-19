@@ -27,6 +27,7 @@ function App() {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
+  console.log('sessionUser----',sessionUser);
 
   useEffect(() => {
     (async () => {
@@ -54,6 +55,7 @@ function App() {
 
             <>
               <NavBar />
+              
               <ProtectedRoute path="/" exact={true}>
                 <User />
               </ProtectedRoute>
