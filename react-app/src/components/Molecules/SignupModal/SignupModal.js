@@ -6,10 +6,10 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Modal from "react-modal";
-import { signup } from "../../store/session";
+import { signup } from "../../../store/session";
 import "./SignupModal.css";
 
-import boxer2 from "../../images/boxer2.jpg";
+import boxer2 from "../../../images/boxer2.jpg";
 
 const customStyles = {
   content: {

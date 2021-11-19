@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ModalSignup from "../SignupModal/SignupModal";
-import ModalLogin from "../LoginModal/LoginModal";
+import ModalLogin from "../Molecules/LoginModal/LoginModal";
 import * as sessionActions from '../../store/session'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'

@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import NavBar from "./components/NavBar/NavBar";
 import UsersList from "./components/UsersList";
 import User from "./components/User/User";
-import WelcomePage from "./components/Welcome/Welcome";
+// import WelcomePage from "./components/Welcome/Welcome";
 import Workouts from "./components/Workouts/Workouts";
 import Groups from "./components/Groups/Groups";
 import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual"

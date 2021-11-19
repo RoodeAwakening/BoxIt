@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
+import * as sessionActions from "../../../store/session";
 import { useHistory } from "react-router-dom";
+import styles from './LoginModal.module.css'
 
 // import { createPost } from '../../store/posts'
 import { useDispatch } from "react-redux";
 
 import Modal from "react-modal";
-import "./LoginModal.css";
 
 //styling for modal
 const customStyles = {
@@ -57,22 +57,22 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
 
   return (
     <Modal isOpen={loginModalIsOpen} style={customStyles}>
-      <div className="login-container-exit">
+      <div className={styles.login_container_exit}>
         <button onClick={closeLoginModal}>
           <i className="fas fa-times loginexit"></i>
         </button>
       </div>
 
-      <div className="login-container">
+      <div className={styles.login_container}>
         <h1>Login</h1>
-        <form onSubmit={onLogin} className="login-form">
+        <form onSubmit={onLogin} className={styles.login_form}>
           <div>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </div>
           <div>
-            <div className="login-inputs">
+            <div className={styles.login_inputs}>
               <input
                 name="email"
                 type="text"
@@ -81,7 +81,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
                 onChange={updateEmail}
               />
             </div>
-            <div className="login-inputs">
+            <div className={styles.login_inputs}>
               <input
                 name="password"
                 type="password"

@@ -1,4 +1,4 @@
-.login-container{
+.login_container{
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -7,11 +7,11 @@
   
 }
 
-.login-container-exit{
+.login_container_exit{
   background-color: #231F20;
 }
 
-.login-container h1{
+.login_container h1{
   font-size: 23px;
   font-weight: 400;
   margin: 10px;
@@ -25,14 +25,14 @@
   color: white;
 }
 
-.login-form{
+.login_form{
   display: flex;
   justify-content: center;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.login-form input{
+.login_form input{
   width: 90%;
   display: flex;
 
@@ -46,13 +46,13 @@
    
 }
 
-.login-inputs{
+.login_inputs{
   display: flex;
   justify-content: center;
 padding: 5px;
 }
 
-.login-form button{
+.login_form button{
   margin-top: 20px;
   color: white;
   background-color: #D13138;
