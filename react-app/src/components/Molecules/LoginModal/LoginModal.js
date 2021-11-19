@@ -35,12 +35,14 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
     e.preventDefault();
     setErrors([]);
     const user = await dispatch(sessionActions.loginThunk({ email, password }));
+    console.log('user',user);
     if (user.errors) {
+      alert(user.errors)
       setErrors(user.errors);
     } else {
       history.push("/");
     }
-    return user;
+    
   };
 
   const updateEmail = (e) => {

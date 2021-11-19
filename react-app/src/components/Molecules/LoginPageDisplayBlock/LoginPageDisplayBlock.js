@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import LoginPageHeader from "../../Atoms/LoginPageHeader/LoginPageHeader";
 import LoginPageButton from "../../Atoms/LoginPageButton/LoginPageButton";
 
-import ModalSignup from "../../Molecules/SignupModal/SignupModal";
-import ModalLogin from "../../Molecules/LoginModal/LoginModal";
+import ModalSignup from "../SignupModal/SignupModal";
+import ModalLogin from "../LoginModal/LoginModal";
 
 import * as sessionActions from '../../../store/session'
 
@@ -34,6 +34,7 @@ function LoginPageDisplayBlock() {
 		const password = 'password'
 		const user = await dispatch(sessionActions.loginThunk({ email, password }))
 		if (!user.errors) history.push('/')
+    else{alert(user.errors)}
 		return user
 	}
 

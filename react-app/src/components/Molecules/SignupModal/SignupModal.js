@@ -9,7 +9,8 @@ import Modal from "react-modal";
 import { signup } from "../../../store/session";
 import "./SignupModal.css";
 
-import boxer2 from "../../../images/boxer2.jpg";
+// import boxer2 from "../../../images/boxer2.jpg";
+import boxer2 from '../../../images/boxer2.jpg'
 
 const customStyles = {
   content: {
