@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import * as sessionActions from "../../../store/session";
 import { useHistory } from "react-router-dom";
 import styles from './LoginModal.module.css'
@@ -31,7 +31,8 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const onLogin = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors([]);
     const user = await dispatch(sessionActions.loginThunk({ email, password }));
@@ -39,11 +40,14 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
     if (user.errors) {
       alert(user.errors)
       setErrors(user.errors);
-    } else {
+    }
+     else {
       history.push("/");
     }
     
   };
+
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value.toLowerCase());
@@ -67,7 +71,7 @@ export default function ModalLogin({ loginModalIsOpen, setLoginModalisOpen }) {
 
       <div className={styles.login_container}>
         <h1>Login</h1>
-        <form onSubmit={onLogin} className={styles.login_form}>
+        <form onSubmit={handleSubmit} className={styles.login_form}>
           <div>
             {errors.map((error) => (
               <div>{error}</div>

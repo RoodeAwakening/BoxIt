@@ -78,7 +78,12 @@ export const loginThunk = user => async dispatch => {
   })
   
   const data = await response.json()
-  dispatch(setUser(data))
+  console.log('data',data);
+  if(data.errors){
+    return data
+  }else{
+    dispatch(setUser(data))
+  }
 
   return data
 }
