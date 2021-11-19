@@ -19,6 +19,7 @@ import ActionShots from "./components/ActionShots/ActionShots";
 import ProgressPhotos from "./components/ProgressPhotos/ProgressPhotos";
 import About from "./components/About/About"
 import ProgressPhotoIndividual from "./components/ProgressPhotoIndividual/ProgressPhotoIndividual";
+import Login from "./components/Pages/Login/Login";
 
 
 
@@ -58,7 +59,8 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/welcome" exact={true}>
-              <WelcomePage />
+              {/* <WelcomePage /> */}
+              <Login/>
             </Route>
 
             <>

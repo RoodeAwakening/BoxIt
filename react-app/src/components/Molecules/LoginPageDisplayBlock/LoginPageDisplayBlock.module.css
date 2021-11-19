@@ -1,0 +1,40 @@
+.login__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+ 
+}
+.login__background{
+  z-index: -1;
+  height: 100vh;
+  width: auto;
+  overflow: hidden;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .login__background{
+    background-image: url("https://www.oxfordmail.co.uk/resources/images/10763753/");
+    /* background-color: red; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    height: 100vh;
+    width: auto;
+    overflow: hidden;
+  }
+
+  .login__container_login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+   
+  }
+}

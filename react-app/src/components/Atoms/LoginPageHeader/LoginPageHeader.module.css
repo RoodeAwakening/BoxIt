@@ -1,0 +1,24 @@
+
+.LoginPageHeader__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color:white;
+  text-align: center;
+}
+
+.styles.LoginPageHeader__h2{
+
+  font-size: 63px;
+  font-weight: 900;
+  margin: 10px;
+  padding: 0;
+ 
+}
+
+.styles.LoginPageHeader__h2{
+  font-size: 23px;
+  font-weight: 100;
+}
