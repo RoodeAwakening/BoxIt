@@ -140,3 +140,51 @@ width: 100%;
   width: 210px;
   border-style: none;
 }
+
+
+@media screen and (max-width: 768px) {
+  .signup_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+  
+}
+
+.singup-boxer-images{
+  display: none;
+}
+
+.signUp-header h1{
+  text-align: center;
+  font-size: 30px;
+}
+
+.signUp-header h2{
+  font-size: 15px;
+}
+
+.signup-names{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-email-username{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-form-password{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+}
