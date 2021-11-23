@@ -1,9 +1,12 @@
 .login__background_video{
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
+  left: 50%;
+  /* remove the item in the left positioning */
+  transform: translateX(-50%);
+  width: auto;
+  height: 100%;
+  overflow: hidden;
   /* background-image: url("http://cdn.shopify.com/s/files/1/2510/5836/articles/Mike_Rashid_Heavyweight_Boxer_Training_1200x1200.png?v=1610545981"); */
   background-size: cover;
   background-position: center;
@@ -19,6 +22,8 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+
+ 
   }
   .login__background_video{
     display: none;

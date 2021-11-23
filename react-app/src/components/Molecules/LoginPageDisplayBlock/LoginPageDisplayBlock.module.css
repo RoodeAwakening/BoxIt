@@ -5,6 +5,9 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+
+  
  
 }
 .login__background{
@@ -12,14 +15,18 @@
   height: 100vh;
   width: auto;
   overflow: hidden;
+
+
 }
 
 
 
 @media screen and (max-width: 768px) {
   .login__background{
-    background-image: url("https://www.oxfordmail.co.uk/resources/images/10763753/");
-    /* background-color: red; */
+
+    /* set linear gradient on top and bottom */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.151) 0%,rgba(0, 0, 0, 0.171) 10%), url("https://www.oxfordmail.co.uk/resources/images/10763753/");
+    background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,6 +34,19 @@
     height: 100vh;
     width: auto;
     overflow: hidden;
+
+    /* translate to transparency on top of image */
+    /* background-image: linear-gradient(
+      to right bottom,
+      rgba(0,0,0, 0.8),
+      rgba(0,0,0, 0.8)
+    ), */
+
+
+
+
+
+    
   }
 
   .login__container_login{
@@ -34,6 +54,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   
    
   }
