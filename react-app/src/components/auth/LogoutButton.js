@@ -12,10 +12,25 @@ const LogoutButton = () => {
     history.push("/welcome");
   };
 
+  let style = {
+    // color white
+    // padding right 5px
+    // border-right 2px solid white
+    color : "white",
+    paddingRight : "5px",
+    // borderRight : "2px solid white"
+
+
+  
+  };
+
   return (
-    <button onClick={onLogout} className="navbar-right">
-      <h3>Logout</h3>
+    <div>
+
+      <button style={style} onClick={onLogout}>
+      <h4>Logout</h4>
     </button>
+    </div>
   );
 };
 

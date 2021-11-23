@@ -9,7 +9,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 // import LoginForm from "./components/auth/LoginForm";
 // import SignUpForm from "./components/auth/SignUpForm";
 // COMPONENTS
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from "./components/Organisms/NavBar/NavBar";
 import UsersList from "./components/UsersList";
 import User from "./components/User/User";
 // import WelcomePage from "./components/Welcome/Welcome";
