@@ -6,3 +6,11 @@
   padding: 0 20px;
   max-width: 90vw;
 }
+
+@media screen and (max-width: 768px) {
+  .quote_of_the_day {
+    font-size: small;
+    max-height: fit-content;
+  }
+}
+  

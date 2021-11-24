@@ -39,7 +39,7 @@ a {
 
 
 /* disable scroll left to right on mobile */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   html,body{
     overflow-x: hidden;
     overflow-y: auto;
