@@ -1,0 +1,21 @@
+.Button__Button{
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 10em;
+  margin: 5px;
+  border-style: none;
+ 
+}
+
+/* .Button__Button{
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 210px;
+  margin: 5px;
+  border-style: none;
+} */
+
