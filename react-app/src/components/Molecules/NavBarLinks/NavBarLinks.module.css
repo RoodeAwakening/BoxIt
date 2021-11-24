@@ -19,11 +19,11 @@
   .navBar_links_container{
     flex-direction: column;
   }
-
+  
   .navBar_links_container__mobile{
     display: flex;
   }
-
+  
   .navBar_links_container__desktop{
     display: none;
   }

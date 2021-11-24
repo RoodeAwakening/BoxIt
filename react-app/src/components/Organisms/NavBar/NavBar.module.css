@@ -3,11 +3,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
   background-color: black;
   margin-bottom: 15px;
   box-shadow: 0px 0px 10px 0px rgba(214, 9, 9, 0.75);
-  width: 100vw;
+  width: 100%;
 
 
   

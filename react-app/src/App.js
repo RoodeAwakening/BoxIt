@@ -21,13 +21,14 @@ import ProgressPhotos from "./components/ProgressPhotos/ProgressPhotos";
 import About from "./components/About/About";
 import ProgressPhotoIndividual from "./components/ProgressPhotoIndividual/ProgressPhotoIndividual";
 import Login from "./components/Pages/Login/Login";
+import Main from "./components/Pages/Main/Main";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(true);
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
-  console.log('sessionUser----',sessionUser);
+  console.log("sessionUser----", sessionUser);
 
   useEffect(() => {
     (async () => {
@@ -49,17 +50,14 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route path="/welcome" exact={true}>
-              {/* <WelcomePage /> */}
               <Login />
             </Route>
-
             <>
               <NavBar />
-              
               <ProtectedRoute path="/" exact={true}>
-                <User />
+                <Main />
+                {/* <User /> */}
               </ProtectedRoute>
- 
               <Route path="/users" exact={true}>
                 <UsersList />
               </Route>

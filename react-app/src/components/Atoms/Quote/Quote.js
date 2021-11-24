@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Quote.module.css";
 
 function Quote() {
