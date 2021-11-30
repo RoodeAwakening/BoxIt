@@ -1,9 +1,10 @@
 import React from "react";
 import UserStats from "../../Molecules/UserStats/UserStats";
+import HoursCompleted from "../HoursCompleted/HoursCompleted";
 import TotalWorkouts from "../TotalWorkouts/TotalWorkouts";
 import styles from "./UserProfilePhotoBlock.module.css";
 
-function UserProfilePhotoBlock({profilePhoto, userName}) {
+function UserProfilePhotoBlock({ profilePhoto, userName }) {
   return (
     <div className={styles.UserProfilePhotoBlock_container}>
       <div>
@@ -13,15 +14,8 @@ function UserProfilePhotoBlock({profilePhoto, userName}) {
         <h2>{userName}</h2>
       </div>
       <div className={styles.UserProfilePhotoBlock_container__mobile_block}>
-<ul>
-
-        <li><UserStats/></li>
-        <li><TotalWorkouts/></li>
- 
-        
-</ul>
+        <UserStats />
       </div>
- 
     </div>
   );
 }

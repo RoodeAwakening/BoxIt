@@ -139,7 +139,7 @@ function User() {
 
 
 
-                <div id="hoursCompleted">
+                {/* <div id="hoursCompleted">
                   <div>
                     <i className="fas fa-clock"></i>
                   </div>
@@ -149,7 +149,7 @@ function User() {
                   <div>
                     <h3>{hoursCompleted()}</h3>
                   </div>
-                </div>
+                </div> */}
 
                 <div id="currentLevel">
                   <div>

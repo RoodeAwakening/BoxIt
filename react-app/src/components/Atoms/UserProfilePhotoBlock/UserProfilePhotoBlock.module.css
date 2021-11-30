@@ -52,17 +52,5 @@
     flex-direction: column;
     padding-top: 1.2em;
   }
-  .UserProfilePhotoBlock_container__mobile_block ul {
-    display: flex;
-    text-align: center;
-    list-style: none;
-    /* hide the ul element */
-    padding: 0;
-    margin: 0;
-    color: #fff;
-  }
 
-  .UserProfilePhotoBlock_container__mobile_block ul li {
-    margin-right: 10px;
-  }
 }
