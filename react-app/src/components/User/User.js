@@ -92,7 +92,7 @@ function User() {
     }
 
   }
-
+// completed
   //get quote
   async function getQuote() {
     const response = await fetch("https://type.fit/api/quotes/");
@@ -117,40 +117,27 @@ function User() {
         {/* TOP SECTION 1 */}
         <div className="user_container-header-2">
           <div className="user_container-header-2-top">
-            <div className="user_container-header-profilePhoto">
+
+
+
+            {/* <div className="user_container-header-profilePhoto">
               <div>
                 <img src={sessionUser.profile_photo} />
               </div>
               <div className="username">
                 <h2>{sessionUser.user_name}</h2>
               </div>
-            </div>
+            </div> */}
+
+
+
+
             {/* TOP SECTION 2 */}
             <div className="user_container-header-userStats">
               <div className="user_container-header-ContentBox">
-                <div id="overallRank">
-                  <div>
-                    <i className="fas fa-trophy"></i>
-                  </div>
-                  <div>
-                    <h3>Current Rank</h3>
-                  </div>
-                  <div>
-                    <div>{overallRank()}</div>
-                  </div>
-                </div>
 
-                <div id="workoutsCompleted">
-                  <div>
-                    <i className="fas fa-dumbbell"></i>
-                  </div>
-                  <div>
-                    <h3>Total Workouts</h3>
-                  </div>
-                  <div>
-                    <h3>{userWorkout ? workoutData() : "Start a workout!"}</h3>
-                  </div>
-                </div>
+
+
 
                 <div id="hoursCompleted">
                   <div>

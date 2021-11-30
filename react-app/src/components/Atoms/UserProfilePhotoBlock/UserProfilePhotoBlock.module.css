@@ -1,0 +1,70 @@
+.UserProfilePhotoBlock_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 250px;
+  background-color: #231f20;
+  border: 2px solid #332e2f;
+  border-radius: 10%;
+  padding: 20px;
+}
+.UserProfilePhotoBlock_container img {
+  max-height: 150px;
+  border-radius: 50%;
+}
+
+.UserProfilePhotoBlock_container__username {
+  /* margin-top: 10px; */
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.UserProfilePhotoBlock_container__mobile_block {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .UserProfilePhotoBlock_container {
+    height: 200px;
+    width: 200px;
+  }
+  .UserProfilePhotoBlock_container img {
+    max-height: 100px;
+  }
+  .UserProfilePhotoBlock_container__username {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+  }
+
+  .UserProfilePhotoBlock_container__username h2 {
+    font-size: 1.2em;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .UserProfilePhotoBlock_container__mobile_block {
+    display: flex;
+    flex-direction: column;
+    background-color: green;
+    padding-top: 1.2em;
+  }
+  .UserProfilePhotoBlock_container__mobile_block ul {
+    display: flex;
+    text-align: center;
+    list-style: none;
+    /* hide the ul element */
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    background-color: red;
+  }
+
+  .UserProfilePhotoBlock_container__mobile_block ul li {
+    margin-right: 10px;
+  }
+}
