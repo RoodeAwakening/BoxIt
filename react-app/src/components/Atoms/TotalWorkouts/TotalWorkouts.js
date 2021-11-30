@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { userWorkouts } from "../../../store/userWorkouts";
+
+
+
 import styles from './TotalWorkouts.module.css'
 
 function TotalWorkouts() {
+  const dispatch = useDispatch();
   const userWorkout = useSelector((state) => Object.values(state.userWorkouts));
 
 
+  useEffect(()=>{
+    dispatch(userWorkouts())
+  },[dispatch])
     //get workouts completed
     const workoutData = () => {
       let num = 0;

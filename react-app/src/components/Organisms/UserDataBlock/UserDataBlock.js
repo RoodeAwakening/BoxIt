@@ -12,7 +12,7 @@ function UserDataBlock() {
       
 
       <UserProfilePhotoBlock profilePhoto={sessionUser.profile_photo} userName={sessionUser.user_name}/>
-      {/* <UserStats/> */}
+      
       
       
     </div>

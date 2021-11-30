@@ -17,8 +17,7 @@ function UserProfilePhotoBlock({profilePhoto, userName}) {
 
         <li><UserStats/></li>
         <li><TotalWorkouts/></li>
-        <li><TotalWorkouts/></li>
-        <li><TotalWorkouts/></li>
+ 
         
 </ul>
       </div>

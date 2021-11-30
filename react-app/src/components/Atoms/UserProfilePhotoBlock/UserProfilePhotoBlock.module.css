@@ -50,7 +50,6 @@
   .UserProfilePhotoBlock_container__mobile_block {
     display: flex;
     flex-direction: column;
-    background-color: green;
     padding-top: 1.2em;
   }
   .UserProfilePhotoBlock_container__mobile_block ul {
@@ -61,7 +60,6 @@
     padding: 0;
     margin: 0;
     color: #fff;
-    background-color: red;
   }
 
   .UserProfilePhotoBlock_container__mobile_block ul li {

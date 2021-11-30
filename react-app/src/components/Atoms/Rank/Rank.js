@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { allWorkoutsComplete } from "../../../store/ranking";
 import styles from './Rank.module.css'
 
 function Rank() {
+  const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const allWorkoutsCompleted = useSelector((state) =>
   Object.values(state.ranking)
   );
+
+  useEffect(() => {
+    dispatch(allWorkoutsComplete())
+  }, [dispatch, sessionUser]);
 
     //get overall rank
     const overallRank = () => {
