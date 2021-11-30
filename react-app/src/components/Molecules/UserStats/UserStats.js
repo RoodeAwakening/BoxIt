@@ -12,8 +12,8 @@ function UserStats() {
       <li><Rank/></li>
       <li><TotalWorkouts/></li>
       <li><HoursCompleted/></li>
-      
       </ul>
+      
     </div>
   )
 }

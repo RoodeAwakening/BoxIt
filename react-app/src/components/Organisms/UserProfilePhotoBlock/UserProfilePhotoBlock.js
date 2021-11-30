@@ -1,7 +1,6 @@
 import React from "react";
 import UserStats from "../../Molecules/UserStats/UserStats";
-import HoursCompleted from "../HoursCompleted/HoursCompleted";
-import TotalWorkouts from "../TotalWorkouts/TotalWorkouts";
+
 import styles from "./UserProfilePhotoBlock.module.css";
 
 function UserProfilePhotoBlock({ profilePhoto, userName }) {

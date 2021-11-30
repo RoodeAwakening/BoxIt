@@ -34,16 +34,16 @@ function User() {
     dispatch(allWorkoutsComplete());
 
     dispatch(allWorkouts());
-    getQuote();
+
   // }, [dispatch]);
   }, [dispatch, sessionUser]);
 
-  //get total hours completed
-  const hoursCompleted = () => {
-    const totalWorkouts = userWorkout.length;
-    const workoutTime = (totalWorkouts * 31) / 60;
-    return `${Math.floor(workoutTime)}`;
-  };
+  // //get total hours completed
+  // const hoursCompleted = () => {
+  //   const totalWorkouts = userWorkout.length;
+  //   const workoutTime = (totalWorkouts * 31) / 60;
+  //   return `${Math.floor(workoutTime)}`;
+  // };
 
   //get overall rank
   const overallRank = () => {
@@ -94,13 +94,13 @@ function User() {
   }
 // completed
   //get quote
-  async function getQuote() {
-    const response = await fetch("https://type.fit/api/quotes/");
-    const data = await response.json();
-    let pos = Math.floor(Math.random() * (1642 - 0));
+  // async function getQuote() {
+  //   const response = await fetch("https://type.fit/api/quotes/");
+  //   const data = await response.json();
+  //   let pos = Math.floor(Math.random() * (1642 - 0));
 
-    setQuote(`${data[pos].text} - ${data[pos].author}`);
-  }
+  //   setQuote(`${data[pos].text} - ${data[pos].author}`);
+  // }
 
   if (!sessionUser) {
     return <Redirect to="/welcome" />;

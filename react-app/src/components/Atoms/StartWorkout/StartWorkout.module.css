@@ -1,0 +1,19 @@
+.StartWorkout_container {
+  background-color: red;
+  width: 50%;
+  margin-top: 15px;
+  /* margin-bottom: 30px; */
+  border-radius: 25px;
+ 
+  border-style: none;
+  font-size: 1.5em;
+
+  text-align: center;
+
+  /* align the text vertically center */
+  vertical-align: middle;
+
+  /* align the text horizontally center */
+  text-align: center;
+
+}
