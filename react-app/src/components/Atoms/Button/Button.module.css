@@ -6,6 +6,7 @@
   width: 10em;
   margin: 5px;
   border-style: none;
+
  
 }
 
@@ -18,4 +19,11 @@
   margin: 5px;
   border-style: none;
 } */
+
+@media screen and (max-width: 600px) {
+  .Button__container{
+    padding-right: 2em;
+  }
+}
+  
 
