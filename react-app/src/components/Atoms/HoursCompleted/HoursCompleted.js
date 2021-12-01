@@ -27,7 +27,7 @@ function HoursCompleted() {
       <i className="fas fa-clock"></i>
     </div>
     <div className={styles.HoursCompleted_container__heading}>
-      <h3>Current HoursCompleted_container</h3>
+      <h3>Hours Completed</h3>
     </div>
     <div>
       <div>{totalHoursCompleted()}</div>

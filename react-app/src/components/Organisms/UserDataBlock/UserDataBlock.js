@@ -5,6 +5,9 @@ import UserProfilePhotoBlock from "../UserProfilePhotoBlock/UserProfilePhotoBloc
 import UserStats from "../../Molecules/UserStats/UserStats";
 import styles from "./UserDataBlock.module.css";
 import StartWorkout from "../../Atoms/StartWorkout/StartWorkout";
+import Rank from "../../Atoms/Rank/Rank";
+import TotalWorkouts from "../../Atoms/TotalWorkouts/TotalWorkouts";
+import HoursCompleted from "../../Atoms/HoursCompleted/HoursCompleted";
 
 function UserDataBlock() {
   const sessionUser = useSelector((state) => state.session.user);
@@ -17,6 +20,12 @@ function UserDataBlock() {
         />
       </div>
       <div className={styles.UserDataBlock_container__right}>
+        <div className={styles.UserDataBlock_container__right_stats}>
+
+        <Rank/>
+        <TotalWorkouts/>
+        <HoursCompleted/>
+        </div>
         <StartWorkout />
       </div>
     </div>

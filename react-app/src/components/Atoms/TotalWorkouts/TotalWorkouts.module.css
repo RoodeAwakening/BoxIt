@@ -1,15 +1,15 @@
 .TotalWorkouts_container{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-between;
+  width: 15em;
   height: 100%;
   color: white;
 }
 
 @media screen and (max-width: 768px) {
-  .TotalWorkouts__container{
+  .TotalWorkouts_container{
     display: flex;
     flex-direction: column;
     align-items: center;

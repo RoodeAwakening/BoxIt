@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
   height: 100%;
   padding: 0px;
 
@@ -29,5 +29,18 @@
     padding-left: 0px;
     padding-right: 0px;
 
+  }
+
+  .UserDataBlock_container__right{
+
+    width: 100%;
+ 
+ 
+  
+  
+  }
+
+  .UserDataBlock_container__right_stats{
+    display: none;
   }
 }
