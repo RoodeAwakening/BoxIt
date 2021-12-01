@@ -15,7 +15,7 @@ export default function LeaderBoard() {
     dispatch(allWorkoutsComplete());
   }, [dispatch, sessionUser]);
 
-  // go through each compelted workout and give user ranks
+  // go through each completed workout and give user ranks
   let pos = 0;
   let leaders = allWorkoutsCompleted.map((each, index) => {
 
