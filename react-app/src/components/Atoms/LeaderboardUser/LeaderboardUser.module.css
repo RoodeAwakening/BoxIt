@@ -3,10 +3,12 @@
   padding: 1em 2em;
   justify-content: space-around;
   align-items: center;
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   /* red border on top fading out */
   border-top: 1px solid rgba(255, 0, 0, 0.5);
+
+
 
 
 }
@@ -30,6 +32,7 @@
   .LeaderboardUser_container{
     display: flex;
     flex-direction: column;
+    width: 75%;
   }
 }
   
