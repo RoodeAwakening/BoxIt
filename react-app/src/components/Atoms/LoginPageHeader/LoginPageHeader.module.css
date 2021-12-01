@@ -22,3 +22,11 @@
   font-size: 23px;
   font-weight: 100;
 }
+
+@media screen and (max-width: 768px) {
+  .LoginPageHeader__container{
+    width: 75%;
+  }
+
+  
+}
