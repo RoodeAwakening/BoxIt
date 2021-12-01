@@ -22,14 +22,16 @@ function LeaderBoard() {
   let leaders = allWorkoutsCompleted.map((each, index) => {
     pos += 1;
 
+    console.log(each, 'each')
     return (
-      <LeaderboardUser  position={pos} profile_photo={each.profile_photo} userName={each.userName} workoutsComplete={each.workoutsComplete}/>
+      <LeaderboardUser  position={pos} profile_photo={each.profile_photo} userName={each.username} workoutsComplete={each.workouts}/>
     );
   });
 
 
   return (
     <div className={styles.LeaderBoard_container}>
+      <h1>Leaderboard</h1>
       {leaders}
     </div>
   );

@@ -10,7 +10,7 @@ import { allWorkoutsComplete } from "../../store/ranking";
 // import { userGroups } from "../../store/userGroups";
 
 // components
-import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
+
 import MyGroups from "../MyGroups/MyGroups";
 import UserLinks from "../UserLinks/UserLinks";
 import WorkoutsList from "../WorkoutList/WorkoutList";
@@ -193,9 +193,7 @@ function User() {
             </h2>
             <hr />
 
-            <div id="leaderboard">
-              <LeaderBoard />
-            </div>
+
           </div>
         </div>
       </div>

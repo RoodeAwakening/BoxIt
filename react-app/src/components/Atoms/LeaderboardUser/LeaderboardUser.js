@@ -9,18 +9,27 @@ function LeaderboardUser({
 }) {
   return (
     <div className={styles.LeaderboardUser_container}>
+ 
       <div>
         <h2>{`#${position}`}</h2>
       </div>
-      <div>
+
+
+      <div className={styles.LeaderboardUser_container__image}>
         <img src={profile_photo} />
       </div>
-      <div>
+
+
+      <div className={styles.LeaderboardUser_container__userName}>
         <h3>{userName}</h3>
       </div>
+
+
       <div>
         <h3>{workoutsComplete}</h3>
       </div>
+
+      
     </div>
   );
 }
