@@ -1,0 +1,190 @@
+.signup-container{
+  background-color: #231F20;
+  display: flex;
+  justify-content: center;
+}
+
+.signup-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.ReactModal__Content  {
+  padding: 0px;
+  margin: 0px;
+  background-color: black;
+
+}
+
+.singup-boxer-images{
+  display: flex;
+  justify-content: space-between;
+
+  
+}
+
+.signup-boxer{
+ 
+}
+
+
+
+
+.signUp-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp-header h1{
+  font-size: 43px;
+  font-weight: 900;
+  margin: 10px;
+}
+
+.signUp-header h2{
+  font-size: 23px;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.signup-form{
+ color: white;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin:0 60px 20px 0;
+  align-items: center;
+}
+
+.signupexit{
+  padding-left: 10px;
+  color: white;
+}
+
+
+.signup-names{
+  display: flex;
+  justify-content: space-between;
+}
+.signup-email-username{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.signup-form-password{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#signup-dob-input{
+  width: 100%;
+  margin-bottom: 8px;
+  
+}
+
+.signup-boxing-experience-input{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-boxing-experience-input select{
+  
+  width: 100%;
+  text-align: center;
+  
+}
+
+
+
+
+.signup-form-text-input{
+  margin-top: 5px;
+  height: 30px;
+  background-color: #ff3b4575;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid rgba(var(--b6a,219,219,219),1);
+   
+}
+
+
+.signup-profile-photo-label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-top: 10px;
+width: 100%;
+
+}
+
+
+
+.signup-form button{
+  margin-top: 20px;
+  color: white;
+  background-color: #D13138;
+  border-radius: 5px;
+  height: 45px;
+  width: 210px;
+  border-style: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .signup_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+  
+}
+
+.singup-boxer-images{
+  display: none;
+}
+
+.signUp-header h1{
+  text-align: center;
+  font-size: 30px;
+}
+
+.signUp-header h2{
+  font-size: 15px;
+}
+
+.signup-names{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-email-username{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.signup-form-password{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+}

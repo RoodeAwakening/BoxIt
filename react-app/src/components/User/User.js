@@ -10,7 +10,7 @@ import { allWorkoutsComplete } from "../../store/ranking";
 // import { userGroups } from "../../store/userGroups";
 
 // components
-import LeaderBoard from "../../components/LeaderBoard/LeaderBoard";
+
 import MyGroups from "../MyGroups/MyGroups";
 import UserLinks from "../UserLinks/UserLinks";
 import WorkoutsList from "../WorkoutList/WorkoutList";
@@ -34,16 +34,16 @@ function User() {
     dispatch(allWorkoutsComplete());
 
     dispatch(allWorkouts());
-    getQuote();
+
   // }, [dispatch]);
   }, [dispatch, sessionUser]);
 
-  //get total hours completed
-  const hoursCompleted = () => {
-    const totalWorkouts = userWorkout.length;
-    const workoutTime = (totalWorkouts * 31) / 60;
-    return `${Math.floor(workoutTime)}`;
-  };
+  // //get total hours completed
+  // const hoursCompleted = () => {
+  //   const totalWorkouts = userWorkout.length;
+  //   const workoutTime = (totalWorkouts * 31) / 60;
+  //   return `${Math.floor(workoutTime)}`;
+  // };
 
   //get overall rank
   const overallRank = () => {
@@ -92,15 +92,15 @@ function User() {
     }
 
   }
-
+// completed
   //get quote
-  async function getQuote() {
-    const response = await fetch("https://type.fit/api/quotes/");
-    const data = await response.json();
-    let pos = Math.floor(Math.random() * (1642 - 0));
+  // async function getQuote() {
+  //   const response = await fetch("https://type.fit/api/quotes/");
+  //   const data = await response.json();
+  //   let pos = Math.floor(Math.random() * (1642 - 0));
 
-    setQuote(`${data[pos].text} - ${data[pos].author}`);
-  }
+  //   setQuote(`${data[pos].text} - ${data[pos].author}`);
+  // }
 
   if (!sessionUser) {
     return <Redirect to="/welcome" />;
@@ -117,42 +117,29 @@ function User() {
         {/* TOP SECTION 1 */}
         <div className="user_container-header-2">
           <div className="user_container-header-2-top">
-            <div className="user_container-header-profilePhoto">
+
+
+
+            {/* <div className="user_container-header-profilePhoto">
               <div>
                 <img src={sessionUser.profile_photo} />
               </div>
               <div className="username">
                 <h2>{sessionUser.user_name}</h2>
               </div>
-            </div>
+            </div> */}
+
+
+
+
             {/* TOP SECTION 2 */}
             <div className="user_container-header-userStats">
               <div className="user_container-header-ContentBox">
-                <div id="overallRank">
-                  <div>
-                    <i className="fas fa-trophy"></i>
-                  </div>
-                  <div>
-                    <h3>Current Rank</h3>
-                  </div>
-                  <div>
-                    <div>{overallRank()}</div>
-                  </div>
-                </div>
 
-                <div id="workoutsCompleted">
-                  <div>
-                    <i className="fas fa-dumbbell"></i>
-                  </div>
-                  <div>
-                    <h3>Total Workouts</h3>
-                  </div>
-                  <div>
-                    <h3>{userWorkout ? workoutData() : "Start a workout!"}</h3>
-                  </div>
-                </div>
 
-                <div id="hoursCompleted">
+
+
+                {/* <div id="hoursCompleted">
                   <div>
                     <i className="fas fa-clock"></i>
                   </div>
@@ -162,7 +149,7 @@ function User() {
                   <div>
                     <h3>{hoursCompleted()}</h3>
                   </div>
-                </div>
+                </div> */}
 
                 <div id="currentLevel">
                   <div>
@@ -206,9 +193,7 @@ function User() {
             </h2>
             <hr />
 
-            <div id="leaderboard">
-              <LeaderBoard />
-            </div>
+
           </div>
         </div>
       </div>

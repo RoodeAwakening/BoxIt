@@ -54,12 +54,12 @@ return response
 
 
 
-export const restoreUser = () => async dispactch => {
+export const restoreUser = () => async dispatch => {
   const response = await fetch('/api/auth/')
 
   const data = await response.json()
 
-  dispactch(setUser(data))
+  dispatch(setUser(data))
   return response
 }
 
@@ -78,7 +78,12 @@ export const loginThunk = user => async dispatch => {
   })
   
   const data = await response.json()
-  dispatch(setUser(data))
+  console.log('data',data);
+  if(data.errors){
+    return data
+  }else{
+    dispatch(setUser(data))
+  }
 
   return data
 }

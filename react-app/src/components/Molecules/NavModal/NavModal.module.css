@@ -1,0 +1,13 @@
+.nav_container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #231F20;
+  
+}
+
+.nav_container_exit{
+  background-color: #ac1b3f;
+  padding: 1em;
+}

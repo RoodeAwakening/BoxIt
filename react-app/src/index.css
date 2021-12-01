@@ -1,9 +1,9 @@
 /* TODO Add site wide styles */
 
-/* #root{
+#root{
   padding: 0px;
   margin: 0px;
-} */
+}
 
 body{
   
@@ -37,18 +37,12 @@ a {
 }
 
 
-#noPhone{
-  visibility:hidden;
+
+/* disable scroll left to right on mobile */
+@media screen and (max-width: 768px) {
+  html,body{
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
-
-
-@media only screen and (min-width: 100px) and (max-width: 675px) {
-  .user_container,
-  .navbar-container{
-    visibility: hidden;
-  }
-
-  #noPhone{
-    visibility:visible;
-  }
-  }
+  

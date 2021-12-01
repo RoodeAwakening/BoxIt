@@ -8,8 +8,8 @@ const ProtectedRoute = (props) => {
   return (
     <Route {...props}>
 
-      {props.authenticated ? props.children  : <Redirect to="/welcome" />}
-      {/* {sessionUser ? props.children  : <Redirect to="/welcome" />} */}
+      {/* {props.authenticated ? props.children  : <Redirect to="/welcome" />} */}
+      {sessionUser ? props.children  : <Redirect to="/welcome" />}
     </Route>
   )
 };

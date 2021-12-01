@@ -1,5 +1,6 @@
 .user_container {
   padding: 0px 80px 20px 80px;
+  
 }
 
 .quote-of-the-day {
@@ -168,18 +169,3 @@ hr {
   width: 75%;
 }
 
-
-
-
-
-/* .user_container-header-right-links {
-  text-align: center;
-} */
-
-/* #links {
-  display: flex;
-  flex-direction: column;
-  height: 270px;
-  overflow-y: scroll;
-  width: 190px;
-} */
