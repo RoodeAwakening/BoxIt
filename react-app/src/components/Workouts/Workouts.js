@@ -46,9 +46,9 @@ const Workouts = (workout) => {
             <img src={workouts[pos]?.coach_photo_url } alt='coach'/>
           </div>
         </div>
-          <div className="workouts_body-clock">
+          {/* <div className="workouts_body-clock">
             <video src={workouts[pos]?.audio_url} autoPlay onEnded={() => logWorkout(workouts[pos].id)}/>
-          </div>
+          </div> */}
           <div className="workouts_header">
         <div className="workouts_header-coach">
             <h2>You</h2>
@@ -60,11 +60,11 @@ const Workouts = (workout) => {
     );
   };
   
-  const logWorkout = (id) =>{
+  // const logWorkout = (id) =>{
     
-    setWorkoutid(id)
-    setWorkoutModalisOpen(true)
-  }
+  //   setWorkoutid(id)
+  //   setWorkoutModalisOpen(true)
+  // }
 
 
 

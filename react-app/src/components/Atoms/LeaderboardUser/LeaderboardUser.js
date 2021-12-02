@@ -1,4 +1,5 @@
 import React from "react";
+import UserPicture from "../UserPicture/UserPicture";
 import styles from "./LeaderboardUser.module.css";
 
 function LeaderboardUser({
@@ -16,7 +17,8 @@ function LeaderboardUser({
 
 
       <div className={styles.LeaderboardUser_container__image}>
-        <img src={profile_photo} />
+        <UserPicture photo={profile_photo}/>
+        {/* <img src={profile_photo} /> */}
       </div>
 
 

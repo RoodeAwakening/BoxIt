@@ -11,8 +11,6 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 // COMPONENTS
 import NavBar from "./components/Organisms/NavBar/NavBar";
 import UsersList from "./components/UsersList";
-import User from "./components/User/User";
-// import WelcomePage from "./components/Welcome/Welcome";
 import Workouts from "./components/Workouts/Workouts";
 import Groups from "./components/Groups/Groups";
 import GroupsIndividual from "./components/GroupsIndividual/GroupsIndividual";
@@ -22,6 +20,7 @@ import About from "./components/About/About";
 import ProgressPhotoIndividual from "./components/ProgressPhotoIndividual/ProgressPhotoIndividual";
 import Login from "./components/Pages/Login/Login";
 import Main from "./components/Pages/Main/Main";
+import Workout from "./components/Pages/Workout/Workout";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(true);
@@ -62,7 +61,7 @@ function App() {
                 <UsersList />
               </Route>
               <Route path="/workout" exact={true}>
-                <Workouts />
+                <Workout/>
               </Route>
               <Route path="/my_progress" exact={true}>
                 <ProgressPhotos />
@@ -70,9 +69,7 @@ function App() {
               <Route path="/my_progress/:photoId" exact={true}>
                 <ProgressPhotoIndividual />
               </Route>
-              <Route path="/users/:userId" exact={true}>
-                <User />
-              </Route>
+              
 
               <Route path="/workout/:workoutId" exact={true}>
                 {/* SETUP ROUTE */}
