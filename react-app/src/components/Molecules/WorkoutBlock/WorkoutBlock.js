@@ -4,7 +4,8 @@ import WorkoutVideo from "../../Atoms/WorkoutVideo/WorkoutVideo";
 
 import { allWorkouts } from "../../../store/workouts";
 
-import styes from "./WorkoutBlock.module.css";
+import styles from "./WorkoutBlock.module.css";
+import UserPicture from "../../Atoms/UserPicture/UserPicture";
 
 function WorkoutBlock({ workout }) {
   const workouts = useSelector((state) => state.workout);
@@ -27,11 +28,17 @@ function WorkoutBlock({ workout }) {
     let randomWorkout = workouts[random];
 
     return (
-      <div>
-        <WorkoutVideo
-          video={randomWorkout?.audio_url}
-          onEnd={logWorkout(workouts[2])}
-        />
+      <div className={styles.workoutBlock_container}>
+        <div className={styles.workoutBlock_container__video}>
+          <WorkoutVideo
+            video={randomWorkout?.audio_url}
+            onEnd={logWorkout(workouts[2])}
+          />
+        </div>
+        <div className={styles.workoutBlock_userPicture__container}>
+          <h1>Your coach</h1>
+          <UserPicture photo={randomWorkout?.coach_photo_url} />
+        </div>
       </div>
     );
   };
