@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
 import WorkoutVideo from "../../Atoms/WorkoutVideo/WorkoutVideo";
 
 import { allWorkouts } from "../../../store/workouts";
 
 import styles from "./WorkoutBlock.module.css";
 import UserPicture from "../../Atoms/UserPicture/UserPicture";
+import WorkoutModal from "../../WorkoutModal/WorkoutModal";
 
 function WorkoutBlock({ workout }) {
   const workouts = useSelector((state) => state.workout);
-  console.log("workouts", workouts);
+  const sessionUser = useSelector((state) => state.session.user);
+  const [workoutModalIsOpen, setWorkoutModalIsOpen] = useState(false);
+  const [workoutId, setWorkoutId] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,12 +31,17 @@ function WorkoutBlock({ workout }) {
 
     let randomWorkout = workouts[random];
 
+    const logWorkout = (id) => {
+         setWorkoutId(id)
+    setWorkoutModalIsOpen(true)
+    };
+
     return (
       <div className={styles.workoutBlock_container}>
         <div className={styles.workoutBlock_container__video}>
           <WorkoutVideo
             video={randomWorkout?.audio_url}
-            onEnd={logWorkout(workouts[2])}
+            onEnd={()=>(logWorkout(randomWorkout.id))}
           />
         </div>
         <div className={styles.workoutBlock_userPicture__container}>
@@ -43,11 +52,21 @@ function WorkoutBlock({ workout }) {
     );
   };
 
-  const logWorkout = () => {
-    return null;
-  };
+  if (!sessionUser) {
+    return <Redirect to="/welcome" />;
+  }
+  return(
+    <>
 
-  return <div>{workouts ? workoutVideo() : "loading..."}</div>;
+  <div>{workouts ? workoutVideo() : "loading..."}</div>
+  <WorkoutModal
+    workoutModalIsOpen={workoutModalIsOpen}
+    setWorkoutModalisOpen={setWorkoutModalIsOpen}
+    workoutId={workoutId}
+    />
+  </>
+  )
+  ;
 }
 
 export default WorkoutBlock;
