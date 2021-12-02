@@ -30,7 +30,6 @@ useEffect(async ()=>{
   setPhoto(myPhoto.single_progress_photo[0])
 },[])
 
-  
   const deleteProgressPhoto = async () => {
     history.push("/my_progress");
    let deleted = await dispatch(removeProgressPhoto(photo.id));
@@ -39,8 +38,6 @@ useEffect(async ()=>{
   const goBack = (()=>{
     history.push("/my_progress");
   })
-
-
 
   return (
 
